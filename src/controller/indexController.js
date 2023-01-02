@@ -1,11 +1,11 @@
 const indexController = {};
 
 indexController.renderIndex = (request, response) => {
-    response.send('Main pageee');
+    response.render('index.ejs')
 }
 
 indexController.renderAbout = (request, response) => {
-    response.send('ABOuttttt');
+    response.render('about.ejs');
 }
 
 module.exports = indexController;

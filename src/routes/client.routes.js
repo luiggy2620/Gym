@@ -2,6 +2,8 @@ const { Router } = require('express');
 const clientController = require('../controller/clientController');
 const route = Router();
 
+route.get('/clients', clientController.renderClients);
+
 route.get('/client/add', clientController.renderRegisterClient);
 
 route.post('/client/add', clientController.registerClient);

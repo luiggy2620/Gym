@@ -11,7 +11,7 @@ const app = express();
 // settings
 app.set('port', process.env.PORT || 3000);
 app.set('view engine', 'ejs');
-app.set('view', path.join(__dirname, 'view'));
+app.set('views', path.join(__dirname, 'views'));
 
 // midlewares
 app.use(morgan('dev'));
@@ -26,7 +26,7 @@ app.use(clientRoutes);
 app.use(adminRoutes);
 
 app.use((request, response, next) => {
-    response.send('404');
+    response.render('404.ejs');
 });
 
 module.exports = app;

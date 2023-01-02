@@ -1,7 +1,7 @@
 const adminController = {}
 
 adminController.renderLogin = (request, response) => {
-    response.send('login admin');
+    response.render('admin/login.ejs');
 }
 
 adminController.loginAdmin = (request, response) => {

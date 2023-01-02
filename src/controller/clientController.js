@@ -1,7 +1,11 @@
 const clientController = {};
 
+clientController.renderClients = (request, response) => {
+    response.render('client/clients.ejs');
+}
+
 clientController.renderRegisterClient = (request, response) => {
-    response.send('Registrarrrr client');
+    response.render('client/clientAdd.ejs');
 }
 
 clientController.registerClient = (request, response) => {
@@ -9,7 +13,7 @@ clientController.registerClient = (request, response) => {
 }
 
 clientController.renderEditClient = (request, response) => {
-    response.send('editar cliente');
+    response.render('client/clientEdit.ejs');
 }
 
 clientController.editClient = (request, response) => {
