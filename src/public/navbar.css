@@ -1,0 +1,33 @@
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.navbar div {
+    display: flex;
+}
+
+.navbar:nth-child(1) {
+    justify-content: space-between;
+}
+
+.navbar:nth-child(3) {
+    justify-content: right;
+}
+
+.navbar a {
+    margin: 10px;
+    text-decoration: none;
+    color: #1e1e1e;
+}
+
+.navbar a:hover {
+    border-bottom: 2px solid #1e1e1e;
+    
+}
+
+.navbar div i {
+    margin: 0 10px 0 10px;
+}
