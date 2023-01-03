@@ -3,6 +3,7 @@
 }
 
 .containerClients {
+    box-sizing: border-box;
     width: auto;
     padding: 20px 0 20px 0;
     display: flex;
@@ -20,15 +21,17 @@
     width: 100%;
     display: flex;
     justify-content: end;
-    padding-right: 6%;
+}
+
+.add a {
+    margin-right: 6%;
     text-decoration: none;
     color: #1e1e1e;
     align-items: center;
 }
 
-.add:hover {
-    background: #333;
-    color: white;
+.add a:hover {
+    border-bottom: 1px solid #999;
 }
 
 .client {

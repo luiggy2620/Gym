@@ -43,3 +43,13 @@ form button {
     font-size: 18px;
     cursor: pointer;
 }
+
+.dates {
+    display: flex;
+    gap: 20px;
+}
+
+.dates div {
+    display: flex;
+    flex-direction: column;
+}

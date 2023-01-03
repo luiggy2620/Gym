@@ -11,48 +11,70 @@
 
         
         <div class="containerClients">
-            
-            <a href="/client/add" class="add">
-                <i class="fa-solid fa-plus"></i>
-                <span>New Client</span>
-            </a>
-            
-            <% clients.forEach(function (client) { %>
-        
-                <div class="client">
-        
-                    <div>
-                        <span><%= client.name %> </span>
-                        <span><%= client.lastName %> </span>
-                    </div>
-                        
-                    <span>GYM: <%= client.gym %> </span>
-    
-                    <div class="date">
-                        <span>DATE: <%= client.date.toISOString().slice(0, 10) %> </span>
-                        <span>TIMES: <%= client.times %> </span>
-                    </div>
 
-                    <div class="options">
-                        <a href="/client/edit/<%= client.id %> ">
-                            <i class="fa-solid fa-pen"></i>
-                            <span>Edit</span>
-                        </a>
-                        <form action="/client/delete/<%= client.id %>" method="post">
-                            <input type="hidden" name="_method">
-                            <button>
-                                <i class="fa-solid fa-trash"></i>
-                                <span>Delete</span>
-                            </button>
-                        </form>
-                    </div>
-        
+            <% if(clients.length === 0) { %> 
+
+                <h2>sin clientes</h2>
+                <a href="/client/add">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>New Client</span>
+                </a>
+
+            <% } else { %> 
+
+                <div class="add">
+                    <a href="/client/add">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>New Client</span>
+                    </a>
                 </div>
+                
+                <% clients.forEach(function (client) { %>
+            
+                    <div class="client">
+
+                        <% const initialDate = client.initialDate %> 
+                        <% const finalDate = client.finalDate %>
+                        <% const restDays = Math.floor((finalDate - initialDate) / (1000 * 60 * 60 * 24)); %>  
+            
+                        <div>
+                            <span><%= client.name %> </span>
+                            <span><%= client.lastName %> </span>
+                        </div>
+                            
+                        <span>GYM: <%= client.gym %> </span>
         
-            <% }); %> 
+                        <div>
+                            <span><%= initialDate.toISOString().slice(0, 10) %> </span>
+                            <span> / <%= finalDate.toISOString().slice(0, 10) %> </span>
+                        </div>
+
+                        <div class="date">
+                            <span>DAYS REST: <%= restDays %> </span>
+                            <span>TIMES: <%= client.times %> </span>
+                        </div>
+    
+                        <div class="options">
+                            <a href="/client/edit/<%= client.id.toString() %> ">
+                                <i class="fa-solid fa-pen"></i>
+                                <span>Edit</span>
+                            </a>
+                            <form action="/client/delete/<%= client.id %>" method="post">
+                                <button onclick="nose()">
+                                    <i class="fa-solid fa-trash"></i>
+                                    <span>Delete</span>
+                                </button>
+                                <input type="hidden" name="_method">
+                            </form>
+                        </div>
+            
+                    </div>
+            
+                <% }); %> 
+
+            <% } %> 
 
         </div>
-
 
     </div>
 

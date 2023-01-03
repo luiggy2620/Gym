@@ -15,12 +15,16 @@ const clientSchema = new Schema({
         require: true,
         unique: true
     },
-    date: {
+    gym: {
+        type: String,
+        require: true
+    },
+    initialDate: {
         type: Date,
         require: true
     },
-    gym: {
-        type: String,
+    finalDate: {
+        type: Date,
         require: true
     },
     times: {

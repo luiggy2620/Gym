@@ -10,6 +10,8 @@
     <div class="container">
 
         <form action="/client/add" method="post">
+
+            <% let currentDate = new Date()%>   
     
             <label for="name">Name</label>
             <input type="text" name="name">
@@ -19,16 +21,28 @@
     
             <label for="phone">Phone</label>
             <input type="text" name="phone">
-    
-            <label for="date">Date</label>
-            <input type="date" value=<%= new Date().toISOString().slice(0, 10) %>  name="date">
+
 
             <label for="gym">Gym</label>
-
             <select name="gym" id="gym">
                 <option value="GIM H2G0">GIM H2G0</option>
                 <option value="GIM H2G0 2">GIM H2G0 2</option>
             </select>
+
+            <div class="dates">
+
+                <div>
+                    <label for="initialDate">Initial Date</label>
+                    <input type="date" value=<%= currentDate.toISOString().slice(0, 10) %>  name="initialDate">
+                </div>
+
+                <div>
+                    <label for="months">Months</label>
+                    <input type="number" name="months" value="1">
+                </div>
+
+
+            </div>
     
             <button>Add Client</button>
     

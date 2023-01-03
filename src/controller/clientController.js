@@ -1,19 +1,9 @@
 const clientController = {};
 const Client = require('../model/Client');
 
-const formatDate = (date) => {
-    const newDate = new Date(date);
-    const dateFormat = newDate.toLocaleDateString('es-ES', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-    });
-    console.log(dateFormat+"\n");
-    return dateFormat;
-}
-
 clientController.renderClients = async (request, response) => {
-    const clients = await Client.find();
+    let clients = [];
+    clients = await Client.find();
     response.render('client/clients.ejs', {
         clients
     });
@@ -24,8 +14,13 @@ clientController.renderRegisterClient = (request, response) => {
 }
 
 clientController.registerClient = async (request, response) => {
-    const { name, lastName, phone, date, gym } = request.body;
-    const newClient = new Client({ name, lastName, phone, date, gym });
+    const { name, lastName, phone, gym, initialDate, months } = request.body;
+    let currentDate = new Date(Date.parse(initialDate));
+    let finalDate = new Date();
+    finalDate.setDate(currentDate.getDate() + ((7 * 4) * months));
+    const restDays = Math.floor((finalDate - currentDate) / (1000 * 60 * 60 * 24));
+    console.log(restDays);
+    const newClient = new Client({ name, lastName, phone, gym, initialDate, finalDate });
     newClient.save();
     console.log(newClient);
     response.redirect('/clients');
