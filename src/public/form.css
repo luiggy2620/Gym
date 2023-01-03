@@ -22,11 +22,16 @@ form label {
     margin: 5px 0 5px 0;
 }
 
-form input, form button {
+form input, form button, form select {
     border: 1px solid #999;
     border-radius: 4px;
     padding: 10px;
     margin-bottom: 10px;
+}
+
+form select {
+    box-shadow: none;
+    outline: none;
 }
 
 form button {

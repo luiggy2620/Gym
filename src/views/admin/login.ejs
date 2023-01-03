@@ -1,12 +1,27 @@
 <%- include('../partials/headerTop.ejs') %>
 
     <%- include('../partials/navbarStyle.ejs') %> 
+    <%- include('../partials/formStyle.ejs') %> 
 
 <%- include('../partials/headerBottom.ejs') %> 
 
     <%- include('../partials/navbar.ejs') %> 
 
+    <div class="container">
 
-    <h2>loginAdmin</h2>
+        <form action="/admin/login" method="get">
+    
+            <label for="email">Email</label>
+            <input type="email" name="email">
+    
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+    
+            <button>Login</button>
+    
+        </form>
+
+    </div>
+
 
 <%- include('../partials/footer.ejs') %> 

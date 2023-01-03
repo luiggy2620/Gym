@@ -9,7 +9,8 @@ clientController.renderRegisterClient = (request, response) => {
 }
 
 clientController.registerClient = (request, response) => {
-    response.send('registradoo');
+    console.log(request.body);
+    response.redirect('/');
 }
 
 clientController.renderEditClient = (request, response) => {

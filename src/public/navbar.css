@@ -3,8 +3,6 @@
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 5px;
-
     display: flex;
 }
 
@@ -21,14 +19,14 @@
 }
 
 .navbar a {
-    margin: 10px;
+    padding: 15px;
     text-decoration: none;
     color: #1e1e1e;
 }
 
 .navbar a:hover {
-    border-bottom: 2px solid #1e1e1e;
-    
+    background: #333;
+    color: white;
 }
 
 .navbar div i {
