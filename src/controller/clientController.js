@@ -35,8 +35,8 @@ clientController.renderEditClient = async (request, response) => {
 }
 
 clientController.editClient = async (request, response) => {
-    const { name, lastName, phone, gym, initialDate, finalDate } = request.body;
-    await Client.findByIdAndUpdate(request.params.id, { name, lastName, phone, gym, initialDate, finalDate });
+    const { name, lastName, phone, gym, initialDate, finalDate, times } = request.body;
+    await Client.findByIdAndUpdate(request.params.id, { name, lastName, phone, gym, initialDate, finalDate, times });
     response.redirect('/clients');
 }
 

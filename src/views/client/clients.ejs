@@ -31,43 +31,49 @@
                 
                 <% clients.forEach(function (client) { %>
             
+                    
+
                     <div class="client">
 
-                        <% const initialDate = client.initialDate %> 
-                        <% const finalDate = client.finalDate %>
-                        <% const restDays = Math.floor((finalDate - initialDate) / (1000 * 60 * 60 * 24)); %>  
-            
-                        <div>
-                            <span><%= client.name %> </span>
-                            <span><%= client.lastName %> </span>
-                        </div>
+                        <a href="/client/edit/<%= client.id.toString() %> ">
                             
-                        <span>GYM: <%= client.gym %> </span>
-        
-                        <div>
-                            <span><%= initialDate.toISOString().slice(0, 10) %> </span>
-                            <span> / <%= finalDate.toISOString().slice(0, 10) %> </span>
-                        </div>
-
-                        <div class="date">
-                            <span>DAYS REST: <%= restDays %> </span>
-                            <span>TIMES: <%= client.times %> </span>
-                        </div>
+                            <% const initialDate = client.initialDate %> 
+                            <% const finalDate = client.finalDate %>
+                            <% const restDays = Math.floor((finalDate - initialDate) / (1000 * 60 * 60 * 24)); %>  
+                
+                            <div>
+                                <span><%= client.name %> </span>
+                                <span><%= client.lastName %> </span>
+                            </div>
+                                
+                            <span>GYM: <%= client.gym %> </span>
+            
+                            <div>
+                                <span><%= initialDate.toISOString().slice(0, 10) %> </span>
+                                <span> / <%= finalDate.toISOString().slice(0, 10) %> </span>
+                            </div>
     
-                        <div class="options">
-                            <a href="/client/edit/<%= client.id.toString() %> ">
-                                <i class="fa-solid fa-pen"></i>
-                                <span>Edit</span>
-                            </a>
-                            <form action="/client/delete/<%= client.id %>?_method=delete" method="post">
-                                <input type="hidden" name="_method" value="delete">
-
-                                <button onclick="nose()">
-                                    <i class="fa-solid fa-trash"></i>
-                                    <span>Delete</span>
-                                </button>
-                            </form>
-                        </div>
+                            <div class="date">
+                                <span>DAYS REST: <%= restDays %> </span>
+                                <span>TIMES: <%= client.times %> </span>
+                            </div>
+        
+                            <div class="options">
+                                <form action="/client/edit/<%= client.id.toString() %> ">
+                                    <button>
+                                        <i class="fa-solid fa-pen"></i>
+                                        <span>Edit</span>
+                                    </button>
+                                </form>
+                                <form action="/client/delete/<%= client.id %>?_method=delete" method="post">
+                                    <input type="hidden" name="_method" value="delete">
+                                    <button>
+                                        <i class="fa-solid fa-trash"></i>
+                                        <span>Delete</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </a>
             
                     </div>
             

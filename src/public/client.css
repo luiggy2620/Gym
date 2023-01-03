@@ -47,6 +47,11 @@
     justify-content: space-between;
 }
 
+.client a {
+    text-decoration: none;
+    color: #1e1e1e;
+}
+
 .date{
     display: flex;
     justify-content: space-between;
@@ -61,31 +66,26 @@
     gap: 10px;
 }
 
-.options a {
-    text-decoration: none;
-    padding: 5px;
+.options form {
+    width: 100%;
 }
 
 .options button {
     border: none;
-    background: none;
+    background: white;
     cursor: pointer;
     width: 100%;
-    text-transform: uppercase;
     height: 100%;
-    padding: 5px;
-}
+    text-transform: uppercase;
+    padding: 10px;
 
-.options form, .options a {
     border-radius: 4px;
     color: #1e1e1e;
     border: 1px solid #999;
-    width: 100%;
     text-align: center;
-    text-transform: uppercase;
 }
 
-.options button:hover, .options a:hover {
+.options button:hover  {
     background: #333;
     color: white;
 }
