@@ -12,28 +12,37 @@
         <form action="/client/edit/123" method="post">
 
             <label for="name">Name</label>
-            <input type="text" name="name">
+            <input type="text" name="name" value=<%= clientEdit.name %> >
 
             <label for="lastName">Last Name</label>
-            <input type="text" name="lastName">
+            <input type="text" name="lastName" value=<%= clientEdit.lastName %> >
 
             <label for="phone">Phone</label>
-            <input type="text" name="phone">
+            <input type="text" name="phone" value=<%= clientEdit.phone %> >
 
             <select name="gym" id="gym">
 
-                <option value="GIM H2G0">GIM H2G0</option>
-                <option value="GIM H2G0 2">GIM H2G0 2</option>
+                <% if(clientEdit.gym === "GIM H2G0") { %>
+                    <option value="GIM H2G0" selected >GIM H2G0</option>
+                <% } else { %> 
+                    <option value="GIM H2G0">GIM H2G0</option>
+                <% } %> 
+
+                <% if(clientEdit.gym === "GIM H2G0 2") { %>
+                    <option value="GIM H2G0 2" selected>GIM H2G0 2</option>
+                <% } else { %> 
+                    <option value="GIM H2G0 2" >GIM H2G0 2</option>
+                <% } %> 
 
             </select>
 
 
             <div>
                 <label for="initialDate">Initial Date</label>
-                <input type="date" name="initialDate">
+                <input type="date" name="initialDate" value=<%= clientEdit.initialDate.toISOString().slice(0, 10) %> >
 
                 <label for="finalDate">Final Date</label>
-                <input type="date" name="finalDate">
+                <input type="date" name="finalDate" value=<%= clientEdit.finalDate.toISOString().slice(0, 10) %> >
             </div>
 
             <button>Edit Client</button>

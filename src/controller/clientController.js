@@ -26,8 +26,12 @@ clientController.registerClient = async (request, response) => {
     response.redirect('/clients');
 }
 
-clientController.renderEditClient = (request, response) => {
-    response.render('client/clientEdit.ejs');
+clientController.renderEditClient = async (request, response) => {
+    const clientEdit = await Client.findById(request.params.id);
+    console.log(clientEdit);
+    response.render('client/clientEdit.ejs', {
+        clientEdit
+    });
 }
 
 clientController.editClient = (request, response) => {
