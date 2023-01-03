@@ -1,11 +1,45 @@
 <%- include('../partials/headerTop.ejs') %>
     
     <%- include('../partials/navbarStyle.ejs') %> 
+    <%- include('../partials/formStyle.ejs') %> 
 
 <%- include('../partials/headerBottom.ejs') %> 
 
     <%- include('../partials/navbar.ejs') %> 
 
-    <h2>client Edit</h2>
+    <div class="container">
+
+        <form action="/client/edit/123" method="post">
+
+            <label for="name">Name</label>
+            <input type="text" name="name">
+
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName">
+
+            <label for="phone">Phone</label>
+            <input type="text" name="phone">
+
+            <select name="gym" id="gym">
+
+                <option value="GIM H2G0">GIM H2G0</option>
+                <option value="GIM H2G0 2">GIM H2G0 2</option>
+
+            </select>
+
+
+            <div>
+                <label for="initialDate">Initial Date</label>
+                <input type="date" name="initialDate">
+
+                <label for="finalDate">Final Date</label>
+                <input type="date" name="finalDate">
+            </div>
+
+            <button>Edit Client</button>
+
+        </form>
+
+    </div>
 
 <%- include('../partials/footer.ejs') %> 
