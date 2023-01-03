@@ -59,12 +59,13 @@
                                 <i class="fa-solid fa-pen"></i>
                                 <span>Edit</span>
                             </a>
-                            <form action="/client/delete/<%= client.id %>" method="post">
+                            <form action="/client/delete/<%= client.id %>?_method=delete" method="post">
+                                <input type="hidden" name="_method" value="delete">
+
                                 <button onclick="nose()">
                                     <i class="fa-solid fa-trash"></i>
                                     <span>Delete</span>
                                 </button>
-                                <input type="hidden" name="_method">
                             </form>
                         </div>
             

@@ -40,8 +40,10 @@ clientController.editClient = async (request, response) => {
     response.redirect('/clients');
 }
 
-clientController.deleteClient = (request, response) => {
-    response.send('borrando');
+clientController.deleteClient = async (request, response) => {
+    console.log(request.params.id);
+    await Client.findByIdAndDelete(request.params.id);
+    response.redirect('/clients');
 }
 
 module.exports = clientController;
