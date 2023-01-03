@@ -1,8 +1,11 @@
 .navbar {
+    grid-area: navbar;
     width: 100%;
     display: flex;
     align-items: center;
     padding: 5px;
+
+    display: flex;
 }
 
 .navbar div {

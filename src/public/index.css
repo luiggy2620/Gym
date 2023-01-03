@@ -6,4 +6,9 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+
+    display: grid;
+    grid-template-rows: minmax(5vh, 5vh) minmax(95vh, auto);
+    grid-template-areas:    "navbar"
+                            "container";
 }

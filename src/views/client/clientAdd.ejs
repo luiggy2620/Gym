@@ -1,11 +1,30 @@
 <%- include('../partials/headerTop.ejs') %>
 
     <%- include('../partials/navbarStyle.ejs') %> 
+    <%- include('../partials/formStyle.ejs') %> 
 
 <%- include('../partials/headerBottom.ejs') %> 
 
     <%- include('../partials/navbar.ejs') %> 
 
-    <h2>client Add</h2>
+    <div class="container">
+
+        <form action="/client/add" method="post">
+    
+            <label for="name">Name</label>
+            <input type="text" name="name">
+    
+            <label for="phone">Phone</label>
+            <input type="text" name="phone">
+    
+            <label for="date">Date</label>
+            <input type="date" name="date">
+    
+            <button>Add Client</button>
+    
+        </form>
+
+    </div>
+
 
 <%- include('../partials/footer.ejs') %> 
