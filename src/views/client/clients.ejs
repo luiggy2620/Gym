@@ -1,11 +1,60 @@
 <%- include('../partials/headerTop.ejs') %>
     
     <%- include('../partials/navbarStyle.ejs') %> 
+    <%- include('../partials/clientStyle.ejs') %> 
 
 <%- include('../partials/headerBottom.ejs') %> 
 
     <%- include('../partials/navbar.ejs') %> 
 
-    <h2>clients</h2>
+    <div class="container">
+
+        
+        <div class="containerClients">
+            
+            <a href="/client/add" class="add">
+                <i class="fa-solid fa-plus"></i>
+                <span>New Client</span>
+            </a>
+            
+            <% clients.forEach(function (client) { %>
+        
+                <div class="client">
+        
+                    <div>
+                        <span><%= client.name %> </span>
+                        <span><%= client.lastName %> </span>
+                    </div>
+                        
+                    <span>GYM: <%= client.gym %> </span>
+    
+                    <div class="date">
+                        <span>DATE: <%= client.date.toISOString().slice(0, 10) %> </span>
+                        <span>TIMES: <%= client.times %> </span>
+                    </div>
+
+                    <div class="options">
+                        <a href="/client/edit/<%= client.id %> ">
+                            <i class="fa-solid fa-pen"></i>
+                            <span>Edit</span>
+                        </a>
+                        <form action="/client/delete/<%= client.id %>" method="post">
+                            <input type="hidden" name="_method">
+                            <button>
+                                <i class="fa-solid fa-trash"></i>
+                                <span>Delete</span>
+                            </button>
+                        </form>
+                    </div>
+        
+                </div>
+        
+            <% }); %> 
+
+        </div>
+
+
+    </div>
+
 
 <%- include('../partials/footer.ejs') %> 

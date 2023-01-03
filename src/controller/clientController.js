@@ -12,8 +12,11 @@ const formatDate = (date) => {
     return dateFormat;
 }
 
-clientController.renderClients = (request, response) => {
-    response.render('client/clients.ejs');
+clientController.renderClients = async (request, response) => {
+    const clients = await Client.find();
+    response.render('client/clients.ejs', {
+        clients
+    });
 }
 
 clientController.renderRegisterClient = (request, response) => {
@@ -25,7 +28,7 @@ clientController.registerClient = async (request, response) => {
     const newClient = new Client({ name, lastName, phone, date, gym });
     newClient.save();
     console.log(newClient);
-    response.redirect('/');
+    response.redirect('/clients');
 }
 
 clientController.renderEditClient = (request, response) => {

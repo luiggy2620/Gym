@@ -1,0 +1,88 @@
+.container {
+    grid-area: container;
+}
+
+.containerClients {
+    width: auto;
+    padding: 20px 0 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: auto;
+    gap: 20px;
+}
+
+.containerClients i {
+    margin-right: 5px;
+}
+
+.add {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding-right: 6%;
+    text-decoration: none;
+    color: #1e1e1e;
+    align-items: center;
+}
+
+.add:hover {
+    background: #333;
+    color: white;
+}
+
+.client {
+    box-sizing: border-box;
+    padding: 20px;
+    width: 43%;
+    border: 1px solid #999;
+    height: 20vh;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.date{
+    display: flex;
+    justify-content: space-between;
+}
+
+.client:hover {
+    box-shadow: 3px 3px 10px #999;
+}
+
+.options {
+    display: flex;
+    gap: 10px;
+}
+
+.options a {
+    text-decoration: none;
+    padding: 5px;
+}
+
+.options button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+    height: 100%;
+    padding: 5px;
+}
+
+.options form, .options a {
+    border-radius: 4px;
+    color: #1e1e1e;
+    border: 1px solid #999;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.options button:hover, .options a:hover {
+    background: #333;
+    color: white;
+}
