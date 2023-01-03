@@ -5,7 +5,8 @@ adminController.renderLogin = (request, response) => {
 }
 
 adminController.loginAdmin = (request, response) => {
-    response.send('logeando');
+    console.log(request.body);
+    response.redirect('/');
 }
 
 adminController.logout = (request, response) => {

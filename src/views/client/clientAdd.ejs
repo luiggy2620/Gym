@@ -21,11 +21,11 @@
             <input type="text" name="phone">
     
             <label for="date">Date</label>
-            <input type="date" name="date">
+            <input type="date" value=<%= new Date().toISOString().slice(0, 10) %>  name="date">
 
-            <label for="sucurd">Sucurd</label>
+            <label for="gym">Gym</label>
 
-            <select name="sucurd" id="sucurd">
+            <select name="gym" id="gym">
                 <option value="GIM H2G0">GIM H2G0</option>
                 <option value="GIM H2G0 2">GIM H2G0 2</option>
             </select>
