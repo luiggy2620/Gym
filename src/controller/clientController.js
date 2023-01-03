@@ -34,8 +34,10 @@ clientController.renderEditClient = async (request, response) => {
     });
 }
 
-clientController.editClient = (request, response) => {
-    response.send('editandooo cliente');
+clientController.editClient = async (request, response) => {
+    const { name, lastName, phone, gym, initialDate, finalDate } = request.body;
+    await Client.findByIdAndUpdate(request.params.id, { name, lastName, phone, gym, initialDate, finalDate });
+    response.redirect('/clients');
 }
 
 clientController.deleteClient = (request, response) => {
