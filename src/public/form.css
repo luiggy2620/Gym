@@ -54,3 +54,9 @@ form button {
     display: flex;
     flex-direction: column;
 }
+
+.messageTag {
+    color: red;
+    font-size: 15px;
+    font-weight: 400;
+}

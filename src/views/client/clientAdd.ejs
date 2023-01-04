@@ -21,8 +21,9 @@
     
             <label for="phone">Phone</label>
             <input type="text" name="phone" value=<%= phone %> >
+
             <% if(errorPhone[0]) { %> 
-                <label for="phone">
+                <label for="phone" class="messageTag">
                     <%= errorPhone %> 
                 </label>
             <% } %> 
@@ -73,7 +74,7 @@
             </div>
 
             <% if(dangerMessage[0]) %> 
-                <label for="dangerMessage">
+                <label for="dangerMessage" class="messageTag">
                     <%= dangerMessage %> 
                 </label>
     

@@ -1,8 +1,9 @@
 const clientController = {};
 const Client = require('../model/Client');
-const { isEmpty, isValidPhone, isValidMonths } = require('../validations/clientValidations');
+const { isEmpty, isValidPhone, isValidMonths, isValidDate, isValidTimes } = require('../validations/clientValidations');
 
-let nameTemporal = '', lastNameTemporal = '', phoneTemporal = '', gymTemporal = '', initialDateTemporal = '', monthsTemporal = '';
+let nameTemporal = '', lastNameTemporal = '', phoneTemporal = '', gymTemporal = '', 
+    initialDateTemporal = '', monthsTemporal = '';
 
 const sendMessage = (request, response, typeMessage, message, direction) => {
     console.log(message);
@@ -12,6 +13,11 @@ const sendMessage = (request, response, typeMessage, message, direction) => {
 
 const formatDate = date => {
     return new Date(date).toISOString().slice(0, 10);
+}
+
+const resetData = () => {
+    nameTemporal = '', lastNameTemporal = '', phoneTemporal = '', gymTemporal = '', 
+    initialDateTemporal = '', monthsTemporal = '';
 }
 
 clientController.renderClients = async (request, response) => {
@@ -44,7 +50,7 @@ clientController.registerClient = async (request, response) => {
     else if (!isValidPhone(phone))
         sendMessage(request, response, "errorPhone", 'Invalid phone number', '/client/add');
     else if (!isValidMonths(months))
-        sendMessage(request, response, 'errorMonths', 'Invalid amount months', '/client/add');
+        sendMessage(request, response, 'dangerMessage', 'Invalid amount months', '/client/add');
     else {
         const clientFound = await Client.findOne({ phone });
         console.log(clientFound);
@@ -55,9 +61,10 @@ clientController.registerClient = async (request, response) => {
             // const restDays = Math.floor((finalDate - currentDate) / (1000 * 60 * 60 * 24));
             const newClient = new Client({ name, lastName, phone, gym, initialDate, finalDate });
             await newClient.save();
+            resetData();
             sendMessage(request, response, 'successMessage', `${name} successfully added.`, '/clients');
         }
-        else sendMessage(request, response, 'dangerMessage', `The client with phone ${phone} already exists`, '/client/add');
+        else sendMessage(request, response, 'errorPhone', `The client with phone ${phone} already exists`, '/client/add');
     }
 }
 
@@ -70,8 +77,24 @@ clientController.renderEditClient = async (request, response) => {
 
 clientController.editClient = async (request, response) => {
     const { name, lastName, phone, gym, initialDate, finalDate, times } = request.body;
-    await Client.findByIdAndUpdate(request.params.id, { name, lastName, phone, gym, initialDate, finalDate, times });
-    response.redirect('/clients');
+    const directionToBack = `/client/edit/${request.params.id}`;
+
+    if (isEmpty(name, lastName, phone, gym, initialDate, finalDate, times))
+        sendMessage(request, response, 'dangerMessage', 'Missing credentials', directionToBack);
+    else if (!isValidPhone(phone))
+        sendMessage(request, response, 'errorPhone', 'Invalid Phone', directionToBack);
+    else if (!isValidDate(initialDate, finalDate))
+        sendMessage(request, response, 'dangerMessage', "The final date can't be greater than initial date", directionToBack);
+    else if (!isValidTimes(times))
+        sendMessage(request, response, 'dangerMessage', "Times can't be less than zero", directionToBack);
+    else {
+        const clientFound = await Client.findOne({phone});
+        if(!clientFound) {
+            await Client.findByIdAndUpdate(request.params.id, { name, lastName, phone, gym, initialDate, finalDate, times });
+            sendMessage(request, response, 'successMessage', `Client ${name, ' ', lastName} successfully updated`, '/clients');
+        } else
+            sendMessage(request, response, 'errorPhone', `The client with phone ${phone} already exists`, directionToBack);
+    }
 }
 
 clientController.deleteClient = async (request, response) => {

@@ -35,7 +35,6 @@ app.use((request, response, next) => {
 
     response.locals.errorPhone = request.flash('errorPhone');
     response.locals.errorDate = request.flash('errorDate');
-    response.locals.errorMonths = request.flash('errorMonths');
     response.locals.errorTimes = request.flash('errorTimes');
 
     response.locals.errorEmail = request.flash('errorEmail');
