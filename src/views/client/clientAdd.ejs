@@ -21,6 +21,11 @@
     
             <label for="phone">Phone</label>
             <input type="text" name="phone" value=<%= phone %> >
+            <% if(errorPhone[0]) { %> 
+                <label for="phone">
+                    <%= errorPhone %> 
+                </label>
+            <% } %> 
 
 
             <label for="gym">Gym</label>
@@ -41,7 +46,7 @@
                     <% } %> 
 
                 <% } else { %> 
-                    
+
                     <option value="GIM H2G0">GIM H2G0</option>
                     <option value="GIM H2G0 2" >GIM H2G0 2</option>
 
@@ -65,8 +70,12 @@
                     >
                 </div>
 
-
             </div>
+
+            <% if(dangerMessage[0]) %> 
+                <label for="dangerMessage">
+                    <%= dangerMessage %> 
+                </label>
     
             <button>Add Client</button>
     

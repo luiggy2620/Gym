@@ -1,10 +1,11 @@
 const clientController = {};
 const Client = require('../model/Client');
-const { isEmpty, isValidPhone, isValidMonths, clientDontExist } = require('../validations/clientValidations');
+const { isEmpty, isValidPhone, isValidMonths } = require('../validations/clientValidations');
 
 let nameTemporal = '', lastNameTemporal = '', phoneTemporal = '', gymTemporal = '', initialDateTemporal = '', monthsTemporal = '';
 
 const sendMessage = (request, response, typeMessage, message, direction) => {
+    console.log(message);
     request.flash(typeMessage, message);
     response.redirect(direction);
 };
@@ -40,23 +41,21 @@ clientController.registerClient = async (request, response) => {
 
     if (isEmpty(name, lastName, phone, gym, initialDate, months))
         sendMessage(request, response, 'dangerMessage', 'Missing credentials', '/client/add');
-    else if (isValidPhone(phone))
+    else if (!isValidPhone(phone))
         sendMessage(request, response, "errorPhone", 'Invalid phone number', '/client/add');
-    else if (isValidMonths(months))
+    else if (!isValidMonths(months))
         sendMessage(request, response, 'errorMonths', 'Invalid amount months', '/client/add');
     else {
-        const clientDontExistBoolean = await clientDontExist(phone);
-        if (clientDontExistBoolean) {
+        const clientFound = await Client.findOne({ phone });
+        console.log(clientFound);
+        if (!clientFound) {
             let currentDate = new Date(Date.parse(initialDate));
             let finalDate = new Date();
             finalDate.setDate(currentDate.getDate() + ((7 * 4) * months));
-            const restDays = Math.floor((finalDate - currentDate) / (1000 * 60 * 60 * 24));
-            console.log(restDays);
+            // const restDays = Math.floor((finalDate - currentDate) / (1000 * 60 * 60 * 24));
             const newClient = new Client({ name, lastName, phone, gym, initialDate, finalDate });
-            newClient.save();
-            console.log(newClient);
-            sendMessage(request, response, 'successMessage', `${name + lastName} successfully added.`, '/clients');
-            response.redirect('/clients');
+            await newClient.save();
+            sendMessage(request, response, 'successMessage', `${name} successfully added.`, '/clients');
         }
         else sendMessage(request, response, 'dangerMessage', `The client with phone ${phone} already exists`, '/client/add');
     }
@@ -64,7 +63,6 @@ clientController.registerClient = async (request, response) => {
 
 clientController.renderEditClient = async (request, response) => {
     const clientEdit = await Client.findById(request.params.id);
-    console.log(clientEdit);
     response.render('client/clientEdit.ejs', {
         clientEdit
     });
@@ -83,32 +81,3 @@ clientController.deleteClient = async (request, response) => {
 }
 
 module.exports = clientController;
-
-
-
-// <% if(gym === 'GIM H2G0') { %> 
-//     <option value="GIM H2G0" selected>GIM H2G0</option>
-// <% } else { %> 
-// <% } %> 
-
-// <% if(gym === 'GIM H2G0 2') { %> 
-//     <option value="GIM H2G0 2" selected>GIM H2G0 2</option>
-// <% } else { %> 
-// <% } %> 
-
-
-
-
-// <% if (initialDate === '') { %> 
-//     <% } else { %> 
-//         <%= let newDate = new Date(date)
-//             newDate.toISOString().slice(0, 10)
-//         %> 
-//     <% } %> 
-
-
-
-// <% if(months === '') "1" %> 
-// <% else { %> 
-//     <%= months %> 
-// <% } %>

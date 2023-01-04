@@ -2,24 +2,28 @@ const clientFunctions = {};
 
 const Client = require('../model/Client');
 
-clientFunctions.isEmpty = (...fileds) => {
-    fileds.forEach(field => {
-        if (field === '') return true;
+clientFunctions.isEmpty = (...fields) => {
+    let isEmpty = false;
+    fields.forEach(field => {
+        if (field === '') { 
+            console.log('campos vacios');
+            isEmpty = true;
+        }
     });
-    return false;
+    console.log(fields);
+    return isEmpty;
 }
 
 clientFunctions.isValidPhone = (phone) => {
-    return phone.lenght === 8;
+    const newPhone = phone.toString();
+    console.log('phone:', newPhone, ' leght : ', newPhone.length);
+    console.log(newPhone.length === 8);
+    return newPhone.length === 8;
 }
 
 clientFunctions.isValidMonths = (months) => {
-    return months > 0;
-}
-
-clientFunctions.clientDontExist = async (phone) => {
-    const client = await Client.find({phone});
-    return !client;
+    console.log(months);
+    return parseInt(months) > 0;
 }
 
 module.exports = clientFunctions;
