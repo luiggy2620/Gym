@@ -14,31 +14,55 @@
             <% let currentDate = new Date()%>   
     
             <label for="name">Name</label>
-            <input type="text" name="name">
+            <input type="text" name="name" value=<%= name %> >
 
             <label for="lastName">Last Name</label>
-            <input type="text" name="lastName">
+            <input type="text" name="lastName" value=<%= lastName %> >
     
             <label for="phone">Phone</label>
-            <input type="text" name="phone">
+            <input type="text" name="phone" value=<%= phone %> >
 
 
             <label for="gym">Gym</label>
             <select name="gym" id="gym">
-                <option value="GIM H2G0">GIM H2G0</option>
-                <option value="GIM H2G0 2">GIM H2G0 2</option>
+
+                <% if (gym != '') { %> 
+
+                    <% if(gym === "GIM H2G0") { %>
+                        <option value="GIM H2G0" selected >GIM H2G0</option>
+                    <% } else { %> 
+                        <option value="GIM H2G0">GIM H2G0</option>
+                    <% } %> 
+    
+                    <% if(gym === "GIM H2G0 2") { %>
+                        <option value="GIM H2G0 2" selected>GIM H2G0 2</option>
+                    <% } else { %> 
+                        <option value="GIM H2G0 2" >GIM H2G0 2</option>
+                    <% } %> 
+
+                <% } else { %> 
+                    
+                    <option value="GIM H2G0">GIM H2G0</option>
+                    <option value="GIM H2G0 2" >GIM H2G0 2</option>
+
+                <% } %> 
+                
             </select>
 
             <div class="dates">
 
                 <div>
                     <label for="initialDate">Initial Date</label>
-                    <input type="date" value=<%= currentDate.toISOString().slice(0, 10) %>  name="initialDate">
+                    <input type="date" 
+                    value= <%= currentDate.toISOString().slice(0, 10) %>  
+                    name="initialDate">
                 </div>
 
                 <div>
                     <label for="months">Months</label>
-                    <input type="number" name="months" value="1">
+                    <input type="number" name="months" 
+                        value="1" 
+                    >
                 </div>
 
 
