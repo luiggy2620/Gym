@@ -1,5 +1,16 @@
+:root {
+    --color-background: #1d1d1d;
+    --color-text: white;
+    --color-hover: #333;
+    --color-border: #444;
+    --color-shadow: #999;
+
+    --color-submit: blue;
+    --color-alert: red;
+}
+
 .manager {
-    background: #1d1d1d;
+    background: var(--color-background);
     width: 78%;
     height: 6vh;
     min-height: 50px;
@@ -9,7 +20,7 @@
 
 .manager a {
     text-decoration: none;
-    color: white;
+    color: var(--color-text);
 }
 
 .search {
@@ -24,7 +35,7 @@
 .search form {
     height: 100%;
     width: 60%;
-    border: 1px solid #444;
+    border: 1px solid var(--color-border);
     border-radius: 20px;
     display: flex;
     overflow: hidden;
@@ -34,7 +45,7 @@
     outline: none;
     border: none;
     font-weight: 500;
-    color: white;
+    color: var(--color-text);
     background: transparent;
     width: 100%;
     height: 100%;
@@ -46,23 +57,28 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active
 {
- -webkit-box-shadow: 0 0 0 30px #1d1d1d inset !important;
- -webkit-text-fill-color: #FFF !important;
+ -webkit-box-shadow: 0 0 0 30px var(--color-background) inset !important;
+ -webkit-text-fill-color: var(--text) !important;
 }
 
 #removeButton {
-    color: rgba(255, 255, 255, 0.742);
+    color: var(--color-text);
     background: transparent;
     right: 0;
+    opacity: .3;
 }
 
 .search button {
-    background: #333;
+    background: var(--color-hover);
     border: none;
     width: 10%;
-    color: white;
+    color: var(--color-text);
     cursor: pointer;
     font-size: 17px;
+}
+
+.search button:hover {
+    opacity: 0;
 }
 
 .manager .add {
@@ -73,6 +89,7 @@ input:-webkit-autofill:active
 }
 
 .add a {
+    text-transform: uppercase;
     width: 100%;
     height: 100%;
     display: flex;
@@ -82,6 +99,6 @@ input:-webkit-autofill:active
 }
 
 .add:hover {
-    background: #333;
+    background: var(--color-hover);
 }
 

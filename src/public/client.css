@@ -1,3 +1,10 @@
+:root {
+    --color-background: #1d1d1d;
+    --color-text: white;
+    --color-hover: #333;
+    --color-border: #444;
+}
+
 .container {
     grid-area: container;
     display: flex;
@@ -7,7 +14,7 @@
 
 .containerClients {
     overflow: hidden;
-    background: #1d1d1d;
+    background: var(--color-background);
     box-sizing: border-box;
     width: 100%;
     padding: 7vh 0 20px 0;
@@ -36,11 +43,11 @@
 
 .client a {
     text-decoration: none;
-    color: white;
+    color: var(--color-text);
 }
 
 .client:hover {
-    background: #333;
+    background: var(--color-hover);
 }
 
 .header {
@@ -61,7 +68,7 @@
 .header button {
     background: transparent;
     border: none;
-    color: white;
+    color: var(--color-text);
     font-size: 20px;
     cursor: pointer;
 }

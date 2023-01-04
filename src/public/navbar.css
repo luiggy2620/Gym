@@ -1,11 +1,21 @@
+:root {
+    --color-background: #1d1d1d;
+    --color-text: white;
+    --color-hover: #333;
+    --color-border: #444;
+    --color-shadow: #999;
+
+    --color-submit: blue;
+    --color-alert: red;
+}
+
 .navbar {
-    background: white;
+    background: var(--color-background);
     grid-area: navbar;
     width: 10%;
     display: flex;
     align-items: center;
     flex-direction: column;
-    border-right: 1px solid #1e1e1e;
     height: 100vh;
     position: fixed;
 }
@@ -14,12 +24,11 @@
     width: 100%;
     padding: 15px;
     text-decoration: none;
-    color: #1e1e1e;
+    color: var(--color-text);
 }
 
 .navbar a:hover {
-    background: #333;
-    color: white;
+    background: var(--color-hover);
 }
 
 .navbar div i {
