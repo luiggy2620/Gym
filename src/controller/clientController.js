@@ -21,13 +21,16 @@ const resetData = () => {
 }
 
 clientController.searchClients = async (request, response) => {
-    const data = request.params.data;
     let clients = [];
-
+    const { data } = request.query;
+    
     if (Number.isInteger(parseInt(data)))
-        clients = await Client.find({ phone: parseInt(parseInt(data)) });
-    else clients = await Client.find({ name: data });
-
+        clients = await Client.find({ phone: parseInt(data) });
+    else {
+        clients = await Client.find({ name: data.toLowerCase() }).exec();
+    }
+    console.log(clients);
+    console.table(clients.length);
     if (clients.length == 0)
         sendMessage(request, response, 'dangerMessage', 'Any Clients Found', '/clients');
     else {
@@ -36,6 +39,7 @@ clientController.searchClients = async (request, response) => {
             clients
         })
     }
+    // response.redirect('/clients');
 
 }
 
