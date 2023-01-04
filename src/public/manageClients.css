@@ -1,5 +1,5 @@
 :root {
-    --color-background: #1d1d1d;
+    --color-background: #111;
     --color-text: white;
     --color-hover: #333;
     --color-border: #444;
@@ -58,7 +58,7 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active
 {
  -webkit-box-shadow: 0 0 0 30px var(--color-background) inset !important;
- -webkit-text-fill-color: var(--text) !important;
+ -webkit-text-fill-color: var(--color-text) !important;
 }
 
 #removeButton {

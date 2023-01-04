@@ -1,5 +1,7 @@
 :root {
-    --color-background: #1d1d1d;
+    --color-main: #EB455F;
+
+    --color-background: #111;
     --color-text: white;
     --color-hover: #333;
     --color-border: #444;
@@ -12,25 +14,46 @@
 .navbar {
     background: var(--color-background);
     grid-area: navbar;
-    width: 10%;
+    width: 15%;
     display: flex;
     align-items: center;
     flex-direction: column;
     height: 100vh;
     position: fixed;
+    border-right: 2px solid var(--color-main);
+}
+
+.title {
+    background: var(--color-main);
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    padding-left: 40px;
+    color: var(--color-text);
+    gap: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.navbar .title img{
+    width: 12%;
+
 }
 
 .navbar a {
-    width: 100%;
+    width: 90%;
     padding: 15px;
     text-decoration: none;
     color: var(--color-text);
+    padding-left: 40px;
+    border-radius: 10px;
 }
 
 .navbar a:hover {
     background: var(--color-hover);
 }
 
-.navbar div i {
-    margin: 0 10px 0 10px;
+.navbar i {
+    margin-right: 15px;
 }

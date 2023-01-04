@@ -1,5 +1,5 @@
 :root {
-    --color-background: #1d1d1d;
+    --color-background: #111;
     --color-text: white;
     --color-hover: #333;
     --color-border: #444;
@@ -20,6 +20,6 @@ body {
     font-family: 'Nunito Sans', sans-serif;
     background: var(--color-background);
     display: grid;
-    grid-template-columns:  10% 90%;
+    grid-template-columns:  15% 85%;
     grid-template-areas: "navbar container ";
 }
