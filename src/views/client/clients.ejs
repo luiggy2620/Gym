@@ -2,6 +2,7 @@
     
     <%- include('../partials/navbarStyle.ejs') %> 
     <%- include('../partials/clientStyle.ejs') %> 
+    <%- include('../partials/manageStyle.ejs') %> 
 
 <%- include('../partials/headerBottom.ejs') %> 
 
@@ -9,6 +10,9 @@
 
     <div class="container">
 
+
+        <% if(clients.length === 0) %> 
+            <%- include('../partials/manageClients.ejs') %> 
         
         <div class="containerClients">
 
@@ -21,13 +25,6 @@
                 </a>
 
             <% } else { %> 
-
-                <div class="add">
-                    <a href="/client/add">
-                        <i class="fa-solid fa-plus"></i>
-                        <span>New Client</span>
-                    </a>
-                </div>
                 
                 <% clients.forEach(function (client) { %>
             
