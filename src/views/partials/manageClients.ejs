@@ -3,9 +3,13 @@
     <div class="search">
         <form action="/clients/search" method="get">
             <label for="data"></label>
-            <input type="text" name="data">
+            <input type="text" name="data" id="search" placeholder="Search by Name / Phone">
+            <button type="button" onclick="removeText()" id="removeButton">
+                <i class="fa-solid fa-x"></i>
+            </button>
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
+
     </div>
 
 

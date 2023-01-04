@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-
+    background: #1d1d1d;
     display: grid;
     grid-template-columns:  10% 90%;
     grid-template-areas: "navbar container ";

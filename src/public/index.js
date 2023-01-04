@@ -7,3 +7,7 @@ function closeMessage () {
     let message = document.querySelector('.message');
     message.style.display = "none";
 }
+
+function removeText() {
+    document.getElementById("search").value = "";
+}

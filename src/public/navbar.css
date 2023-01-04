@@ -1,4 +1,5 @@
 .navbar {
+    background: white;
     grid-area: navbar;
     width: 10%;
     display: flex;
