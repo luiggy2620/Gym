@@ -26,11 +26,12 @@
     box-sizing: border-box;
     padding: 20px;
     width: 43%;
-    height: 20vh;
+
     display: flex;
     flex-direction: column;
-    cursor: pointer;
     justify-content: space-between;
+
+    cursor: pointer;
 }
 
 .client a {
@@ -38,16 +39,52 @@
     color: white;
 }
 
-.date{
-    display: flex;
-    justify-content: space-between;
-}
-
 .client:hover {
     background: #333;
 }
 
-.options {
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.header span {
+    text-transform: uppercase;
+    font-size: 22px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.header button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.body .date {
+    font-weight: 400;
+}
+
+.body .time{
+    font-weight: 800;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+
+/* .options {
     display: flex;
     gap: 10px;
 }
@@ -73,15 +110,4 @@
 
 .options button:hover  {
     background: red;
-}
-
-.names {
-    width: 100%;
-}
-
-.name {
-    text-transform: uppercase;
-    font-size: 25px;
-    letter-spacing: 2px;
-    font-weight: 600;
-}
+} */

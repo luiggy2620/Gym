@@ -1,10 +1,10 @@
 .manager {
     background: #1d1d1d;
-    width: 90%;
+    width: 78%;
     height: 6vh;
+    min-height: 50px;
     position: fixed;
     display: flex;
-    gap: 20px;
 }
 
 .manager a {
@@ -18,12 +18,12 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 10px 10px 10px 15%;
 }
 
 .search form {
     height: 100%;
-    width: 40%;
+    width: 60%;
     border: 1px solid #444;
     border-radius: 20px;
     display: flex;
@@ -38,7 +38,7 @@
     background: transparent;
     width: 100%;
     height: 100%;
-    padding: 0 10px 0 10px;
+    padding: 0 0 0 20px;
 }
 
 input:-webkit-autofill,
@@ -63,5 +63,25 @@ input:-webkit-autofill:active
     color: white;
     cursor: pointer;
     font-size: 17px;
+}
+
+.manager .add {
+    width: 15%;
+    margin: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.add a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.add:hover {
+    background: #333;
 }
 

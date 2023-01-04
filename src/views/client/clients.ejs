@@ -47,24 +47,34 @@
 
                         <a href="/client/edit/<%= client.id.toString() %> ">
                 
-                            <div class="names">
-                                <span class="name"><%= client.name %> </span>
-                                <span class="name"><%= client.lastName %> </span>
+                            <div class="header">
+
+                                <div>
+                                    <span ><%= client.name %> </span>
+                                    <span ><%= client.lastName %> </span>
+                                </div>
+                                <button>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+
+                            </div>
+
+                            <div class="body">
+                                
+                                <span>GYM: <%= client.gym %> </span>
+
+                                <div class="date">
+                                    <span><%= initialDate.toISOString().slice(0, 10) %> </span>
+                                    <span> / <%= finalDate.toISOString().slice(0, 10) %> </span>
+                                </div>
+
+                                <div class="time">
+                                    <span>TIMES : <%= client.times %> </span>
+                                    <span>DAYS REST : <%= restDays %> </span>
+                                </div>
+
                             </div>
                                 
-                            <span>GYM: <%= client.gym %> </span>
-            
-                            <div>
-                                <span><%= initialDate.toISOString().slice(0, 10) %> </span>
-                                <span> / <%= finalDate.toISOString().slice(0, 10) %> </span>
-                            </div>
-    
-                            <div class="date">
-                                <span>DAYS REST: <%= restDays %> </span>
-                                <span>TIMES: <%= client.times %> </span>
-                            </div>
-        
-                            
                         </a>
             
                     </div>
