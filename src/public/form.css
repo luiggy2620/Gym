@@ -60,3 +60,7 @@ form button {
     font-size: 15px;
     font-weight: 400;
 }
+
+.name {
+    text-transform: capitalize;
+}

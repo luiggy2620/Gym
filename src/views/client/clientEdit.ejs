@@ -9,15 +9,11 @@
 
     <div class="container">
 
-        <% console.log(clientEdit._id + "\n") %> 
-        <form action="/client/edit/<%= clientEdit._id%>?_method=put " method="post">
+        <form action="/client/edit/<%= clientEdit.id%>?_method=put " method="post">
             <input type="hidden" name="_method" value="put">
 
             <label for="name">Name</label>
-            <input type="text" name="name" value=<%= clientEdit.name %> >
-
-            <label for="lastName">Last Name</label>
-            <input type="text" name="lastName" value=<%= clientEdit.lastName %> >
+            <input type="text" name="name" class="name" value="<%= clientEdit.name %>">
 
             <label for="phone">Phone</label>
             <input type="text" name="phone" value=<%= clientEdit.phone %> >

@@ -6,10 +6,6 @@ const clientSchema = new Schema({
         type: String,
         require: true
     },
-    lastName: {
-        type: String,
-        require: true   
-    },
     phone: {
         type: Number,
         require: true,

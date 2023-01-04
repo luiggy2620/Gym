@@ -27,7 +27,6 @@
             <% } else { %> 
                 
                 <% clients.forEach(function (client) { %>
-            
                     
 
                     <div class="client">
@@ -38,10 +37,7 @@
                             <% const finalDate = client.finalDate %>
                             <% const restDays = Math.floor((finalDate - initialDate) / (1000 * 60 * 60 * 24)); %>  
                 
-                            <div>
-                                <span><%= client.name %> </span>
-                                <span><%= client.lastName %> </span>
-                            </div>
+                            <span class="name"><%= client.name %> </span>
                                 
                             <span>GYM: <%= client.gym %> </span>
             
