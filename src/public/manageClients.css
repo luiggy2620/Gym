@@ -40,6 +40,15 @@
     height: 100%;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px #1d1d1d inset !important;
+ -webkit-text-fill-color: #FFF !important;
+}
+
 .search button {
     border: none;
     background: transparent;
