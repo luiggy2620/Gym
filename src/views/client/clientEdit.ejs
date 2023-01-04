@@ -22,6 +22,12 @@
             <label for="phone">Phone</label>
             <input type="text" name="phone" value=<%= clientEdit.phone %> >
 
+            <% if(errorPhone[0]) { %> 
+                <label for="phone" class="messageTag">
+                    <%= errorPhone %> 
+                </label>
+            <% } %> 
+
             <select name="gym" id="gym">
 
                 <% if(clientEdit.gym === "GIM H2G0") { %>
@@ -47,10 +53,21 @@
                 <input type="date" name="finalDate" value=<%= clientEdit.finalDate.toISOString().slice(0, 10) %> >
             </div>
 
+            <% if(errorDate[0]) { %> 
+                <label for="phone" class="messageTag">
+                    <%= errorDate %> 
+                </label>
+            <% } %> 
+
             <div class="times">
                 <label for="times">Times</label>
                 <input type="number" name="times" value=<%= clientEdit.times %> >
             </div>
+
+            <% if(dangerMessage[0]) %> 
+                <label for="dangerMessage" class="messageTag">
+                    <%= dangerMessage %> 
+                </label>
 
 
             <button>Edit Client</button>

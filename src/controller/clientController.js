@@ -84,12 +84,12 @@ clientController.editClient = async (request, response) => {
     else if (!isValidPhone(phone))
         sendMessage(request, response, 'errorPhone', 'Invalid Phone', directionToBack);
     else if (!isValidDate(initialDate, finalDate))
-        sendMessage(request, response, 'dangerMessage', "The final date can't be greater than initial date", directionToBack);
+        sendMessage(request, response, 'errorDate', "The final date can't be greater than initial date", directionToBack);
     else if (!isValidTimes(times))
         sendMessage(request, response, 'dangerMessage', "Times can't be less than zero", directionToBack);
     else {
         const clientFound = await Client.findOne({phone});
-        if(!clientFound) {
+        if(!clientFound || clientFound.phone == phone) {
             await Client.findByIdAndUpdate(request.params.id, { name, lastName, phone, gym, initialDate, finalDate, times });
             sendMessage(request, response, 'successMessage', `Client ${name, ' ', lastName} successfully updated`, '/clients');
         } else

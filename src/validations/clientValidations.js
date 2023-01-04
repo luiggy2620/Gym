@@ -24,12 +24,12 @@ clientFunctions.isValidMonths = (months) => {
 
 clientFunctions.isValidDate = (initialDate, finalDate) => {
     const firstDate = new Date(initialDate).toISOString().slice(0, 10);
-    const secondDate = new Date(finalDate).toDateString.slice(0, 10);
+    const secondDate = new Date(finalDate).toDateString().slice(0, 10);
     return secondDate > firstDate;
 }
 
 clientFunctions.isValidTimes = (times) => {
-    return parseInt(times) > 0;
+    return parseInt(times) >= 0;
 }
 
 module.exports = clientFunctions;
