@@ -26,20 +26,6 @@ const resetData = () => {
         initialDateTemporal = '', monthsTemporal = '';
 }
 
-clientController.searchClients = async (request, response) => {
-    let clients = [];
-    const { data } = request.query;
-    
-    if (Number.isInteger(parseInt(data)))
-        clients = await Client.find({ phone: parseInt(data) });
-    else clients = await Client.find({ name: data.toLowerCase() });
-    
-    if (clients.length == 0)
-        sendMessage(request, response, 'dangerMessage', 'Any Clients Found', '/clients');
-    else 
-        renderClients(request, response, clients);
-}
-
 clientController.renderClients = async (request, response) => {
     let clients = [];
     clients = await Client.find();
@@ -122,10 +108,33 @@ clientController.deleteClient = async (request, response) => {
     response.redirect('/clients');
 }
 
+clientController.searchClients = async (request, response) => {
+    let clients = [];
+    const { data } = request.query;
+
+    if (Number.isInteger(parseInt(data)))
+        clients = await Client.find({ phone: parseInt(data) });
+    else clients = await Client.find({ name: data.toLowerCase() });
+
+    if (clients.length == 0)
+        sendMessage(request, response, 'dangerMessage', 'Any Clients Found', '/clients');
+    else
+        renderClients(request, response, clients);
+}
+
+clientController.sortClients = async (request, response) => {
+    const { sort, order } = request.query;
+    let typeOrder = 1
+    if (order === 'desc') typeOrder = -1;
+
+    const clients = await Client.find({}).sort([[sort, typeOrder]]);
+    renderClients(request, response, clients);
+}
+
 module.exports = clientController;
 
 
-{/* <div class="options">
+/* <div class="options">
     <form action="/client/edit/<%= client.id.toString() %> ">
         <button>
             <i class="fa-solid fa-pen"></i>
@@ -139,4 +148,4 @@ module.exports = clientController;
             <span>Delete</span>
         </button>
     </form>
-</div> */}
+</div> */
