@@ -11,16 +11,20 @@
 
         <form action="/client/add" method="post">
 
-            <% let currentDate = new Date()%>   
+            <% let currentDate = new Date()%>
+            
+            <span class="titleForm">
+                new client
+            </span>
     
             <label for="name">Name</label>
-            <input type="text" name="name" value=<%= name %> >
+            <input type="text" name="name" autocomplete="off" placeholder="Name" value=<%= name %>>
 
-            <label for="lastName">Name</label>
-            <input type="text" name="lastName" value=<%= lastName %> >
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" autocomplete="off" placeholder="Last Name" value=<%= lastName %> >
     
             <label for="phone">Phone</label>
-            <input type="text" name="phone" value=<%= phone %> >
+            <input type="text" name="phone" autocomplete="off" placeholder="00000000" value=<%= phone %> >
 
             <% if(errorPhone[0]) { %> 
                 <label for="phone" class="messageTag">
@@ -81,7 +85,6 @@
             <button>Add Client</button>
     
         </form>
-
     </div>
 
 

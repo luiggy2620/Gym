@@ -1,5 +1,8 @@
 :root {
-    --color-background: #111;
+    --color-main: rgb(255, 0, 68);
+    /* --color-main: #EB455F; */
+
+    --color-background: #000;
     --color-text: white;
     --color-hover: #333;
     --color-border: #444;
@@ -20,6 +23,6 @@ body {
     font-family: 'Nunito Sans', sans-serif;
     background: var(--color-background);
     display: grid;
-    grid-template-columns:  15% 85%;
+    grid-template-columns:  13% 87%;
     grid-template-areas: "navbar container ";
 }

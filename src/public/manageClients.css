@@ -95,7 +95,8 @@ input:-webkit-autofill:active
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 5px;
+    font-weight: bold;
 }
 
 .add:hover {

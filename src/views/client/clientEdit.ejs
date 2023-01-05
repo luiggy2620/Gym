@@ -10,16 +10,20 @@
     <div class="container">
 
         <form action="/client/edit/<%= clientEdit.id%>?_method=put " method="post">
-            <input type="hidden" name="_method" value="put">
+            <input type="hidden"  name="_method" value="put">
+
+            <span class="titleForm">
+                <%= clientEdit.name + " " + clientEdit.lastName %>
+            </span>
 
             <label for="name">Name</label>
-            <input type="text" name="name" class="name" value="<%= clientEdit.name %>">
+            <input type="text" autocomplete="off" name="name" class="name" value="<%= clientEdit.name %>">
 
             <label for="lastName">Last Name</label>
-            <input type="text" name="lastName" class="name" value="<%= clientEdit.lastName %>">
+            <input type="text" autocomplete="off" name="lastName" class="name" value="<%= clientEdit.lastName %>">
 
             <label for="phone">Phone</label>
-            <input type="text" name="phone" value=<%= clientEdit.phone %> >
+            <input type="text" autocomplete="off" name="phone" value=<%= clientEdit.phone %> >
 
             <% if(errorPhone[0]) { %> 
                 <label for="phone" class="messageTag">
@@ -44,12 +48,17 @@
             </select>
 
 
-            <div>
-                <label for="initialDate">Initial Date</label>
-                <input type="date" name="initialDate" value=<%= clientEdit.initialDate.toISOString().slice(0, 10) %> >
+            <div class="dates">
 
-                <label for="finalDate">Final Date</label>
-                <input type="date" name="finalDate" value=<%= clientEdit.finalDate.toISOString().slice(0, 10) %> >
+                <div>
+                    <label for="initialDate">Initial Date</label>
+                    <input type="date" name="initialDate" value=<%= clientEdit.initialDate.toISOString().slice(0, 10) %> >
+                </div>
+                <div>
+                    <label for="finalDate">Final Date</label>
+                    <input type="date" name="finalDate" value=<%= clientEdit.finalDate.toISOString().slice(0, 10) %> >
+                </div>
+                
             </div>
 
             <% if(errorDate[0]) { %> 
