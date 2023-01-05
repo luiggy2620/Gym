@@ -1,4 +1,6 @@
 :root {
+    --color-main: rgb(255, 0, 68);
+
     --color-background: #111;
     --color-text: white;
     --color-hover: #333;
@@ -84,8 +86,32 @@ input:-webkit-autofill:active
 .manager .add {
     width: 15%;
     margin: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.add::before, .add::after {
+    position: absolute;
+    content: "  ";
+    height: 100%;
+    top: 0;
+    z-index: -1;
+}
+
+.add::before {
+    background: #FFE15D;
+    transition: all .8s ease;
+    width: 50%;
+    left: -50%;
+}
+
+.add::after {
+    background: var(--color-main);
+    transition: all .5s ease;
+    width: 30%;
+    left: -30%;
 }
 
 .add a {
@@ -99,7 +125,13 @@ input:-webkit-autofill:active
     font-weight: bold;
 }
 
-.add:hover {
-    background: var(--color-hover);
+.add:hover::before {
+    left: 150%;
 }
+
+.add:hover::after {
+    left: 130%;
+}
+
+
 

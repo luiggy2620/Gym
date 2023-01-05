@@ -8,7 +8,7 @@
     --color-border: #444;
     --color-shadow: #999;
 
-    --color-submit: #FFE15D;
+    --color-submit: blue;
     --color-alert: red;
 }
 
@@ -79,33 +79,52 @@ form select {
 }
 
 form button {
-    background: #FFE15D;
-    color: var(--color-background);
+    background: var(--color-main);
+    color: var(--color-text);
     border: 1px solid var(--color-border);
     text-transform: uppercase;
-    font-size: 17px;
     font-weight: bold;
+    font-size: 17px;
     cursor: pointer;
     border-radius: 10px;
     margin-top: 25px;
     overflow: hidden;
     position: relative;
+    z-index: 1;
+}
+
+form button::before, form button::after {
+    position: absolute;
+    content: "  ";
+    height: 100%;
+    top: 0;
+    z-index: -1;
 }
 
 form button::before {
-    position: absolute;
-    background: var(--color-main);
-    content: "  ";
+    background: #FFE15D;
+    transition: all .5s ease;
+    width: 100%;
+    left: -100%;
+}
+
+form button::after {
+    background: var(--color-submit);
+    transition: all .6s ease;
     width: 30%;
-    height: 100%;
-    top: 0;
     left: -30%;
-    transition: all 1s ease;
-    clip-path: polygon(7% 0, 100% 0%, 93% 100%, 0% 100%);
 }
 
 form button:hover::before {
+    left: 0;
+}
+
+form button:hover::after {
     left: 130%;
+}
+
+form button:hover {
+    color: var(--color-background);
 }
 
 .dates {
@@ -126,7 +145,7 @@ form button:hover::before {
 
 .messageTag {
     color: var(--color-main);
-    letter-spacing: 2px;
+    text-transform: lowercase;
     font-size: 15px;
     font-weight: bold;
 }
