@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
+
 :root {
     /* --color-main: #EB455F; */
     --color-main: rgb(255, 0, 68);
@@ -13,6 +15,7 @@
 }
 
 .container {
+    font-family: 'Nunito Sans', sans-serif;
     grid-area: container;
     width: 100%;
 
@@ -36,9 +39,10 @@ form {
 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 }
+
 
 form .titleForm {
     color: var(--color-main);
@@ -137,6 +141,11 @@ form button:hover {
     color: var(--color-text);
 }
 
+.dates input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
 .dates div {
     display: flex;
     flex-direction: column;
@@ -161,4 +170,16 @@ form button:hover {
 
 .times {
     width: 100%;
+}
+
+
+form select {
+    appearance: none;
+    cursor: pointer;
+}
+
+form select option {
+    background: var(--color-text);
+    color: var(--color-background);
+    cursor: pointer;
 }

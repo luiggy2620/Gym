@@ -20,9 +20,15 @@
 }
 
 body {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     background: var(--color-background);
     display: grid;
     grid-template-columns:  13% 87%;
     grid-template-areas: "navbar container ";
+}
+
+button::selection, a::selection, label::selection, input::selection, 
+    select::selection, span::selection, img::selection, b::selection {
+    color: white;
+    background: var(--color-main); 
 }

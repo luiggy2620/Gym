@@ -79,9 +79,6 @@ input:-webkit-autofill:active
     font-size: 17px;
 }
 
-.search button:hover {
-    opacity: 0;
-}
 
 .manager .add {
     width: 15%;
