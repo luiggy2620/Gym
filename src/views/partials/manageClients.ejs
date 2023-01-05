@@ -1,19 +1,31 @@
 <div class="manager">
 
-    <div class="searchBox">
+    <div class="search">
 
-        <div class="search">
-            <form action="/clients/search" method="get">
-                <label for="data"></label>
-                <input type="text" name="data" id="search" placeholder="Search by Name / Phone">
-                <button type="button" onclick="removeText()" id="removeButton">
-                    <i class="fa-solid fa-x"></i>
-                </button>
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
+        <form action="/clients/search" method="get">
+            <label for="data"></label>
+            <input type="text" name="data" id="search" placeholder="Search by Name / Phone">
+            <button type="button" onclick="removeText()" id="removeButton">
+                <i class="fa-solid fa-x"></i>
+            </button>
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+
+    </div>
+
+    <div class="managerFooter">
+
+        <div class="sorter">
+    
+            <a href="/clients">All</a>
+            <a href="/clients/sort?sort=name&order=asc">Name Ascendant</a>
+            <a href="/clients/sort?sort=name&order=desc">Name Descending</a>
+            <a href="/clients/sort?sort=finalDate&order=desc">More Days Left</a>
+            <a href="/clients/sort?sort=finalDate&order=asc">Less Days Left</a>
+            <a href="/clients/sort?sort=times&order=desc">More Times</a>
+            <a href="/clients/sort?sort=times&order=asc">Less Times</a>
     
         </div>
-    
     
         <div class="add">
             <a href="/client/add">
@@ -24,16 +36,5 @@
 
     </div>
 
-    <div class="sortBox">
-
-        <a href="/clients">All</a>
-        <a href="/clients/sort?sort=name&order=asc">Name Ascendant</a>
-        <a href="/clients/sort?sort=name&order=desc">Name Descending</a>
-        <a href="/clients/sort?sort=finalDate&order=desc">More Days Left</a>
-        <a href="/clients/sort?sort=finalDate&order=asc">Less Days Left</a>
-        <a href="/clients/sort?sort=times&order=desc">More Times</a>
-        <a href="/clients/sort?sort=times&order=asc">Less Times</a>
-
-    </div>
 
 </div>
