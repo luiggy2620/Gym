@@ -1,4 +1,6 @@
 :root {
+    --color-main: rgb(255, 0, 68);
+
     --color-background: #111;
     --color-text: white;
     --color-hover: #333;
@@ -43,6 +45,19 @@
     justify-content: space-between;
 
     cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.client::before {
+    content: '  ';
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    background: var(--color-main);
+    top: 0;
+    left: -20%;
+    transition: all .6s ease;
 }
 
 .client a {
@@ -50,8 +65,12 @@
     color: var(--color-text);
 }
 
+.client:hover::before {
+    left: 120%;
+}
+
 .client:hover {
-    background: var(--color-hover);
+    background: #111;
 }
 
 .header {
