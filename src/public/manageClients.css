@@ -14,10 +14,40 @@
 .manager {
     background: var(--color-background);
     width: 78%;
-    height: 6vh;
-    min-height: 50px;
+    height: 10vh;
+    min-height: 100px;
     position: fixed;
     display: flex;
+    flex-direction: column;
+}
+
+.manager .searchBox, .manager .sortBox {
+    display: flex;
+    align-items: center;
+}
+
+.manager .searchBox {
+    height: 60%;
+}
+
+.manager .sortBox {
+    height: 40%;
+    gap: 15px;
+    padding: 10px 20px 0 20px;
+}
+
+.manager .sortBox a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-hover);
+    height: 100%;
+    padding: 0 15px 0 15px;
+    border-radius: 10px;
+}
+
+.manager .sortBox a:hover {
+    background: var(--color-border);
 }
 
 .manager a {
@@ -27,6 +57,7 @@
 
 .search {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -35,8 +66,8 @@
 }
 
 .search form {
-    height: 100%;
     width: 60%;
+    height: 100%;
     border: 1px solid var(--color-border);
     border-radius: 20px;
     display: flex;
@@ -82,6 +113,7 @@ input:-webkit-autofill:active
 
 .manager .add {
     width: 15%;
+    height: 60%;
     margin: 10px;
     border-radius: 5px;
     overflow: hidden;

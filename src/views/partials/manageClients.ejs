@@ -1,23 +1,39 @@
 <div class="manager">
 
-    <div class="search">
-        <form action="/clients/search" method="get">
-            <label for="data"></label>
-            <input type="text" name="data" id="search" placeholder="Search by Name / Phone">
-            <button type="button" onclick="removeText()" id="removeButton">
-                <i class="fa-solid fa-x"></i>
-            </button>
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
+    <div class="searchBox">
+
+        <div class="search">
+            <form action="/clients/search" method="get">
+                <label for="data"></label>
+                <input type="text" name="data" id="search" placeholder="Search by Name / Phone">
+                <button type="button" onclick="removeText()" id="removeButton">
+                    <i class="fa-solid fa-x"></i>
+                </button>
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+    
+        </div>
+    
+    
+        <div class="add">
+            <a href="/client/add">
+                <i class="fa-solid fa-plus"></i>
+                <span>New</span>
+            </a>
+        </div>
 
     </div>
 
+    <div class="sortBox">
 
-    <div class="add">
-        <a href="/client/add">
-            <i class="fa-solid fa-plus"></i>
-            <span>New</span>
-        </a>
+        <a href="/clients?sort=name">All</a>
+        <a href="/clients?sort=name&order=asc">Name Asc</a>
+        <a href="/clients?sort=name&order=desc">Name Desc</a>
+        <a href="/clients?sort=finalDate&order=asc">Final Date Asc</a>
+        <a href="/clients?sort=finalDate&order=desc">Final Date Desc</a>
+        <a href="/clients?sort=times&order=asc">Times Asc</a>
+        <a href="/clients?sort=times&order=desc">Times Desc</a>
+
     </div>
 
 </div>
