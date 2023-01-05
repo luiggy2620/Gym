@@ -9,7 +9,7 @@
 
     <div class="container">
 
-        <form action="/client/edit/<%= clientEdit.id%>?_method=put " method="post">
+        <form action="/client/edit/<%= clientEdit.id%>?_method=put " method="post" class="edit">
             <input type="hidden"  name="_method" value="put">
             
             <span class="titleForm">
@@ -81,6 +81,24 @@
             <button>Edit Client</button>
 
         </form>
+
+        <div class="danger">
+
+            <p>
+                <span>Danger!</span> <br>
+                Delete this client. Once you delete a client, there is no going back. Please be certain.
+
+            </p>
+
+
+            <form action="/client/delete/<%= clientEdit.id %>?_method=delete" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button>
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </form>
+
+        </div>
 
     </div>
 

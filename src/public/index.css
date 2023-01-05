@@ -28,7 +28,7 @@ body {
 }
 
 button::selection, a::selection, label::selection, input::selection, 
-    select::selection, span::selection, img::selection, b::selection {
+    select::selection, span::selection, img::selection, b::selection, p::selection {
     color: white;
     background: var(--color-main); 
 }

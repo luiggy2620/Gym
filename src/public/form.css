@@ -14,13 +14,14 @@
     --color-alert: red;
 }
 
+
 .container {
     font-family: 'Nunito Sans', sans-serif;
     grid-area: container;
     width: 100%;
 
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
     height: 100vh;
     background-image: url('/images/cbum.jpg');
     background-size: 110vh;
@@ -28,7 +29,7 @@
     background-repeat: no-repeat;
 }
 
-form {
+form.edit {
     background: transparent;
     width: 60%;
     height: 100%;
@@ -44,7 +45,7 @@ form {
 }
 
 
-form .titleForm {
+form.edit .titleForm {
     color: var(--color-main);
     font-size: 40px;
     font-weight: 800;
@@ -55,14 +56,14 @@ form .titleForm {
     border-bottom: 1px solid var(--color-main);
 }
 
-form label {
+form.edit label {
     width: 100%;
     margin: 5px 0 5px 0;
     color: var(--color-text);
     font-weight: 800;
 }
 
-form input, form button, form select {
+form.edit input, form.edit button, form.edit select {
     width: 100%;
     background: transparent;
     border: none;
@@ -72,17 +73,17 @@ form input, form button, form select {
     margin-bottom: 10px;
 }
 
-form input {
+form.edit input {
     outline: none;
 }
 
-form select {
+form.edit select {
     color: var(--color-text);
     box-shadow: none;
     outline: none;
 }
 
-form button {
+form.edit button {
     background: var(--color-main);
     color: var(--color-text);
     border: 1px solid var(--color-border);
@@ -173,13 +174,49 @@ form button:hover {
 }
 
 
-form select {
+form.edit select {
     appearance: none;
     cursor: pointer;
 }
 
-form select option {
+form.edit select option {
     background: var(--color-text);
     color: var(--color-background);
     cursor: pointer;
+}
+
+
+.danger {
+    padding: 20px;
+    margin-left: 2%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: top;
+}
+
+.danger form {
+    width: auto;
+    display: flex;
+    width: 20%;
+    margin-left: 10px;
+}
+
+.danger span, .danger p {
+    color: var(--color-main);
+    font-size: 15px;
+}
+
+.danger button {
+    background: transparent;
+    border: none;
+    color: var(--color-main);
+    padding: 10px;
+    border-radius: 10px;
+    width: 60%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 20px;
 }
