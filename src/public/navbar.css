@@ -21,7 +21,6 @@
     flex-direction: column;
     height: 100vh;
     position: fixed;
-    border-right: 2px solid var(--color-main);
 }
 
 .title {
@@ -48,12 +47,23 @@
     text-decoration: none;
     color: var(--color-text);
     border-radius: 10px;
+    margin: 5px 0 5px 0;
 }
 
 .navbar a:hover {
     background: var(--color-hover);
 }
 
+.navbar a:target {
+    background: var(--color-hover);
+}
+
 .navbar i {
     margin-right: 10px;
+}
+
+.separator {
+    border-bottom: 2px solid var(--color-border);
+    width: 90%;
+    margin: 10px 0 10px 0;
 }

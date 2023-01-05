@@ -132,20 +132,3 @@ clientController.sortClients = async (request, response) => {
 }
 
 module.exports = clientController;
-
-
-/* <div class="options">
-    <form action="/client/edit/<%= client.id.toString() %> ">
-        <button>
-            <i class="fa-solid fa-pen"></i>
-            <span>Edit</span>
-        </button>
-    </form>
-    <form action="/client/delete/<%= client.id %>?_method=delete" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <button>
-            <i class="fa-solid fa-trash"></i>
-            <span>Delete</span>
-        </button>
-    </form>
-</div> */

@@ -1,15 +1,16 @@
 :root {
     --color-danger: rgb(255, 0, 68);
-    --color-succesfully: #38E54D;
+    --color-succesfully: #B3FFAE;
 }
 
 #alert {
     padding: 20px;
     border-radius: 10px;
-    width: 89%;
+    width: 90%;
     margin: auto;
     display: flex;
     justify-content: space-between;
+    text-transform: capitalize;
 }
 
 

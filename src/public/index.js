@@ -3,11 +3,18 @@ function daysBetween(date1, date2) {
     return Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24));
 }
 
-function closeAlert () {
+function closeAlert() {
     let message = document.getElementById('alert');
     message.style.display = "none";
 }
 
 function removeText() {
     document.getElementById("search").value = "";
+}
+
+function activeOption() {
+    const options = document.querySelectorAll('.option');
+    options.forEach((option) => {
+        option.classList.remove('selected');
+    })
 }

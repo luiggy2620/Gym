@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
 
 :root {
-    /* --color-main: #EB455F; */
     --color-main: rgb(255, 0, 68);
 
     --color-background: #111;
@@ -12,6 +11,17 @@
 
     --color-submit: blue;
     --color-alert: red;
+
+    /* --color-main: rgb(255, 0, 68);
+
+    --color-background: #111;
+    --color-text: white;
+    --color-hover: #333;
+    --color-border: #444;
+    --color-shadow: #999;
+
+    --color-submit: blue;
+    --color-alert: red; */
 }
 
 
@@ -27,6 +37,7 @@
     background-size: 110vh;
     background-position: right top;
     background-repeat: no-repeat;
+    background-color: #000;
 }
 
 form.edit {
@@ -129,7 +140,7 @@ form button:hover::after {
 }
 
 form button:hover {
-    color: var(--color-background);
+    color: var(--color-hover);
 }
 
 .dates {

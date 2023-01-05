@@ -3,8 +3,17 @@
 
     --color-background: #111;
     --color-text: white;
-    --color-hover: #333;
-    --color-border: #444;
+    --color-hover: #222;
+    --color-border: #333;
+
+    --color-fullDays: #82CD47;
+    --color-mediumDays: #7DE5ED;
+    --color-zeroDays: rgb(255, 0, 68);
+
+    /* --color-background: white;
+    --color-text: #000;
+    --color-hover: rgb(200, 200, 200);
+    --color-border: #999; */
 }
 
 .container {
@@ -16,7 +25,7 @@
 
 .containerClients {
     overflow: hidden;
-    background: var(--color-background);
+    background: transparent;
     box-sizing: border-box;
     width: 100%;
     padding-bottom: 20px;
@@ -60,27 +69,27 @@
 }
 
 .client.fullDays::before {
-    background: #38E54D;
+    background: var(--color-fullDays);
 }
 
 .client.fullDays {
-    border-bottom: 3px solid #38E54D;
+    border-bottom: 3px solid var(--color-fullDays);
 }
 
 .client.mediumDays::before {
-    background: #1D1CE5;
+    background: var(--color-mediumDays);
 }
 
 .client.mediumDays {
-    border-bottom: 3px solid #1D1CE5;
+    border-bottom: 3px solid var(--color-mediumDays);
 }
 
 .client.zeroDays::before {
-    background: rgb(255, 0, 68);;
+    background: var(--color-zeroDays);
 }
 
 .client.zeroDays {
-    border-bottom: 3px solid rgb(255, 0, 68);;
+    border-bottom: 3px solid var(--color-zeroDays);
 }
 
 .client a {
@@ -93,7 +102,7 @@
 }
 
 .client:hover {
-    background: #111;
+    background: rgb(23, 23, 23);
 }
 
 .header {
@@ -102,6 +111,7 @@
     width: 100%;
     padding-bottom: 5px;
     margin-bottom: 20px;
+    position: relative;
 }
 
 .header span {
@@ -111,12 +121,30 @@
     font-weight: 600;
 }
 
-.header button {
+.header button.buttonSubMenu {
     background: transparent;
     border: none;
     color: var(--color-text);
     font-size: 20px;
     cursor: pointer;
+    border: 1px solid red;
+    padding: 2px 5px 2px 5px;
+    position: relative;
+}
+
+.header .boxMenu {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonSubMenu:hover i {
+    color: red;
+}
+
+
+.subMenu {
+    background: white;
+    position: absolute;
 }
 
 .body {
@@ -136,31 +164,3 @@
     justify-content: space-between;
     padding-right: 10px;
 }
-
-/* .options {
-    display: flex;
-    gap: 10px;
-}
-
-.options form {
-    width: 100%;
-}
-
-.options button {
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    text-transform: uppercase;
-    padding: 10px;
-
-    background: transparent;
-    border-radius: 4px;
-    color: white;
-    border: 1px solid #999;
-    text-align: center;
-}
-
-.options button:hover  {
-    background: red;
-} */
