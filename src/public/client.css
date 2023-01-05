@@ -21,7 +21,8 @@
     border-top-right-radius: 10px;
     box-sizing: border-box;
     width: 100%;
-    padding: 12vh 0 20px 0;
+    padding: 0 0 20px 0;
+    margin-top: 12vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -47,17 +48,42 @@
     cursor: pointer;
     overflow: hidden;
     position: relative;
+    z-index: 1;
 }
 
 .client::before {
+    z-index: -1;
     content: '  ';
     width: 20%;
     height: 100%;
     position: absolute;
-    background: var(--color-main);
     top: 0;
     left: -20%;
     transition: all .7s ease;
+}
+
+.client.fullDays::before {
+    background: #38E54D;
+}
+
+.client.fullDays {
+    border-bottom: 3px solid #38E54D;
+}
+
+.client.mediumDays::before {
+    background: #1D1CE5;
+}
+
+.client.mediumDays {
+    border-bottom: 3px solid #1D1CE5;
+}
+
+.client.zeroDays::before {
+    background: rgb(255, 0, 68);;
+}
+
+.client.zeroDays {
+    border-bottom: 3px solid rgb(255, 0, 68);;
 }
 
 .client a {

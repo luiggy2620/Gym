@@ -1,0 +1,27 @@
+:root {
+    --color-danger: rgb(255, 0, 68);
+    --color-succesfully: #38E54D;
+}
+
+#alert {
+    color: white;
+    width: 100%;
+}
+
+#alert .contentAlert{
+    padding: 20px;
+    border-radius: 10px;
+    width: 89%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+#alert button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 15px 20px 15px 20px;
+    color: white;
+}

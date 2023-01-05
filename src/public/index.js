@@ -3,8 +3,8 @@ function daysBetween(date1, date2) {
     return Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24));
 }
 
-function closeMessage () {
-    let message = document.querySelector('.message');
+function closeAlert () {
+    let message = document.getElementById('alert');
     message.style.display = "none";
 }
 

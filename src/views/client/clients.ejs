@@ -3,6 +3,7 @@
     <%- include('../partials/navbarStyle.ejs') %> 
     <%- include('../partials/clientStyle.ejs') %> 
     <%- include('../partials/manageStyle.ejs') %> 
+    <%- include('../partials/alertStyle.ejs') %> 
 
 <%- include('../partials/headerBottom.ejs') %> 
 
@@ -10,11 +11,13 @@
 
     <div class="container">
 
-
-        <% if(clients.length === 0) %> 
-            <%- include('../partials/manageClients.ejs') %> 
+            
+        <%- include('../partials/manageClients.ejs') %>         
         
         <div class="containerClients">
+
+            <%- include('../partials/alert.ejs') %> 
+
 
             <% if(clients.length === 0) { %> 
 
@@ -33,18 +36,22 @@
                     <% let restDays = Math.floor((finalDate - initialDate) / (1000 * 60 * 60 * 24)); %>
                     <% if(restDays < 0) restDays = 0 %> 
 
-                    <div class="client"
-                    
-                        <% if(restDays <= 15 && restDays > 0) { %>
-                            style="border-bottom: 4px solid #1D1CE5;" 
+                    <div 
+                        <% if(restDays > 29) { %>
+                            
+                            class="client fullDays"
+                            
                         <% } else if (restDays == 0) { %> 
-                            style="border-bottom: 4px solid rgb(255, 0, 68);" 
+        
+                            class="client zeroDays"
+                            
                         <% } else { %> 
-                            style="border-bottom: 4px solid #38E54D;" 
-                        <% } %>
 
+                            class="client mediumDays"
+
+                        <% } %> 
                     >
-
+                    
                         <a href="/client/edit/<%= client.id.toString() %> ">
                 
                             <div class="header">
@@ -78,8 +85,9 @@
                         </a>
             
                     </div>
-            
+                    
                 <% }); %> 
+
 
             <% } %> 
 

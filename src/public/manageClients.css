@@ -19,6 +19,7 @@
     position: fixed;
     display: flex;
     flex-direction: column;
+    margin-bottom: 12vh;
 }
 
 .manager .searchBox, .manager .sortBox {
