@@ -1,19 +1,27 @@
 <% if(dangerMessage[0]) { %> 
 
-    <div id="alert">
-    
-    
-        <div class="contentAlert" style="background: rgb(255, 0, 68);">
+    <div id="alert" class="danger">
 
-            <span><%= dangerMessage %> </span>
-            <button onclick="closeAlert()">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            
-        </div>
+        <span><%= dangerMessage %> </span>
+        <button onclick="closeAlert()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
     
-    
+    </div>
+
+<% } else if (successMessage[0]) { %> 
+
+    <div id="alert" class="success">
+
+        <span><%= successMessage %> </span>
+        <button onclick="closeAlert()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
     
     </div>
 
 <% } %> 
+
+
+
+

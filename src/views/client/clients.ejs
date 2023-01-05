@@ -37,9 +37,9 @@
                     <% if(restDays < 0) restDays = 0 %> 
 
                     <div 
-                        <% if(restDays > 29) { %>
+                        <% if(restDays < 15 && restDays > 0) { %>
                             
-                            class="client fullDays"
+                            class="client mediumDays"
                             
                         <% } else if (restDays == 0) { %> 
         
@@ -47,7 +47,7 @@
                             
                         <% } else { %> 
 
-                            class="client mediumDays"
+                            class="client fullDays"
 
                         <% } %> 
                     >

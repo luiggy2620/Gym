@@ -4,24 +4,36 @@
 }
 
 #alert {
-    color: white;
-    width: 100%;
-}
-
-#alert .contentAlert{
     padding: 20px;
     border-radius: 10px;
     width: 89%;
     margin: auto;
     display: flex;
     justify-content: space-between;
-    color: white;
 }
+
 
 #alert button {
     background: transparent;
     border: none;
     cursor: pointer;
     font-size: 15px 20px 15px 20px;
+}
+
+.danger {
+    background: var(--color-danger);
     color: white;
+}
+
+.danger button {
+    color: white;
+}
+
+.success {
+    background: var(--color-succesfully);
+    color: #1d1d1d;
+}
+
+.success button {
+    color: #1d1d1d;
 }
