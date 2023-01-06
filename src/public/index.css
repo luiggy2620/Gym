@@ -31,6 +31,7 @@ body {
     display: grid;
     grid-template-columns:  13% 87%;
     grid-template-areas: "navbar container ";
+    font-size: 18px;
 }
 
 button::selection, a::selection, label::selection, input::selection, 

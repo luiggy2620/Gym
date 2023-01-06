@@ -46,6 +46,7 @@ function decreaseTimes() {
     times.value = parseInt(currentValue) - 1;
 }
 
+
 function increaseMonths() {
     const months = document.getElementById('monthsClient');
     const currentValue = months.innerHTML;

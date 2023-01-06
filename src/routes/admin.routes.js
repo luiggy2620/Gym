@@ -8,7 +8,7 @@ route.get('/admin/login', adminController.renderLogin);
 
 route.post('/admin/logging', adminController.loginAdmin);
 
-route.use(existsAdmin);
+// route.use(existsAdmin);
 
 route.get('/admin/logout', adminController.logout);
 
