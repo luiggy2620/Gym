@@ -275,3 +275,18 @@ form.edit select option {
 .danger button i {
     margin-left: 5px;
 }
+
+.back {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    padding: 5px 15px 5px 15px;
+}
+
+.back:hover {
+    background: var(--color-hover);
+}

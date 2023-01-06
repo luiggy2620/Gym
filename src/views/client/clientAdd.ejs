@@ -13,6 +13,8 @@
         <form action="/client/add" method="post" class="edit">
             
             <% let currentDate = new Date()%>
+
+            <a href="/clients" class="back"><i class="fa-solid fa-angles-left"></i>Back</a>
             
             <span class="titleForm">
                 new client
@@ -83,7 +85,7 @@
                     <%= dangerMessage %> 
                 </label>
     
-            <button>Add Client</button>
+            <button class="editButtom">Add Client</button>
     
         </form>
     </div>
