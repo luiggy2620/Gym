@@ -9,17 +9,25 @@
 
     <div class="container">
 
-        <form action="/admin/login" method="get" class="edit">
+        <form action="/admin/logging" method="post" class="edit">
 
             <span class="titleForm">
                 Welcome
             </span>
     
             <label for="email">Email</label>
-            <input type="email" name="email">
+            <input type="email" name="email" autocomplete="off">
+
+            <% if(error[0] && error[0] === 'User not found') { %> 
+                <span class="messageTag"><%= error %> </span>
+            <% } %> 
     
             <label for="password">Password</label>
-            <input type="password" name="password" id="password">
+            <input type="password" name="password" id="password" autocomplete="off">
+
+            <% if(error[0] && error[0] === 'Incorrect password') { %> 
+                <span class="messageTag"><%= error %> </span>
+            <% } %> 
     
             <button class="editButtom">Login</button>
     

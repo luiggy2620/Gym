@@ -4,7 +4,7 @@ const route = Router();
 
 route.get('/admin/login', adminController.renderLogin);
 
-route.get('/admin/logging', adminController.loginAdmin);
+route.post('/admin/logging', adminController.loginAdmin);
 
 route.get('/admin/logout', adminController.logout);
 

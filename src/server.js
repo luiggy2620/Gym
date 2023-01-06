@@ -37,6 +37,7 @@ app.use(passport.session());
 app.use((request, response, next) => {
     response.locals.successMessage = request.flash('successMessage');
     response.locals.dangerMessage = request.flash('dangerMessage');
+    response.locals.error = request.flash('error');
 
     response.locals.errorPhone = request.flash('errorPhone');
     response.locals.errorDate = request.flash('errorDate');
@@ -44,7 +45,7 @@ app.use((request, response, next) => {
     response.locals.errorEmail = request.flash('errorEmail');
     response.locals.errorPassword = request.flash('errorPassword');
 
-    response.locals.admin = request.admin || null;
+    response.locals.user = request.user || null;
     next();
 });
 

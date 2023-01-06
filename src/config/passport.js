@@ -1,22 +1,22 @@
 const passport = require('passport');
-const locaStrategy = require('passport-local').Strategy;
+const localStrategy = require('passport-local').Strategy;
 
 const Admin = require('../model/Admin');
-
-passport.use(new locaStrategy({
+                                                                    
+passport.use(new localStrategy({
     usernameField: 'email',
     passwordField: 'password'
 }, async (email, password, done) => {
 
     const admin = await Admin.findOne({ email }).exec();
-    if(!admin) {
+    if (!admin) {
         return done(null, false, {message: 'User not found'});
     } else {
         const match = await admin.matchPassword(password);
-        if(match) {
+        if (match) {
             return done(null, admin);
         } else {
-            return done(null, false, {message: 'Incorrect Password'});
+            return done(null, false, {message: 'Incorrect password'});
         }
     }
 }));
@@ -27,6 +27,6 @@ passport.serializeUser((admin, done) => {
 
 passport.deserializeUser((id, done) => {
     Admin.findById(id, (err, admin) => {
-        done(err, admin)
+        done(err, admin);
     })
 });
