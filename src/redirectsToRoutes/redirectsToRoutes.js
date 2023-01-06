@@ -13,12 +13,12 @@ redirectToRoutes.sendClients = (response, clients) => {
 }
 
 redirectToRoutes.redirectTo404 = (request, response, next) => {
-    response.render('404.ejs');
+    response.status(404).render('404.ejs');
 }
 
 redirectToRoutes.existsAdmin = (request, response, next) => {
     if(request.user) next()
-    else response.render('404.ejs');;
+    else response.status(404).render('404.ejs');;
 }
 
 module.exports = redirectToRoutes;

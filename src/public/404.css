@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container404 {
+    font-family: 'Nunito Sans', sans-serif;
+
+    height: 100vh;
+    background-image: url(/images/fondo4042.jpg);
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.container404 .error404 {
+    font-size: 350px;
+}
