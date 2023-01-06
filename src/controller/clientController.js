@@ -1,25 +1,11 @@
 const clientController = {};
 const Client = require('../model/Client');
-const { isEmpty, isValidPhone, isValidMonths, isValidDate, isValidTimes } = require('../validations/clientValidations');
+const { sendMessage, sendClients } = require('../sendToRoutes/redirectsRoutes');
+const { isEmpty, isValidPhone, isValidMonths, isValidDate, isValidTimes } 
+            = require('../validations/clientValidations');
 
 let nameTemporal = '', lastNameTemporal = '', phoneTemporal = '', gymTemporal = '',
     initialDateTemporal = '', monthsTemporal = '';
-
-const sendMessage = (request, response, typeMessage, message, direction) => {
-    console.log(message);
-    request.flash(typeMessage, message);
-    response.redirect(direction);
-};
-
-const renderClients = (request, response, clients) => {
-    response.render('client/clients.ejs', {
-        clients, request
-    });
-}
-
-const formatDate = date => {
-    return new Date(date).toISOString().slice(0, 10);
-}
 
 const resetData = () => {
     nameTemporal = '', lastNameTemporal = '', phoneTemporal = '', gymTemporal = '',
@@ -29,7 +15,7 @@ const resetData = () => {
 clientController.renderClients = async (request, response) => {
     let clients = [];
     clients = await Client.find();
-    renderClients(request, response, clients);
+    sendClients(response, clients);
 }
 
 clientController.renderRegisterClient = (request, response) => {
@@ -62,7 +48,6 @@ clientController.registerClient = async (request, response) => {
             let currentDate = new Date(Date.parse(initialDate));
             let finalDate = new Date();
             finalDate.setDate(currentDate.getDate() + ((7 * 4) * months));
-            // const restDays = Math.floor((finalDate - currentDate) / (1000 * 60 * 60 * 24));
             const newClient = new Client({ name: name.toLowerCase(), lastName: lastName.toLowerCase(), phone, gym, initialDate, finalDate });
             await newClient.save();
             resetData();
@@ -103,9 +88,9 @@ clientController.editClient = async (request, response) => {
 }
 
 clientController.deleteClient = async (request, response) => {
-    console.log(request.params.id);
+    const clientToDelete = await Client.findById(request.params.id);
     await Client.findByIdAndDelete(request.params.id);
-    response.redirect('/clients');
+    sendMessage(request, response, 'successMessage', `${clientToDelete.name + clientToDelete.lastName} delete successfully`, '/clients');
 }
 
 clientController.searchClients = async (request, response) => {
@@ -119,7 +104,7 @@ clientController.searchClients = async (request, response) => {
     if (clients.length == 0)
         sendMessage(request, response, 'dangerMessage', 'Any Clients Found', '/clients');
     else
-        renderClients(request, response, clients);
+        sendClients(response, clients);
 }
 
 clientController.sortClients = async (request, response) => {
@@ -128,7 +113,7 @@ clientController.sortClients = async (request, response) => {
     if (order === 'desc') typeOrder = -1;
 
     const clients = await Client.find({}).sort([[sort, typeOrder]]);
-    renderClients(request, response, clients);
+    sendClients(response, clients);
 }
 
 module.exports = clientController;
