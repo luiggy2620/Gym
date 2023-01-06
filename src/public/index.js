@@ -18,3 +18,18 @@ function activeOption() {
         option.classList.remove('selected');
     })
 }
+
+function checkConfirm() {
+    const confirmMessage = 'delete'
+    const inputToConfirm = document.getElementById('toConfirm');
+    let text = inputToConfirm.value;
+    if(text.toLowerCase() === confirmMessage) {
+        const buttonToDelete = document.getElementById('deleteClient');
+        buttonToDelete.style.opacity = 1;
+        buttonToDelete.removeAttribute('disabled');
+    } else {
+        const buttonToDelete = document.getElementById('deleteClient');
+        buttonToDelete.style.opacity = .5;
+        buttonToDelete.disabled = true;
+    }
+}

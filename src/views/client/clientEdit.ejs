@@ -9,7 +9,9 @@
 
     <div class="container">
 
-        <form action="/client/edit/<%= clientEdit.id%>?_method=put " method="post" class="edit">
+
+        <form action="/client/edit/<%= clientEdit.id%>?_method=put " method="post" class="edit" 
+            style="justify-content: end;">
             <input type="hidden"  name="_method" value="put">
             
             <span class="titleForm">
@@ -86,14 +88,17 @@
 
             <p>
                 <span>Danger!</span> <br>
-                Delete this client. Once you delete a client, there is no going back. Please be certain.
+                Once you delete a client, there is no going back. Please be certain.
 
             </p>
 
 
             <form action="/client/delete/<%= clientEdit.id %>?_method=delete" method="post">
                 <input type="hidden" name="_method" value="delete">
-                <button>
+                <input type="text" name="confirm" id="toConfirm" placeholder='Type "delete" to Delete this client' autocomplete="off" 
+                    oninput="checkConfirm()">
+                <button id="deleteClient" disabled>
+                    DELETE
                     <i class="fa-solid fa-trash"></i>
                 </button>
             </form>

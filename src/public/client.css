@@ -121,6 +121,10 @@
     font-weight: 600;
 }
 
+.header i {
+    font-size: 22px;
+}
+
 .header button.buttonSubMenu {
     background: transparent;
     border: none;

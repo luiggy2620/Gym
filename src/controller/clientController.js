@@ -96,7 +96,7 @@ clientController.editClient = async (request, response) => {
         const clientFound = await Client.findOne({ phone });
         if (!clientFound || clientFound.phone == phone) {
             await Client.findByIdAndUpdate(request.params.id, { name, lastName, phone, gym, initialDate, finalDate, times });
-            sendMessage(request, response, 'successMessage', `Client ${name + ' ' + lastName} successfully updated`, '/clients');
+            sendMessage(request, response, 'successMessage', `${name + ' ' + lastName} successfully updated`, '/clients');
         } else
             sendMessage(request, response, 'errorPhone', `The client with phone ${phone} already exists`, directionToBack);
     }

@@ -38,6 +38,7 @@
     background-position: right top;
     background-repeat: no-repeat;
     background-color: #000;
+    position: relative;
 }
 
 form.edit {
@@ -109,7 +110,7 @@ form.edit button {
     z-index: 1;
 }
 
-form button::before, form button::after {
+form.edit button::before, form button::after {
     position: absolute;
     content: "  ";
     height: 100%;
@@ -117,29 +118,29 @@ form button::before, form button::after {
     z-index: -1;
 }
 
-form button::before {
+form.edit button::before {
     background: #FFE15D;
     transition: all .5s ease;
     width: 100%;
     left: -100%;
 }
 
-form button::after {
+form.edit button::after {
     background: var(--color-submit);
     transition: all .6s ease;
     width: 30%;
     left: -30%;
 }
 
-form button:hover::before {
+form.edit button:hover::before {
     left: 0;
 }
 
-form button:hover::after {
+form.edit button:hover::after {
     left: 130%;
 }
 
-form button:hover {
+form.edit button:hover {
     color: var(--color-hover);
 }
 
@@ -165,7 +166,7 @@ form button:hover {
 }
 
 .messageTag {
-    color: var(--color-main);
+    color: var(--color-main) !important;
     text-transform: lowercase;
     font-size: 15px;
     font-weight: bold;
@@ -202,32 +203,48 @@ form.edit select option {
     margin-left: 2%;
     width: 60%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: top;
+    margin-bottom: 2%;
 }
 
 .danger form {
-    width: auto;
+
+    margin-top: 10px;
+    width: 100%;
     display: flex;
-    width: 20%;
-    margin-left: 10px;
 }
 
+.danger input {
+    outline: none;
+    width: 60%;
+    margin-right: 15px;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid var(--color-border);
+    color: white;
+}
+
+
 .danger span, .danger p {
+    width: 100%;
     color: var(--color-main);
     font-size: 15px;
 }
 
 .danger button {
     background: transparent;
-    border: none;
+    border: 2px solid var(--color-main);
+    cursor: pointer;
     color: var(--color-main);
     padding: 10px;
     border-radius: 10px;
-    width: 60%;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
     font-weight: bold;
-    font-size: 20px;
+    width: 15%;
+    opacity: .5;
+}
+
+.danger button i {
+    margin-left: 5px;
 }
