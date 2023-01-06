@@ -24,8 +24,16 @@
                 <span class="messageTag"><%= error %> </span>
             <% } %> 
     
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" autocomplete="off">
+            <div class="passwordBox">
+
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" autocomplete="off">
+                <button type="button" onclick="showPassword()">
+                    <i class="fa-solid fa-eye-slash" id="iconPassword"></i>
+                </button>
+
+            </div>
+
 
             <% if(error[0] && error[0] === 'Incorrect password') { %> 
                 <span class="messageTag"><%= error %> </span>

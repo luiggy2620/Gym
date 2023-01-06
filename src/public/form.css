@@ -316,3 +316,18 @@ form.edit select option {
 .back:hover {
     background: var(--color-hover);
 }
+
+.passwordBox {
+    position: relative;
+    width: 100%;
+}
+
+.passwordBox button {
+    color: var(--color-text);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    right: 2%;
+}

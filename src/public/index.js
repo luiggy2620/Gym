@@ -74,5 +74,18 @@ function decreaseMonths() {
 
     months.innerHTML = parseInt(currentValue) - 1;
     document.getElementById('monthsClientInput').value = parseInt(currentValue) - 1;
+}
 
+function showPassword() {
+    const passwordInput = document.getElementById('password');
+    const iconPassword = document.getElementById('iconPassword');
+    if(passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        iconPassword.classList.add('fa-eye');
+        iconPassword.classList.remove('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        iconPassword.classList.remove('fa-eye');
+        iconPassword.classList.add('fa-eye-slash');
+    }
 }
