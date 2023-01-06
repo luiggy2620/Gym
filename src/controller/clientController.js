@@ -1,7 +1,7 @@
 const clientController = {};
 const Client = require('../model/Client');
-const { sendMessage, sendClients } = require('../sendToRoutes/redirectsRoutes');
-const { isEmpty, isValidPhone, isValidMonths, isValidDate, isValidTimes, isValidData } 
+const { sendMessage, sendClients } = require('../redirectsToRoutes/redirectsToRoutes');
+const { isEmpty, isValidPhone, isValidMonths, isValidDate, isValidTimes } 
             = require('../validations/clientValidations');
 
 let nameTemporal = '', lastNameTemporal = '', phoneTemporal = '', gymTemporal = '',

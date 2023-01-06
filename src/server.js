@@ -9,6 +9,7 @@ const path = require('path');
 const indexRoutes = require('./routes/index.routes');
 const clientRoutes = require('./routes/client.routes');
 const adminRoutes = require('./routes/admin.routes');
+const { redirectTo404 } = require('./redirectsToRoutes/redirectsToRoutes');
 
 // Initialization
 const app = express();
@@ -51,11 +52,9 @@ app.use((request, response, next) => {
 
 // routes
 app.use(indexRoutes);
-app.use(clientRoutes);
 app.use(adminRoutes);
+app.use(clientRoutes);
 
-app.use((request, response, next) => {
-    response.render('404.ejs');
-});
+app.use(redirectTo404);
 
 module.exports = app;

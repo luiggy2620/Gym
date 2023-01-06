@@ -1,6 +1,6 @@
 const adminController = {}
 const passport = require('passport');
-const { sendMessage } = require('../sendToRoutes/redirectsRoutes');
+const { sendMessage } = require('../redirectsToRoutes/redirectsToRoutes');
 
 adminController.renderLogin = async (request, response) => {
     response.render('admin/login.ejs');

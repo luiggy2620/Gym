@@ -32,8 +32,4 @@ clientFunctions.isValidTimes = (times) => {
     return parseInt(times) >= 0;
 }
 
-clientFunctions.isValidData = (...data) => {
-    console.log(data);
-}
-
 module.exports = clientFunctions;
