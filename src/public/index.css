@@ -30,7 +30,6 @@ body {
     background-image: url(/images/fondoGirl.jpg);
     background-size: cover;
     background-attachment: fixed;
-    background-size: 100%;
     background-repeat: no-repeat;
     display: grid;
     grid-template-columns:  13% 87%;
@@ -42,4 +41,77 @@ button::selection, a::selection, label::selection, input::selection,
     select::selection, span::selection, img::selection, b::selection, p::selection {
     color: white;
     background: var(--color-main); 
+}
+
+.containerIndex {
+    
+    grid-area: container;
+    color: var(--color-text);
+    position: relative;
+    padding: 5%;
+    height: 100vh;
+
+}
+
+.containerIndex .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+}
+
+.containerIndex .mainTitle {
+
+    color: var(--color-main);
+    font-size: 180px;
+    text-transform: uppercase;
+    font-size: 800;
+}
+
+.containerIndex .info   p {
+    width: 50%;
+    padding: 20px;
+    font-size: 20px;
+    text-align: end;
+}
+
+.containerIndex .info a {
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--color-text);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px 20px 10px 10px;
+    margin-right: 10px;
+    border-bottom: 3px solid var(--color-text);
+}
+
+.containerIndex .info a:hover {
+    background: var(--color-hover);
+}
+
+.containerIndex .info a i {
+    transform: rotate(180deg);
+    margin-left: 15px;
+}
+
+.containerIndex .ubication {
+    height: 50%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    gap: 20px;
+}
+
+.containerIndex .ubication a {
+    text-decoration: none;
+    font-size: 22px;
+    color: var(--color-text);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.containerIndex .ubication a:hover {
+    background: var(--color-hover);
 }
