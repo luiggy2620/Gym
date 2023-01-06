@@ -12,7 +12,11 @@ adminController.loginAdmin = passport.authenticate('local', {
 })
 
 adminController.logout = (request, response) => {
-    response.send('saliendo');
+    request.logout(function(err) {
+        if (err) { return next(err); }
+        request.flash('successMessage', 'Admin successfully logged out');
+        response.redirect('/');
+      });
 }
 
 module.exports = adminController;
