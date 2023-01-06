@@ -75,7 +75,7 @@ form.edit label {
     font-weight: 800;
 }
 
-form.edit input, form.edit button, form.edit select {
+form.edit input, form.edit button.editButtom, form.edit select {
     width: 100%;
     background: transparent;
     border: none;
@@ -95,7 +95,7 @@ form.edit select {
     outline: none;
 }
 
-form.edit button {
+form.edit button.editButtom {
     background: var(--color-main);
     color: var(--color-text);
     border: 1px solid var(--color-border);
@@ -110,7 +110,7 @@ form.edit button {
     z-index: 1;
 }
 
-form.edit button::before, form button::after {
+form.edit button.editButtom::before, form button.editButtom::after {
     position: absolute;
     content: "  ";
     height: 100%;
@@ -118,29 +118,29 @@ form.edit button::before, form button::after {
     z-index: -1;
 }
 
-form.edit button::before {
+form.edit button.editButtom::before {
     background: #FFE15D;
     transition: all .5s ease;
     width: 100%;
     left: -100%;
 }
 
-form.edit button::after {
+form.edit button.editButtom::after {
     background: var(--color-submit);
     transition: all .6s ease;
     width: 30%;
     left: -30%;
 }
 
-form.edit button:hover::before {
+form.edit button.editButtom:hover::before {
     left: 0;
 }
 
-form.edit button:hover::after {
+form.edit button.editButtom:hover::after {
     left: 130%;
 }
 
-form.edit button:hover {
+form.edit button.editButtom:hover {
     color: var(--color-hover);
 }
 
@@ -183,6 +183,33 @@ form.edit button:hover {
 
 .times {
     width: 100%;
+    display: flex;
+}
+
+.times .time {
+    width: 60%;
+}
+
+.times .buttonsTimes {
+    display: flex;
+    align-items: center;
+}
+
+.times .buttonsTimes button {
+    background: transparent;
+    color: var(--color-text);
+    border: none;
+    cursor: pointer;
+    height: 50%;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.times .buttonsTimes button:hover {
+    background: var(--color-hover);
 }
 
 

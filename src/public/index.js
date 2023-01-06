@@ -33,3 +33,15 @@ function checkConfirm() {
         buttonToDelete.disabled = true;
     }
 }
+
+function increaseTimes() {
+    const times = document.getElementById('timesClient');
+    const currentValue = times.value;
+    times.value = parseInt(currentValue) + 1;
+}
+
+function decreaseTimes() {
+    const times = document.getElementById('timesClient');
+    const currentValue = times.value;
+    times.value = parseInt(currentValue) - 1;
+}

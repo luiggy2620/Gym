@@ -70,8 +70,20 @@
             <% } %> 
 
             <div class="times">
-                <label for="times">Times</label>
-                <input type="number" name="times" value=<%= clientEdit.times %> >
+                <div class="time">
+                    <label for="times">Times</label>
+                    <input type="number" name="times" id="timesClient" value=<%= clientEdit.times %> >
+                </div>
+                <div class="buttonsTimes">
+                    <button type="button" onclick="increaseTimes()">
+                        <i class="fa-solid fa-plus">
+
+                        </i></button>
+                    <button type="button" onclick="decreaseTimes()">
+                        <i class="fa-solid fa-window-minimize"></i>
+                    </button>
+                </div>
+
             </div>
 
             <% if(dangerMessage[0]) %> 
@@ -80,7 +92,7 @@
                 </label>
 
 
-            <button>Edit Client</button>
+            <button class="editButtom">Edit Client</button>
 
         </form>
 
