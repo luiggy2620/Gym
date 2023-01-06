@@ -1,15 +1,15 @@
 const clientController = {};
 const Client = require('../model/Client');
 const { sendMessage, sendClients } = require('../sendToRoutes/redirectsRoutes');
-const { isEmpty, isValidPhone, isValidMonths, isValidDate, isValidTimes } 
+const { isEmpty, isValidPhone, isValidMonths, isValidDate, isValidTimes, isValidData } 
             = require('../validations/clientValidations');
 
 let nameTemporal = '', lastNameTemporal = '', phoneTemporal = '', gymTemporal = '',
-    initialDateTemporal = '', monthsTemporal = '';
+    finalDateTemporal = '', monthsTemporal = '';
 
 const resetData = () => {
     nameTemporal = '', lastNameTemporal = '', phoneTemporal = '', gymTemporal = '',
-        initialDateTemporal = '', monthsTemporal = '';
+        finalDateTemporal = '', monthsTemporal = '';
 }
 
 clientController.renderClients = async (request, response) => {
@@ -24,18 +24,19 @@ clientController.renderRegisterClient = (request, response) => {
         lastName: lastNameTemporal,
         phone: phoneTemporal,
         gym: gymTemporal,
-        initialDate: initialDateTemporal,
+        finalDate: finalDateTemporal,
         months: monthsTemporal
     });
 }
 
 clientController.registerClient = async (request, response) => {
-    const { name, lastName, phone, gym, initialDate, months } = request.body;
+    const { name, lastName, phone, gym, finalDate, months } = request.body;
 
     nameTemporal = name, lastNameTemporal = lastName, phoneTemporal = phone, gymTemporal = gym,
-        initialDateTemporal = initialDate, monthsTemporal = months;
+        finalDateTemporal = finalDate, monthsTemporal = months;
 
-    if (isEmpty(name, lastName, phone, gym, initialDate, months))
+
+    if (isEmpty(name, lastName, phone, gym, finalDate, months))
         sendMessage(request, response, 'dangerMessage', 'Missing credentials', '/client/add');
     else if (!isValidPhone(phone))
         sendMessage(request, response, "errorPhone", 'Invalid phone number', '/client/add');
@@ -43,12 +44,19 @@ clientController.registerClient = async (request, response) => {
         sendMessage(request, response, 'dangerMessage', 'Invalid amount months', '/client/add');
     else {
         const clientFound = await Client.findOne({ phone });
-        console.log(clientFound);
+        const finalDateParse = new Date(finalDate);
+        console.log(finalDateParse, " -------------------- ", months);
+
         if (!clientFound) {
-            let currentDate = new Date(Date.parse(initialDate));
-            let finalDate = new Date();
-            finalDate.setDate(currentDate.getDate() + ((7 * 4) * months));
-            const newClient = new Client({ name: name.toLowerCase(), lastName: lastName.toLowerCase(), phone, gym, initialDate, finalDate });
+            const newClient = new Client({ 
+                name: name.toLowerCase(), 
+                lastName: lastName.toLowerCase(), 
+                phone, 
+                gym, 
+                initialDate: new Date(), 
+                finalDate
+            });
+            console.log(newClient);
             await newClient.save();
             resetData();
             sendMessage(request, response, 'successMessage', `${name + ' ' + lastName} successfully added.`, '/clients');

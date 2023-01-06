@@ -12,7 +12,9 @@
         
         <form action="/client/add" method="post" class="edit">
             
-            <% let currentDate = new Date()%>
+            <% let finalDate = new Date() 
+                finalDate.setDate(finalDate.getDate() + (7*4));
+            %>
 
             <a href="/clients" class="back"><i class="fa-solid fa-angles-left"></i>Back to Clients</a>
             
@@ -65,18 +67,25 @@
             <div class="dates">
 
                 <div>
-                    <label for="initialDate">Initial Date</label>
-                    <input type="date" 
-                    value= <%= currentDate.toISOString().slice(0, 10) %>  
-                    name="initialDate">
+                    <label for="finalDate">Final Date</label>
+                    <input id="finalDateClient" type="date" 
+                    value= <%= finalDate.toISOString().slice(0, 10) %>  
+                    name="finalDate">
                 </div>
 
                 <div>
-                    <label for="months">Months</label>
-                    <input type="number" name="months" 
-                        value="1" 
-                    >
+                    <label for="months" >Months</label>
+                    <input type="hidden" name="months" value="1" id="monthsClientInput">
+                    <span id="monthsClient">1</span>
                 </div>
+
+                <button type="button" onclick="increaseMonths()">
+                    <i class="fa-solid fa-plus">
+
+                    </i></button>
+                <button type="button" onclick="decreaseMonths()">
+                    <i class="fa-solid fa-window-minimize"></i>
+                </button>
 
             </div>
 

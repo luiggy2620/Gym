@@ -147,7 +147,8 @@ form.edit button.editButtom:hover {
 .dates {
     width: 100%;
     display: flex;
-    gap: 20px;
+    align-items: center;
+    gap: 15px;
 }
 
 .dates input {
@@ -162,7 +163,25 @@ form.edit button.editButtom:hover {
 .dates div {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 30%;
+}
+
+.dates span {
+    color: var(--color-text);
+}
+
+.dates button {
+    width: 50px;
+    height: 50%;
+    background: transparent;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.dates button:hover {
+    background: var(--color-hover);
 }
 
 .messageTag {

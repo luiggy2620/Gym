@@ -45,3 +45,33 @@ function decreaseTimes() {
     const currentValue = times.value;
     times.value = parseInt(currentValue) - 1;
 }
+
+function increaseMonths() {
+    const months = document.getElementById('monthsClient');
+    const currentValue = months.innerHTML;
+    
+    const finalDate = document.getElementById('finalDateClient');
+    const currentDate = finalDate.value;
+    let date = new Date(Date.parse(currentDate));
+    date.setDate(date.getDate() + (7*4));
+    
+    finalDate.value = date.toISOString().substring(0,10);
+    months.innerHTML = parseInt(currentValue) + 1;
+    document.getElementById('monthsClientInput').value = parseInt(currentValue) + 1;
+}
+
+function decreaseMonths() {
+    const months = document.getElementById('monthsClient');
+    const currentValue = months.innerHTML;
+
+    const finalDate = document.getElementById('finalDateClient');
+    const currentDate = finalDate.value;
+    let date = new Date(Date.parse(currentDate));
+    date.setDate(date.getDate() - (7*4));
+
+    finalDate.value = date.toISOString().substring(0,10);
+
+    months.innerHTML = parseInt(currentValue) - 1;
+    document.getElementById('monthsClientInput').value = parseInt(currentValue) - 1;
+
+}
