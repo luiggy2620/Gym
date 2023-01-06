@@ -1,9 +1,11 @@
 <% if(dangerMessage[0]) { %> 
 
-    <div id="alert" class="danger">
+    
+
+    <div id="alert" class="danger flash">
 
         <span><%= dangerMessage %> </span>
-        <button onclick="closeAlert()">
+        <button onclick="closeAlert()" id="closeButton">
             <i class="fa-solid fa-xmark"></i>
         </button>
     
@@ -11,10 +13,10 @@
 
 <% } else if (successMessage[0]) { %> 
 
-    <div id="alert" class="success">
+    <div id="alert" class="success flash">
 
         <span><%= successMessage %> </span>
-        <button onclick="closeAlert()">
+        <button onclick="closeAlert()" id="closeButton">
             <i class="fa-solid fa-xmark"></i>
         </button>
     

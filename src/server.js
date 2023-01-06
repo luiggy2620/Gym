@@ -45,7 +45,7 @@ app.use((request, response, next) => {
     response.locals.errorEmail = request.flash('errorEmail');
     response.locals.errorPassword = request.flash('errorPassword');
 
-    response.locals.user = request.user || null;
+    response.locals.admin = request.user || null;
     next();
 });
 

@@ -14,29 +14,43 @@
         <span>About</span>
     </a>
 
-    <div class="separator"></div>
+    <% if(admin) { %> 
 
-    <a href="/clients" >
-        <i class="fa-solid fa-dumbbell"></i>
-        <span>Clients</span>
-    </a>
+        <div class="separator"></div>
     
-    <a href="/client/add" >
-        <i class="fa-solid fa-plus"></i>
-        <span>New Client</span>
-    </a>
+        <a href="/clients" >
+            <i class="fa-solid fa-dumbbell"></i>
+            <span>Clients</span>
+        </a>
+        
+        <a href="/client/add" >
+            <i class="fa-solid fa-plus"></i>
+            <span>New Client</span>
+        </a>
+
+    <% } %> 
+
 
     <div class="separator"></div>
 
+    <% if(!admin) { %> 
 
-    <a href="/admin/login">
-        <i class="fa-solid fa-arrow-right-to-bracket"></i>
-        <span>Login</span>
-    </a>
+        <a href="/admin/login">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            <span>Login</span>
+        </a>
 
-    <a href="/logout" >
-        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-        <span>Logout</span>
-    </a>
+    <% } %> 
+
+
+    <% if(admin) { %> 
+
+        <a href="/logout" >
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Logout</span>
+        </a>
+
+    <% } %> 
+
 
 </div>

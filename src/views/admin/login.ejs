@@ -11,6 +11,8 @@
 
         <form action="/admin/logging" method="post" class="edit">
 
+            <a href="/" class="back"><i class="fa-solid fa-angles-left"></i>Back To Home</a>
+
             <span class="titleForm">
                 Welcome
             </span>
@@ -18,7 +20,7 @@
             <label for="email">Email</label>
             <input type="email" name="email" autocomplete="off">
 
-            <% if(error[0] && error[0] === 'User not found') { %> 
+            <% if(error[0] && error[0] === 'Not found') { %> 
                 <span class="messageTag"><%= error %> </span>
             <% } %> 
     

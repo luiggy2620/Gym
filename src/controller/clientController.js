@@ -13,7 +13,7 @@ const sendMessage = (request, response, typeMessage, message, direction) => {
 
 const renderClients = (request, response, clients) => {
     response.render('client/clients.ejs', {
-        clients
+        clients, request
     });
 }
 
