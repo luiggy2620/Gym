@@ -44,8 +44,6 @@ clientController.registerClient = async (request, response) => {
         sendMessage(request, response, 'dangerMessage', 'Invalid amount months', '/client/add');
     else {
         const clientFound = await Client.findOne({ phone });
-        const finalDateParse = new Date(finalDate);
-        console.log(finalDateParse, " -------------------- ", months);
 
         if (!clientFound) {
             const newClient = new Client({ 
@@ -56,7 +54,6 @@ clientController.registerClient = async (request, response) => {
                 initialDate: new Date(), 
                 finalDate
             });
-            console.log(newClient);
             await newClient.save();
             resetData();
             sendMessage(request, response, 'successMessage', `${name + ' ' + lastName} successfully added.`, '/clients');
@@ -67,7 +64,6 @@ clientController.registerClient = async (request, response) => {
 
 clientController.renderEditClient = async (request, response) => {
     const clientEdit = await Client.findById(request.params.id);
-    console.log(clientEdit);
     response.render('client/clientEdit.ejs', {
         clientEdit
     });
@@ -98,7 +94,7 @@ clientController.editClient = async (request, response) => {
 clientController.deleteClient = async (request, response) => {
     const clientToDelete = await Client.findById(request.params.id);
     await Client.findByIdAndDelete(request.params.id);
-    sendMessage(request, response, 'successMessage', `${clientToDelete.name + clientToDelete.lastName} delete successfully`, '/clients');
+    sendMessage(request, response, 'successMessage', `${clientToDelete.name + ' ' +clientToDelete.lastName} delete successfully`, '/clients');
 }
 
 clientController.searchClients = async (request, response) => {
