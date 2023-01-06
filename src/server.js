@@ -3,13 +3,16 @@ const morgan = require('morgan');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const session = require('express-session');
+const passport = require('passport');
 const path = require('path');
 
 const indexRoutes = require('./routes/index.routes');
 const clientRoutes = require('./routes/client.routes');
 const adminRoutes = require('./routes/admin.routes');
 
+// Initialization
 const app = express();
+require('./config/passport');
 
 // settings
 app.set('port', process.env.PORT || 3000);
@@ -27,6 +30,8 @@ app.use(session({
     saveUninitialized: true
 }));
 app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // global variables
 app.use((request, response, next) => {
@@ -38,6 +43,8 @@ app.use((request, response, next) => {
 
     response.locals.errorEmail = request.flash('errorEmail');
     response.locals.errorPassword = request.flash('errorPassword');
+
+    response.locals.admin = request.admin || null;
     next();
 });
 

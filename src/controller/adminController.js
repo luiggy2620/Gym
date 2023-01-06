@@ -1,5 +1,6 @@
 const adminController = {}
 const bcryptjs = require('bcryptjs');
+const passport = require('passport');
 
 adminController.renderLogin = async (request, response) => {
     const salt = await bcryptjs.genSalt(10);
@@ -9,10 +10,11 @@ adminController.renderLogin = async (request, response) => {
     response.render('admin/login.ejs');
 }
 
-adminController.loginAdmin = (request, response) => {
-    console.log(request.body);
-    response.redirect('/');
-}
+adminController.loginAdmin = passport.authenticate('local', {
+    failureRedirect: '/admin/login',
+    successRedirect: '/clients',
+    failureFlash: true
+})
 
 adminController.logout = (request, response) => {
     response.send('saliendo');
