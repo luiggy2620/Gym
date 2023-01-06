@@ -13,7 +13,7 @@
 }
 
 .navbar {
-    background: var(--color-background);
+    background: transparent;
     grid-area: navbar;
     width: 13%;
     display: flex;

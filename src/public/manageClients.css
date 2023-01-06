@@ -31,11 +31,11 @@
 }
 
 .manager .search {
-    height: 70%;
+    height: 65%;
 }
 
 .manager .managerFooter {
-    height: 30%;
+    height: 35%;
     gap: 15px;
     justify-content: space-between;
 }
@@ -43,6 +43,7 @@
 .manager .sorter {
     height: 100%;
     gap: 15px;
+    padding-bottom: 10px;
 }
 
 .manager .sorter a {
@@ -90,6 +91,7 @@
     width: 100%;
     height: 100%;
     padding: 0 0 0 20px;
+    font-size: 18px;
 }
 
 input:-webkit-autofill,
