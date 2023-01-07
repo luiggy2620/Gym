@@ -34,15 +34,20 @@ gymController.saveNewPlace = async (request, response) => {
 
 gymController.renderFormToEditPlace = async (request, response) => {
     const placeToEdit = await Place.findById(request.params.id);
-    console.log(placeToEdit);
     response.render('gym/editPlace.ejs', {
         placeToEdit
     });
 }
 
-gymController.saveEditPlace = (request, response) => {
-    console.log(request.body);
-    response.send('editando lugar');
+gymController.saveEditPlace = async (request, response) => {
+    const {name, ubication, ubicationURL, phone} = request.body;
+    await Place.findByIdAndUpdate(request.params.id, {
+        name, 
+        ubication, 
+        ubicationURL: ubicationURL.toString(), 
+        phone
+    });
+    response.redirect('/gym/places');
 }
 
 gymController.deletePlace = (request, response) => {

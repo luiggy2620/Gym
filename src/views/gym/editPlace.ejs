@@ -10,13 +10,13 @@
     <div class="container">
 
         
-        <form action="/gym/place/edit/23423?_method=put" method="post" class="edit">
+        <form action="/gym/place/edit/<%= placeToEdit.id %>?_method=put" method="post" class="edit">
             <input type="hidden" name="_method" value="put">
 
             <a href="/gym/places" class="back"><i class="fa-solid fa-angles-left"></i>Back to Places</a>
             
             <span class="titleForm">
-                Edit Place
+                <%= placeToEdit.name %> 
             </span>
     
             <label for="name">Place Name *</label>
