@@ -50,9 +50,9 @@ gymController.saveEditPlace = async (request, response) => {
     response.redirect('/gym/places');
 }
 
-gymController.deletePlace = (request, response) => {
-    console.log(request.params.id);
-    response.send('deliting place');
+gymController.deletePlace = async (request, response) => {
+    await Place.findByIdAndDelete(request.params.id);
+    response.redirect('/gym/places');
 }
 
 module.exports = gymController;

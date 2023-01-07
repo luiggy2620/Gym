@@ -48,13 +48,36 @@
     
             <button class="editButtom">Save Changes</button>
 
-            <style>
-                .navbar {
-                    background: #000;
-                }
-            </style>
+            
     
         </form>
+
+        <div class="danger">
+
+            <p>
+                <span>Danger!</span> <br>
+                Once you delete a client, there is no going back. Please be certain.
+
+            </p>
+
+            <form action="/gym/place/delete/<%= placeToEdit.id %>?_method=delete" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <input type="text" name="confirm" id="toConfirm" placeholder='Type "delete" to Delete this place' autocomplete="off" 
+                    oninput="checkConfirm()">
+                <button id="deleteClient" disabled>
+                    DELETE
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </form>
+
+        </div>
+
+
+        <style>
+            .navbar {
+                background: #000;
+            }
+        </style>
     </div>
 
 

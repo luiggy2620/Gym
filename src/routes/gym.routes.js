@@ -15,6 +15,6 @@ route.get('/gym/place/edit/:id', gymController.renderFormToEditPlace);
 
 route.put('/gym/place/edit/:id', gymController.saveEditPlace);
 
-route.put('/gym/plce/delete/:id', gymController.deletePlace);
+route.delete('/gym/place/delete/:id', gymController.deletePlace);
 
 module.exports = route;
