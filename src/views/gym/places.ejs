@@ -10,30 +10,50 @@
 
     <div class="container">
 
-        
-        <div class="containerPlaces">
+        <% if(places.length === 0) { %> 
 
-            <%- include('../partials/alert.ejs') %> 
+            <div class="addFirstPlace">
+                <span>without places</span>
+                <a href="/gym/place/add">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Place
+                </a>    
+            </div>Place
 
-            <% places.forEach(function(place) { %>
+        <% } else { %> 
 
+            <div class="containerPlaces">
 
-                <a href="/gym/place/edit/<%= place.id %> " class="place">
-
-                    <div class="header">
-                        <span class="name"><%= place.name %> </span>    
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </div>
-                    <span>Ubication : <%= place.ubication %> </span>
-                    <span>Phone Number : <%= place.phone %> </span>
-
-                </a>
-
-            <% }); %> 
-
+                <%- include('../partials/alert.ejs') %>
+                
+                <div class="addPlace">
+                    <a href="/gym/place/add">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Place
+                    </a>
+                </div>
+    
+                <% places.forEach(function(place) { %>
+    
+    
+                    <a href="/gym/place/edit/<%= place.id %> " class="place">
+    
+                        <div class="header">
+                            <span class="name"><%= place.name %> </span>    
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </div>
+                        <span>Ubication : <%= place.ubication %> </span>
+                        <span>Phone Number : <%= place.phone %> </span>
+    
+                    </a>
+    
+                <% }); %> 
+    
+            </div>
+    
         </div>
 
-    </div>
-
+        <% } %> 
+        
 
 <%- include('../partials/footer.ejs') %> 
