@@ -7,8 +7,9 @@ const passport = require('passport');
 const path = require('path');
 
 const indexRoutes = require('./routes/index.routes');
-const clientRoutes = require('./routes/client.routes');
 const adminRoutes = require('./routes/admin.routes');
+const clientRoutes = require('./routes/client.routes');
+const gymRoutes = require('./routes/gym.routes');
 const { redirectTo404 } = require('./redirectsToRoutes/redirectsToRoutes');
 
 // Initialization
@@ -53,6 +54,7 @@ app.use((request, response, next) => {
 app.use(indexRoutes);
 app.use(adminRoutes);
 app.use(clientRoutes);
+app.use(gymRoutes);
 
 app.use(redirectTo404);
 

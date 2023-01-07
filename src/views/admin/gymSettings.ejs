@@ -1,0 +1,38 @@
+<%- include('../partials/headerTop.ejs') %>
+
+    <%- include('../partials/navbarStyle.ejs') %> 
+    <%- include('../partials/formStyle.ejs') %> 
+
+<%- include('../partials/headerBottom.ejs') %> 
+
+    <%- include('../partials/navbar.ejs') %>
+    
+    <div class="container">
+
+        <%- include('navbarSettings.ejs') %> 
+
+        <form action="/admin/settings/gym/1234?_method=put" method="post" class="edit">
+            <input type="hidden" name="_method" value="put">
+        
+            <label for="email">Email</label>
+            <input type="email" name="email">
+            
+            
+            <div class="confirmation">
+                <span>You need enter your password to confirm changes</span>
+                <input type="text" name="password" id="passwordConfirmation">
+                <button id="buttonConfirmation">SAVE</button>
+            </div>
+        
+        </form>
+
+    </div>
+
+    <style>
+        .navbar {
+            background: #000;
+        }
+    </style>
+
+
+<%- include('../partials/footer.ejs') %> 

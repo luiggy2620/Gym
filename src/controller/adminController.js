@@ -12,8 +12,12 @@ adminController.loginAdmin = passport.authenticate('local', {
     failureFlash: true
 })
 
-adminController.renderSettings = (request, response) => {
-    response.send('settings');
+adminController.renderFormPassword = (request, response) => {
+    response.send('form to edit password');
+}
+
+adminController.saveNewPassword = (request, response) => {
+    response.send('save new Password');
 }
 
 adminController.logout = (request, response) => {
