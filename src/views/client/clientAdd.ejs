@@ -22,13 +22,13 @@
                 new client
             </span>
     
-            <label for="name">Name</label>
+            <label for="name">Name *</label>
             <input type="text" name="name" autocomplete="off" placeholder="Name" value=<%= name %>>
 
-            <label for="lastName">Last Name</label>
+            <label for="lastName">Last Name *</label>
             <input type="text" name="lastName" autocomplete="off" placeholder="Last Name" value=<%= lastName %> >
     
-            <label for="phone">Phone</label>
+            <label for="phone">Phone *</label>
             <input type="text" name="phone" autocomplete="off" placeholder="00000000" value=<%= phone %> >
 
             <% if(errorPhone[0]) { %> 
@@ -38,7 +38,7 @@
             <% } %> 
 
 
-            <label for="gym">Gym</label>
+            <label for="gym">Gym *</label>
             <select name="gym" id="gym">
 
                 <% if (gym != '') { %> 
@@ -67,14 +67,14 @@
             <div class="dates">
 
                 <div>
-                    <label for="finalDate">Final Date</label>
+                    <label for="finalDate">Final Date *</label>
                     <input id="finalDateClient" type="date" 
                     value= <%= finalDate.toISOString().slice(0, 10) %>  
                     name="finalDate">
                 </div>
 
                 <div>
-                    <label for="months" >Months</label>
+                    <label for="months" >Months *</label>
                     <input type="hidden" name="months" value="1" id="monthsClientInput">
                     <span id="monthsClient">1</span>
                 </div>

@@ -1,16 +1,34 @@
 const gymController = {}
 
-gymController.renderPlaces = (request, response) => {
-    response.render('gym/places.ejs');
+const Place = require("../model/Place");
+let nameTemporal = '', ubicationTemporal = '', ubicationURLTemporal = '', phoneTemporal = '';
+
+const resetData = () => {
+    nameTemporal = '', ubicationTemporal = '', ubicationURLTemporal = '', phoneTemporal = '';
+}
+
+gymController.renderPlaces = async (request, response) => {
+    const places = await Place.find();
+    response.render('gym/places.ejs', {
+        places
+    });
 }
 
 gymController.renderFormToAddPlace = (request, response) => {
-    response.render('gym/addPlace.ejs');
+    response.render('gym/addPlace.ejs', {
+        name: nameTemporal,
+        ubication: ubicationTemporal,
+        ubicationURL: ubicationURLTemporal,
+        phone: phoneTemporal
+    });
 }
 
-gymController.saveNewPlace = (request, response) => {
-    console.log(request.body);
-    response.send('guardando nuevo lugar');
+gymController.saveNewPlace = async (request, response) => {
+    const { name, ubication, ubicationURL, phone } = request.body;
+    nameTemporal = name, ubicationTemporal = ubication, ubicationURLTemporal = ubicationURL, phoneTemporal = phone;
+    const newPlace = new Place({ name, ubication, ubicationURL, phone });
+    await newPlace.save();
+    response.redirect('/gym/places');
 }
 
 gymController.renderFormToEditPlace = (request, response) => {

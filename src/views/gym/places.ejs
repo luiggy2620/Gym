@@ -2,6 +2,7 @@
     
     <%- include('../partials/navbarStyle.ejs') %> 
     <%- include('../partials/alertStyle.ejs') %> 
+    <%- include('../partials/placesStyle.ejs') %> 
 
 <%- include('../partials/headerBottom.ejs') %> 
 
@@ -10,11 +11,25 @@
     <div class="container">
 
         
-        <div class="containerClients">
+        <div class="containerPlaces">
 
             <%- include('../partials/alert.ejs') %> 
 
-            <h2>places</h2>
+            <% places.forEach(function(place) { %>
+
+
+                <a href="/gym/place/edit/<%= place.id %> " class="place">
+
+                    <div class="header">
+                        <span class="name"><%= place.name %> </span>    
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </div>
+                    <span>Ubication : <%= place.ubication %> </span>
+                    <span>Phone Number : <%= place.phone %> </span>
+
+                </a>
+
+            <% }); %> 
 
         </div>
 
