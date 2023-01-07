@@ -10,6 +10,8 @@ route.post('/admin/logging', adminController.loginAdmin);
 
 route.use(existsAdmin);
 
+route.get('/admin/settings', adminController.renderSettings);
+
 route.get('/admin/logout', adminController.logout);
 
 module.exports = route;

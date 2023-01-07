@@ -12,6 +12,10 @@ adminController.loginAdmin = passport.authenticate('local', {
     failureFlash: true
 })
 
+adminController.renderSettings = (request, response) => {
+    response.send('settings');
+}
+
 adminController.logout = (request, response) => {
     request.logout(function (err) {
         if (err) return next(err);
