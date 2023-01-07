@@ -15,7 +15,8 @@ const placeSchema = new Schema({
         require: true
     },
     phone: {
-        type: Number
+        type: Number,
+        require: true
     }
 }, {
     versionKey: false

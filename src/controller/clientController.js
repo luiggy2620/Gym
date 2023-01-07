@@ -2,7 +2,7 @@ const clientController = {};
 const Client = require('../model/Client');
 const { sendMessage, sendClients } = require('../redirectsToRoutes/redirectsToRoutes');
 const { isEmpty, isValidPhone, isValidMonths, isValidDate, isValidTimes } 
-            = require('../validations/clientValidations');
+            = require('../validations/validations');
 
 let nameTemporal = '', lastNameTemporal = '', phoneTemporal = '', gymTemporal = '',
     finalDateTemporal = '', monthsTemporal = '';
@@ -55,6 +55,7 @@ clientController.registerClient = async (request, response) => {
                 finalDate
             });
             await newClient.save();
+            resetData();
             resetData();
             sendMessage(request, response, 'successMessage', `${name + ' ' + lastName} successfully added.`, '/clients');
         }

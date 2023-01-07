@@ -20,17 +20,19 @@
             </span>
     
             <label for="name">Place Name *</label>
-            <input type="text" name="name" autocomplete="off" placeholder="Name">
+            <input type="text" name="name" autocomplete="off" placeholder="Name" value="<%= placeToEdit.name %>">
 
             <label for="ubication">Ubication *</label>
-            <input type="text" name="ubication" placeholder="Cochabamba - Tiquipaya">
+            <input type="text" name="ubication" autocomplete="off" 
+                placeholder="Cochabamba - Tiquipaya" value="<%= placeToEdit.ubication %>">
 
             <label for="ubicationURL">Ubication URL *</label>
             <input type="url" name="ubicationURL" autocomplete="off" 
-            placeholder="https://www.google.com/maps/place/GIM+H2GO/@-17.3501779,-66.1957683,17.5z/data=!4m5!3m4!1s0x93e3756cf586d323:0xecf8160c867d7fc!8m2!3d-17.3496455!4d-66.1963463">
+            placeholder="https://www.google.com/maps" value="<%= placeToEdit.ubicationURL %>">
     
-            <label for="phone">Phone (Optional)</label>
-            <input type="text" name="phone" autocomplete="off" placeholder="00000000">
+            <label for="phone">Phone *</label>
+            <input type="text" name="phone" autocomplete="off" 
+            placeholder="00000000" value="<%= placeToEdit.phone %>">
 
             <% if(errorPhone[0]) { %> 
                 <label for="phone" class="messageTag">

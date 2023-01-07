@@ -28,12 +28,16 @@ gymController.saveNewPlace = async (request, response) => {
     nameTemporal = name, ubicationTemporal = ubication, ubicationURLTemporal = ubicationURL, phoneTemporal = phone;
     const newPlace = new Place({ name, ubication, ubicationURL, phone });
     await newPlace.save();
+    resetData();
     response.redirect('/gym/places');
 }
 
-gymController.renderFormToEditPlace = (request, response) => {
-    console.log(request.params.id);
-    response.render('gym/editPlace.ejs');
+gymController.renderFormToEditPlace = async (request, response) => {
+    const placeToEdit = await Place.findById(request.params.id);
+    console.log(placeToEdit);
+    response.render('gym/editPlace.ejs', {
+        placeToEdit
+    });
 }
 
 gymController.saveEditPlace = (request, response) => {

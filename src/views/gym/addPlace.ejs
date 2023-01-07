@@ -22,14 +22,14 @@
             <input type="text" name="name" autocomplete="off" placeholder="Name" value="<%= name %>" >
 
             <label for="ubication">Ubication *</label>
-            <input type="text" name="ubication" placeholder="Cochabamba - Tiquipaya" value="<%= ubication %>">
+            <input type="text" name="ubication" autocomplete="off" placeholder="Cochabamba - Tiquipaya" value="<%= ubication %>">
 
             <label for="ubicationURL">Ubication Google Maps *</label>
             <input type="url" name="ubicationURL" autocomplete="off" 
             placeholder="https://www.google.com/maps"
             value="<%= ubicationURL %> ">
     
-            <label for="phone">Phone (Optional)</label>
+            <label for="phone">Phone *</label>
             <input type="text" name="phone" autocomplete="off" placeholder="00000000" value="<%= phone %>">
 
             <% if(errorPhone[0]) { %> 
