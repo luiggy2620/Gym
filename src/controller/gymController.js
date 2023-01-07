@@ -1,26 +1,26 @@
 const gymController = {}
 
 gymController.renderPlaces = (request, response) => {
-    response.send('places');
+    response.render('gym/places.ejs');
 }
 
 gymController.renderFormToAddPlace = (request, response) => {
-    response.send('add place');
+    response.render('gym/addPlace.ejs');
 }
 
 gymController.saveNewPlace = (request, response) => {
-    console.log(request.params.body);
-    response.send('save new place');
+    console.log(request.body);
+    response.send('guardando nuevo lugar');
 }
 
 gymController.renderFormToEditPlace = (request, response) => {
     console.log(request.params.id);
-    response.send('editing place');
+    response.render('gym/editPlace.ejs');
 }
 
 gymController.saveEditPlace = (request, response) => {
-    console.log(request.params.body);
-    response.send('editando place');
+    console.log(request.body);
+    response.send('editando lugar');
 }
 
 gymController.deletePlace = (request, response) => {

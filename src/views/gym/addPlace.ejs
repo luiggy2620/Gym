@@ -1,0 +1,58 @@
+<%- include('../partials/headerTop.ejs') %>
+
+    <%- include('../partials/navbarStyle.ejs') %> 
+    <%- include('../partials/formStyle.ejs') %> 
+
+<%- include('../partials/headerBottom.ejs') %> 
+
+    <%- include('../partials/navbar.ejs') %> 
+
+    <div class="container">
+
+        
+        <form action="/gym/place/add" method="post" class="edit">
+
+            <a href="/gym/places" class="back"><i class="fa-solid fa-angles-left"></i>Back to Places</a>
+            
+            <span class="titleForm">
+                new place
+            </span>
+    
+            <label for="name">Name Place</label>
+            <input type="text" name="name" autocomplete="off" placeholder="Name">
+
+            <label for="ubication">Ubication</label>
+            <input type="text" name="ubication" placeholder="Cochabamba - Tiquipaya">
+
+            <label for="ubicationURL">Ubication URL</label>
+            <input type="url" name="ubicationURL" autocomplete="off" 
+            placeholder="https://www.google.com/maps/place/GIM+H2GO/@-17.3501779,-66.1957683,17.5z/data=!4m5!3m4!1s0x93e3756cf586d323:0xecf8160c867d7fc!8m2!3d-17.3496455!4d-66.1963463">
+    
+            <label for="phone">Phone (Optional)</label>
+            <input type="text" name="phone" autocomplete="off" placeholder="00000000">
+
+            <% if(errorPhone[0]) { %> 
+                <label for="phone" class="messageTag">
+                    <%= errorPhone %> 
+                </label>
+            <% } %> 
+
+
+            <% if(dangerMessage[0]) %> 
+                <label for="dangerMessage" class="messageTag">
+                    <%= dangerMessage %> 
+                </label>
+    
+            <button class="editButtom">Add Place</button>
+
+            <style>
+                .navbar {
+                    background: #000;
+                }
+            </style>
+    
+        </form>
+    </div>
+
+
+<%- include('../partials/footer.ejs') %> 

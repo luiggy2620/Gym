@@ -1,0 +1,52 @@
+<%- include('../partials/headerTop.ejs') %>
+
+    <%- include('../partials/navbarStyle.ejs') %> 
+    <%- include('../partials/formStyle.ejs') %> 
+
+<%- include('../partials/headerBottom.ejs') %> 
+
+    <%- include('../partials/navbar.ejs') %> 
+
+    <div class="container">
+
+        <form action="/admin/logging" method="post" class="edit">
+
+            <a href="/" class="back"><i class="fa-solid fa-angles-left"></i>Back To Home</a>
+
+            <span class="titleForm">
+                Options
+            </span>
+    
+            <div class="optionsAdmin">
+
+                <a href="/gym/places" >
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Gym Places</span>
+                </a>
+
+                <a href="/admin/password/2423" >
+                    <i class="fa-solid fa-key"></i>
+                    <span>Change Password</span>
+                </a>
+        
+                <a href="/admin/logout" >
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+
+            </div>
+            
+
+            <style>
+
+                .navbar {
+                    background: #000;
+                }
+            </style>
+    
+        </form>
+
+    </div>
+
+
+<%- include('../partials/footer.ejs') %> 

@@ -14,7 +14,7 @@
         <span>About</span>
     </a>
 
-    <% if(admin) { %> 
+    <% if(!admin) { %> 
 
         <div class="separator"></div>
     
@@ -43,16 +43,12 @@
     <% } %> 
 
 
-    <% if(admin) { %> 
+    <% if(!admin) { %> 
 
-        <a href="/admin/settings" >
-            <i class="fa-solid fa-gear"></i>
-            <span>Settings</span>
-        </a>
 
-        <a href="/admin/logout" >
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            <span>Logout</span>
+        <a href="/admin/admin" >
+            <i class="fa-solid fa-user"></i>
+            <span>Admin</span>
         </a>
 
     <% } %> 
