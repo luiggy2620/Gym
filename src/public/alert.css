@@ -4,21 +4,24 @@
 }
 
 #alert {
-    padding: 1.25em;
-    border-radius: 0.625em;
-    width: 90%;
-    margin: auto;
     display: flex;
     justify-content: space-between;
+
+    width: 90%;
+    margin: auto;
+    padding: 1.25em;
+    border-radius: 0.625em;
+    
     text-transform: capitalize;
 }
 
 
 #alert button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
     font-size: 0.9375em 1.25em 0.9375em 1.25em;
+    border: none;
+    
+    background: transparent;
+    cursor: pointer;
 }
 
 .danger {

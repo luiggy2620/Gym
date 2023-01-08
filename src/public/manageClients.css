@@ -12,22 +12,25 @@
 }
 
 .manager {
-    z-index: 100;
-    background: var(--color-background);
-    width: 86%;
-    height: 10vh;
-    min-height: 6.25em;
-    position: fixed;
     display: flex;
     flex-direction: column;
+    position: fixed;
+    z-index: 100;
+
+    width: 86%;
+    height: 10vh;
+    min-height: 100px;
+
+    background: var(--color-background);
     margin-bottom: 12vh;
 }
 
 .manager .search, .manager .managerFooter, .manager .sorter {
-    width: 92%;
-    margin: auto;
     display: flex;
     align-items: center;
+
+    width: 92%;
+    margin: auto;
 }
 
 .manager .search {
@@ -35,25 +38,29 @@
 }
 
 .manager .managerFooter {
-    height: 35%;
-    gap: 0.9375em;
     justify-content: space-between;
+    gap: 15px;
+
+    height: 35%;
 }
 
 .manager .sorter {
+    gap: 15px;
+
     height: 100%;
-    gap: 0.9375em;
-    padding-bottom: 0.625em;
+    padding-bottom: 10px;
 }
 
 .manager .sorter a {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-hover);
+
     height: 100%;
-    padding: 0 0.9375em 0 0.9375em;
-    border-radius: 0.625em;
+    padding: 0 15px 0 15px;
+    border-radius: 10px;
+
+    background: var(--color-hover);
 }
 
 .manager .sorter a:hover {
@@ -66,32 +73,36 @@
 }
 
 .search {
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
-    padding: 0.625em
+
+    width: 100%;
+    height: 100%;
+    padding: 10px;
 }
 
 .search form {
+    display: flex;
+
     width: 50%;
     height: 100%;
-    border: 0.0625em solid var(--color-border);
-    border-radius: 1.25em;
-    display: flex;
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    
     overflow: hidden;
 }
 
 .search input {
-    outline: none;
-    border: none;
-    font-weight: 500;
-    color: var(--color-text);
-    background: transparent;
     width: 100%;
     height: 100%;
-    padding: 0 0 0 1.25em;
-    font-size: 1.125em;
+    padding: 0 0 0 20px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+
+    outline: none;
+    color: var(--color-text);
+    background: transparent;
 }
 
 input:-webkit-autofill,
@@ -99,44 +110,47 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active
 {
- -webkit-box-shadow: 0 0 0 1.875em var(--color-background) inset !important;
+ -webkit-box-shadow: 0 0 0 30px var(--color-background) inset !important;
  -webkit-text-fill-color: var(--color-text) !important;
 }
 
 #removeButton {
+    right: 0;
+
     color: var(--color-text);
     background: transparent;
-    right: 0;
     opacity: .3;
 }
 
 .search button {
-    background: var(--color-hover);
-    border: none;
     width: 10%;
+    font-size: 17px;
+    border: none;
+
+    background: var(--color-hover);
     color: var(--color-text);
     cursor: pointer;
-    font-size: 1.0625em;
 }
 
 
 .manager .add {
     width: 10%;
     height: 100%;
-    border-radius: 0.625em;
+    border-radius: 10px;
+    
     overflow: hidden;
-    position: relative;
-    z-index: 1;
 }
 
 .add a {
-    text-transform: uppercase;
-    width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.3125em;
+    gap: 5px;
+    
+    width: 100%;
+    height: 100%;
+
+    text-transform: uppercase;
 }
 
 .manager .add:hover {
