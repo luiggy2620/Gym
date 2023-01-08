@@ -39,11 +39,9 @@
 
             <label for="gym">Gym *</label>
             <select name="gym" id="gym">
-
-                    <% places.forEach(function(place) { %>                        
-                        <option value="<%= place.id %>" ><%= place.name %> </option>
-                    <% }) %> 
- 
+                <% places.forEach(function(place) { %>                        
+                    <option value="<%= place.id %>" ><%= place.name %> </option>
+                <% }) %> 
             </select>
 
             <div class="dates">

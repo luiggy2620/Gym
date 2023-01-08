@@ -37,19 +37,16 @@
 
             <label for="gym">Gym *</label>
             <select name="gym" id="gym">
+                <% places.forEach(function(place) { %>
+                    
+                    <option value="<%= place.id %>" 
+                    <% if(clientEdit.gym.toHexString() === place.id) { %>                         
+                        selected ><%= place.name %> </option>
+                    <% } else { %> 
+                        ><%= place.name %> </option>
+                    <% } %> 
 
-                <% if(clientEdit.gym === "GIM H2G0") { %>
-                    <option value="GIM H2G0" selected >GIM H2G0</option>
-                <% } else { %> 
-                    <option value="GIM H2G0">GIM H2G0</option>
-                <% } %> 
-
-                <% if(clientEdit.gym === "GIM H2G0 2") { %>
-                    <option value="GIM H2G0 2" selected>GIM H2G0 2</option>
-                <% } else { %> 
-                    <option value="GIM H2G0 2" >GIM H2G0 2</option>
-                <% } %> 
-
+                <% }) %> 
             </select>
 
 

@@ -66,9 +66,11 @@ clientController.registerClient = async (request, response) => {
 }
 
 clientController.renderEditClient = async (request, response) => {
+    const places = await Place.find({}, { name: 1})
     const clientEdit = await Client.findById(request.params.id);
     response.render('client/clientEdit.ejs', {
-        clientEdit
+        clientEdit,
+        places
     });
 }
 
