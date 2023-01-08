@@ -20,6 +20,7 @@
 
     width: 13%;
     height: 100vh;
+    font-size: 1.12em;
 
     background: transparent;
 }
@@ -27,13 +28,13 @@
 .title {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 0.9375em;
 
     width: 100%;
-    padding: 0.9375rem;
-    padding-left: 30px;
+    padding: 0.9375em;
+    padding-left: 1.875em;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 0.9375em;
 
     background: var(--color-main);
     color: var(--color-text);
@@ -46,9 +47,10 @@
 
 .navbar a {
     width: 90%;
-    margin: 5px 0 5px 0;
-    padding: 15px;
-    border-radius: 10px;
+    margin: 0.3125em 0 0.3125em 0;
+    padding: 0.9375em;
+    border-radius: 0.625em;
+    align-items: center;
 
     text-decoration: none;
     color: var(--color-text);
@@ -63,12 +65,12 @@
 }
 
 .navbar i {
-    margin-right: 10px;
+    margin-right: 0.625em;
 }
 
 .separator {
     width: 90%;
-    margin: 10px 0 10px 0;
+    margin: 0.625em 0 0.625em 0;
 
-    border-bottom: 2px solid var(--color-border);
+    border-bottom: 0.125em solid var(--color-border);
 }
