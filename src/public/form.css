@@ -13,20 +13,19 @@
     --color-alert: red;
 }
 
-
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     width: 88%;
-    height: 100vh;
+    min-height: 100vh;
     margin-left: 12%;
     padding: 40px;
 
     background-image: url('/images/cbum.jpg');
     background-attachment: fixed;
-    background-size: 110vh;
+    background-size: 100vh;
     background-position: right top;
     background-repeat: no-repeat;
     background-color: #000;
@@ -37,6 +36,7 @@ form.edit {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    position: relative;
 
     width: 60%;
     padding: 20px;
@@ -48,10 +48,12 @@ form.edit {
 
 form.edit .titleForm {
     width: 100%;
-    padding-bottom: 35px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
     font-size: 40px;
     font-weight: 800;
-    border-bottom: 1px solid var(--color-main);
+    border-bottom: 2px solid var(--color-main);
+    z-index: 5;
 
     font-family: 'Nunito Sans', sans-serif;
     color: var(--color-main);
@@ -59,6 +61,8 @@ form.edit .titleForm {
 }
 
 form.edit label {
+    z-index: 5;
+
     width: 100%;
     margin: 5px 0 0.3125rem 0;
 
@@ -71,6 +75,7 @@ form.edit input, form.edit button.editButtom, form.edit select {
     padding: 10px;
     margin-bottom: 10px;
     border-bottom: 1px solid var(--color-border);
+    z-index: 5;
     
     border: none;
     color: var(--color-text);
@@ -142,7 +147,10 @@ form.edit button.editButtom:hover {
     color: var(--color-hover);
 }
 
+
 .dates {
+    z-index: 5;
+
     display: flex;
     align-items: center;
 
@@ -163,7 +171,7 @@ form.edit button.editButtom:hover {
     display: flex;
     flex-direction: column;
 
-    width: 30%;
+    width: 50%;
 }
 
 .dates span {
@@ -203,6 +211,8 @@ form.edit button.editButtom:hover {
 }
 
 .times {
+    z-index: 5;
+
     width: 100%;
     display: flex;
 }
@@ -248,10 +258,13 @@ form.edit select option {
 }
 
 .danger {
+    z-index: 5;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: top;
+    position: relative;
 
     width: 60%;
     padding: 20px;
@@ -259,12 +272,15 @@ form.edit select option {
 
 .danger form {
     display: flex;
+    z-index: 5;
 
     width: 100%;
     margin-top: 10px;
 }
 
 .danger input {
+    z-index: 5;
+
     width: 60%;
     margin-right: 15px;
     border-bottom: 1px solid var(--color-border);
@@ -277,6 +293,8 @@ form.edit select option {
 
 
 .danger span, .danger p {
+    z-index: 5;
+
     width: 100%;
     font-size: 15px;
 
@@ -284,11 +302,13 @@ form.edit select option {
 }
 
 .danger button {
+    z-index: 5;
+
     width: 15%;
     border-radius: 10px;
     font-weight: bold;
     padding: 10px;
-    border: 2px solid var(--color-main);
+    border: 3px solid var(--color-main);
 
     background: transparent;
     color: var(--color-main);
@@ -301,6 +321,8 @@ form.edit select option {
 }
 
 .back {
+    z-index: 5;
+
     display: flex;
     align-items: center;
     gap: 10px;
@@ -335,6 +357,8 @@ form.edit select option {
 }
 
 .optionsAdmin {
+    z-index: 5;
+    
     display: flex;
     flex-direction: column;
     gap: 20px;

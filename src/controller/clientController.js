@@ -20,7 +20,6 @@ clientController.renderClients = async (request, response) => {
 
 clientController.renderRegisterClient = async (request, response) => {
     const places = await Place.find({}, { name: 1})
-    console.log(places);
     response.render('client/clientAdd.ejs', {
         name: nameTemporal,
         lastName: lastNameTemporal,
