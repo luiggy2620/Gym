@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const bcryptjs = require('bcryptjs');
 
 const clientSchema = new Schema({
     name: {
@@ -16,8 +15,9 @@ const clientSchema = new Schema({
         unique: true
     },
     gym: {
-        type: String,
-        require: true
+        type: Schema.Types.ObjectId,
+        require: true,
+        ref: 'places' 
     },
     initialDate: {
         type: Date,
@@ -36,13 +36,32 @@ const clientSchema = new Schema({
     versionKey: false
 });
 
-clientSchema.methods.encryptPhone = async phone => {
-    const salt = await bcryptjs.genSalt(10);
-    return await bcryptjs.hash(phone, salt);
-};
-
-clientSchema.methods.matchPhone = async function (phone) {
-    return await bcryptjs.compare(phone, this.phone);
-};
+clientSchema.statics.getClientsWithGymName = function() {
+    return this.aggregate([
+      {
+        $lookup: {
+          from: "places",
+          localField: "gym",
+          foreignField: "_id",
+          as: "gym_info"
+        }
+      },
+      {
+        $unwind: "$gym_info"
+      },
+      {
+        $addFields: {
+          gym_name: "$gym_info.name"
+        }
+      },
+      {
+        $project: {
+          gym_info: 0,
+          gym: 0,
+          phone: 0
+        }
+      }
+    ]);
+  }
 
 module.exports = model('Client', clientSchema);

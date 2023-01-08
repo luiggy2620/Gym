@@ -11,7 +11,6 @@ const resetData = () => {
 
 gymController.renderPlaces = async (request, response) => {
     const places = await Place.find({}, { ubicationURL: 0 });
-    console.log(places);
     response.render('gym/places.ejs', {
         places
     });
