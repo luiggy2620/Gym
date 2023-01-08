@@ -24,8 +24,8 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
-
-/* div, span, form, input, label {
+/* 
+div, span, form, input, label {
     border: 1px solid red;
 } */
 
@@ -221,10 +221,6 @@ button::selection, a::selection, label::selection, input::selection,
 
     .container {
         padding: 20px 0 0 0;
-    }
-
-    form.edit {
-        height: 100vh;
     }
     
 }
