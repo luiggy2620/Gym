@@ -11,7 +11,8 @@
 }
 
 .container {
-    grid-area: container;
+    width: 88%;
+    margin-left: 12%;
 
     background: transparent;
 }

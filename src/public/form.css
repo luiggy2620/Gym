@@ -15,13 +15,13 @@
 
 
 .container {
-    grid-area: container;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    width: 100%;
+    width: 88%;
     height: 100vh;
+    margin-left: 12%;
     padding: 40px;
 
     background-image: url('/images/cbum.jpg');
