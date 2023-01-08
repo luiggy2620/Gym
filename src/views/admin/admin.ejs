@@ -2,12 +2,16 @@
 
     <%- include('../partials/navbarStyle.ejs') %> 
     <%- include('../partials/formStyle.ejs') %> 
+    <%- include('../partials/alertStyle.ejs') %> 
 
 <%- include('../partials/headerBottom.ejs') %> 
 
     <%- include('../partials/navbar.ejs') %> 
 
     <div class="container">
+
+        <%- include('../partials/alert.ejs') %> 
+
 
         <form action="/admin/logging" method="post" class="edit">
 
@@ -41,6 +45,10 @@
 
                 .navbar {
                     background: #000;
+                }
+
+                #alert {
+                    margin-top: 2%;
                 }
             </style>
     

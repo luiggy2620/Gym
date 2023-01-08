@@ -14,6 +14,11 @@ const adminSchema = new Schema({
     versionKey: false
 });
 
+adminSchema.methods.encryptPassword = async password => {
+    const salt = await bcryptjs.genSalt(10);
+    return await bcryptjs.hash(password, salt);
+};
+
 adminSchema.methods.matchPassword = async function(password) {
     return await bcryptjs.compare(password, this.password);
 }
