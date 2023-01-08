@@ -107,10 +107,29 @@ button::selection, a::selection, label::selection, input::selection,
 }
 
 
-@media only screen and (max-width: 1200px){
+@media only screen and (max-width: 1290px){
     /*Tablets [601px -> 1200px]*/
     body {
         background: #444;
+    }
+
+    .container {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 6vh;
+    }
+
+    .manager {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .navbar {
+        background: var(--color-main);
+        color: var(--color-background);
+        width: 100%;
+        height: 6vh;
+        bottom: 0;
     }
 }
 @media only screen and (max-width: 600px){
