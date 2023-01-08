@@ -25,9 +25,9 @@ body {
     background-repeat: no-repeat;
 }
 
-div, span, form, input, label {
+/* div, span, form, input, label {
     border: 1px solid red;
-}
+} */
 
 button::selection, a::selection, label::selection, input::selection, 
     select::selection, span::selection, img::selection, b::selection, p::selection {
@@ -110,6 +110,10 @@ button::selection, a::selection, label::selection, input::selection,
 @media only screen and (max-width: 1290px){
     /*Tablets [601px -> 1200px]*/
 
+    body {
+        font-size: 14px;
+    }
+
     .container {
         width: 95%;
         margin-left: 5%;
@@ -160,6 +164,11 @@ button::selection, a::selection, label::selection, input::selection,
 
 }
 @media only screen and (max-width: 775px){
+
+    body {
+        font-size: 12px;
+    }
+
     .container {
         width: 100%;
         margin-left: 0;
@@ -191,6 +200,11 @@ button::selection, a::selection, label::selection, input::selection,
 }
 
 @media only screen and (max-width: 1000px){
+    
+    body {
+        font-size: 13px;
+    }
+
     .containerClients .client {
         width: 90%;
     }
@@ -200,6 +214,11 @@ button::selection, a::selection, label::selection, input::selection,
 
 @media only screen and (max-width: 425px){
 	/*Small smartphones [325px -> 425px]*/
+
+    body {
+        font-size: 12px;
+    }
+
     .container {
         padding: 20px 0 0 0;
     }
