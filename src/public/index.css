@@ -25,9 +25,9 @@ body {
     background-repeat: no-repeat;
 }
 
-/* div, span, form, input, label {
+div, span, form, input, label {
     border: 1px solid red;
-} */
+}
 
 button::selection, a::selection, label::selection, input::selection, 
     select::selection, span::selection, img::selection, b::selection, p::selection {
@@ -201,7 +201,11 @@ button::selection, a::selection, label::selection, input::selection,
 @media only screen and (max-width: 425px){
 	/*Small smartphones [325px -> 425px]*/
     .container {
-        padding: 0;
+        padding: 20px 0 0 0;
+    }
+
+    form.edit {
+        height: 100vh;
     }
     
 }
