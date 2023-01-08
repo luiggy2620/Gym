@@ -12,11 +12,6 @@
     --color-fullDays: #82CD47;
     --color-mediumDays: #7DE5ED;
     --color-zeroDays: rgb(255, 0, 68);
-
-    /* --color-background: white;
-    --color-text: #000;
-    --color-hover: rgb(200, 200, 200);
-    --color-border: #999; */
 }
 
 .container {
@@ -31,23 +26,23 @@
     background: transparent;
     box-sizing: border-box;
     width: 100%;
-    padding-bottom: 20px;
+    padding-bottom: 1.25em;
     margin-top: 12vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 1.25em;
 }
 
 .containerClients i {
-    margin-right: 5px;
+    margin-right: 0.3125em;
 }
 
 .client {
     box-sizing: border-box;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 20px;
+    border-top-left-radius: 0.625em;
+    border-top-right-radius: 0.625em;
+    padding: 1.25em;
     width: 45%;
 
     display: flex;
@@ -76,7 +71,7 @@
 }
 
 .client.fullDays {
-    border-bottom: 3px solid var(--color-fullDays);
+    border-bottom: 0.1875em solid var(--color-fullDays);
 }
 
 .client.mediumDays::before {
@@ -84,7 +79,7 @@
 }
 
 .client.mediumDays {
-    border-bottom: 3px solid var(--color-mediumDays);
+    border-bottom: 0.1875em solid var(--color-mediumDays);
 }
 
 .client.zeroDays::before {
@@ -92,7 +87,7 @@
 }
 
 .client.zeroDays {
-    border-bottom: 3px solid var(--color-zeroDays);
+    border-bottom: 0.1875em solid var(--color-zeroDays);
 }
 
 .client a {
@@ -112,8 +107,8 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding-bottom: 5px;
-    margin-bottom: 20px;
+    padding-bottom: 0.3125em;
+    margin-bottom: 1.25em;
     position: relative;
 }
 
@@ -121,22 +116,22 @@
     font-family: 'Nunito Sans', sans-serif;
 
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 1.875em;
     font-weight: bold;
 }
 
 .header i {
-    font-size: 22px;
+    font-size: 1.375em;
 }
 
 .header button.buttonSubMenu {
     background: transparent;
     border: none;
     color: var(--color-text);
-    font-size: 20px;
+    font-size: 1.25em;
     cursor: pointer;
-    border: 1px solid red;
-    padding: 2px 5px 2px 5px;
+    border: 0.0625em solid red;
+    padding: 0.125em 0.3125em 0.125em 0.3125em;
     position: relative;
 }
 
@@ -148,7 +143,6 @@
 .buttonSubMenu:hover i {
     color: red;
 }
-
 
 .subMenu {
     background: white;
@@ -167,10 +161,10 @@
 
 .body .time{
     font-weight: 800;
-    font-size: 18px;
+    font-size: 1.125em;
     display: flex;
     justify-content: space-between;
-    padding-right: 10px;
+    padding-right: 0.625em;
 }
 
 .addFirstClient {
@@ -180,7 +174,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 0.9375em;
 }
 
 .addFirstClient h4, .addFirstClient a {
@@ -191,13 +185,13 @@
 .addFirstClient a {
     text-transform: uppercase;
     text-decoration: none;
-    font-size: 70px;
+    font-size: 4.375em;
     position: relative;
-    padding: 10px 20px 10px 20px;
+    padding: 0.625em 1.25em 0.625em 1.25em;
     overflow: hidden;
-    border-bottom: 3px solid var(--color-text);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-bottom: 0.1875em solid var(--color-text);
+    border-top-left-radius: 0.625em;
+    border-top-right-radius: 0.625em;
 }
 
 .addFirstClient a::before {

@@ -16,7 +16,7 @@
     background: var(--color-background);
     width: 86%;
     height: 10vh;
-    min-height: 100px;
+    min-height: 6.25em;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -36,14 +36,14 @@
 
 .manager .managerFooter {
     height: 35%;
-    gap: 15px;
+    gap: 0.9375em;
     justify-content: space-between;
 }
 
 .manager .sorter {
     height: 100%;
-    gap: 15px;
-    padding-bottom: 10px;
+    gap: 0.9375em;
+    padding-bottom: 0.625em;
 }
 
 .manager .sorter a {
@@ -52,8 +52,8 @@
     justify-content: center;
     background: var(--color-hover);
     height: 100%;
-    padding: 0 15px 0 15px;
-    border-radius: 10px;
+    padding: 0 0.9375em 0 0.9375em;
+    border-radius: 0.625em;
 }
 
 .manager .sorter a:hover {
@@ -70,14 +70,14 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    padding: 10px
+    padding: 0.625em
 }
 
 .search form {
     width: 50%;
     height: 100%;
-    border: 1px solid var(--color-border);
-    border-radius: 20px;
+    border: 0.0625em solid var(--color-border);
+    border-radius: 1.25em;
     display: flex;
     overflow: hidden;
 }
@@ -90,8 +90,8 @@
     background: transparent;
     width: 100%;
     height: 100%;
-    padding: 0 0 0 20px;
-    font-size: 18px;
+    padding: 0 0 0 1.25em;
+    font-size: 1.125em;
 }
 
 input:-webkit-autofill,
@@ -99,7 +99,7 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active
 {
- -webkit-box-shadow: 0 0 0 30px var(--color-background) inset !important;
+ -webkit-box-shadow: 0 0 0 1.875em var(--color-background) inset !important;
  -webkit-text-fill-color: var(--color-text) !important;
 }
 
@@ -116,14 +116,14 @@ input:-webkit-autofill:active
     width: 10%;
     color: var(--color-text);
     cursor: pointer;
-    font-size: 17px;
+    font-size: 1.0625em;
 }
 
 
 .manager .add {
     width: 10%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 0.625em;
     overflow: hidden;
     position: relative;
     z-index: 1;
@@ -136,7 +136,7 @@ input:-webkit-autofill:active
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 0.3125em;
 }
 
 .manager .add:hover {

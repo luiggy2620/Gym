@@ -1,21 +1,11 @@
 :root {
     --color-main: rgb(255, 0, 68);
-    /* --color-main: #EB455F; */
 
     --color-background: #000;
     --color-text: white;
     --color-hover: #333;
     --color-border: #444;
     --color-shadow: #999;
-
-    /* --color-background: #FFF;
-    --color-text: #000;
-    --color-hover: rgb(207, 207, 207);
-    --color-border: #888;
-    --color-shadow: #999;
-
-    --color-submit: blue;
-    --color-alert: red; */
 }
 
 
@@ -33,8 +23,13 @@ body {
     background-repeat: no-repeat;
     display: grid;
     grid-template-columns:  13% 87%;
+    grid-template-rows: 1fr;
     grid-template-areas: "navbar container ";
     font-size: 18px;
+}
+
+div, span, form, input, label {
+    border: 1px solid red;
 }
 
 button::selection, a::selection, label::selection, input::selection, 
@@ -44,47 +39,41 @@ button::selection, a::selection, label::selection, input::selection,
 }
 
 .containerIndex {
-    
+    font-size: 1em;
     grid-area: container;
     color: var(--color-text);
     position: relative;
-    padding: 5%;
-    height: 100vh;
-
 }
 
 .containerIndex .info {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-
 }
 
 .containerIndex .mainTitle {
-
     color: var(--color-main);
-    font-size: 180px;
+    font-size: 8em;
     text-transform: uppercase;
-    font-size: 800;
 }
 
 .containerIndex .info   p {
     width: 50%;
-    padding: 20px;
-    font-size: 20px;
+    padding: 1.25em;
+    font-size: 1.25em;
     text-align: end;
 }
 
 .containerIndex .info a {
     text-decoration: none;
-    font-size: 30px;
+    font-size: 1.875em;
     font-weight: bold;
     color: var(--color-text);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 10px 20px 10px 10px;
-    margin-right: 10px;
-    border-bottom: 3px solid var(--color-text);
+    border-top-left-radius: 0.625em;
+    border-top-right-radius: 0.625em;
+    padding: 0.625em 1.25em 0.625em 0.625em;
+    margin-right: 0.625em;
+    border-bottom: 0.1875em solid var(--color-text);
 }
 
 .containerIndex .info a:hover {
@@ -93,25 +82,36 @@ button::selection, a::selection, label::selection, input::selection,
 
 .containerIndex .info a i {
     transform: rotate(180deg);
-    margin-left: 15px;
+    margin-left: 0.9375em;
 }
 
 .containerIndex .ubication {
-    height: 50%;
     display: flex;
     align-items: flex-end;
     justify-content: end;
-    gap: 20px;
+    gap: 1.25em;
 }
 
 .containerIndex .ubication a {
     text-decoration: none;
-    font-size: 22px;
+    font-size: 1.375em;
     color: var(--color-text);
-    padding: 15px;
-    border-radius: 10px;
+    padding: 0.9375em;
+    border-radius: 0.625em;
 }
 
 .containerIndex .ubication a:hover {
     background: var(--color-hover);
+}
+
+@media only screen and (max-width: 850px){
+    body {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    body {
+        font-size: 12px;
+    }
 }

@@ -1,6 +1,5 @@
 :root {
     --color-main: rgb(255, 0, 68);
-    /* --color-main: #EB455F; */
 
     --color-background: #111;
     --color-text: white;
@@ -28,26 +27,26 @@
     background: var(--color-main);
     display: flex;
     align-items: center;
-    padding: 15px;
-    padding-left: 30px;
+    padding: 0.9375em;
+    padding-left: 1.875em;
     color: var(--color-text);
-    gap: 15px;
+    gap: 0.9375em;
     font-weight: bold;
     text-transform: uppercase;
-    margin-bottom: 15px;
+    margin-bottom: 0.9375em;
 }
 
 .navbar .title img{
-    width: 20px;
+    width: 1.25em;
 }
 
 .navbar a {
     width: 90%;
-    padding: 15px;
+    padding: 0.9375em;
     text-decoration: none;
     color: var(--color-text);
-    border-radius: 10px;
-    margin: 5px 0 5px 0;
+    border-radius: 0.625em;
+    margin: 0.3125em 0 0.3125em 0;
 }
 
 .navbar a:hover {
@@ -59,11 +58,11 @@
 }
 
 .navbar i {
-    margin-right: 10px;
+    margin-right: 0.625em;
 }
 
 .separator {
     border-bottom: 2px solid var(--color-border);
     width: 90%;
-    margin: 10px 0 10px 0;
+    margin: 0.625em 0 0.625em 0;
 }

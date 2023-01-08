@@ -11,84 +11,70 @@
 
     --color-submit: blue;
     --color-alert: red;
-
-    /* --color-main: rgb(255, 0, 68);
-
-    --color-background: #111;
-    --color-text: white;
-    --color-hover: #333;
-    --color-border: #444;
-    --color-shadow: #999;
-
-    --color-submit: blue;
-    --color-alert: red; */
 }
 
 
 .container {
     grid-area: container;
-    width: 100%;
-
     display: flex;
     flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
     height: 100vh;
+    padding: 40px;
+
     background-image: url('/images/cbum.jpg');
+    background-attachment: fixed;
     background-size: 110vh;
     background-position: right top;
     background-repeat: no-repeat;
     background-color: #000;
-    position: relative;
-}
-
-form input, form select {
-    font-size: 18px;
-
 }
 
 form.edit {
-    background: transparent;
-    width: 60%;
-    height: 100%;
-    border-radius: 4px;
-    padding: 20px;
-    margin-left: 2%;
-    margin-right: 2%;
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+
+    width: 60%;
+    padding: 20px;
+    border-radius: 4px;
+
+    background: transparent;
 }
 
 
 form.edit .titleForm {
-    font-family: 'Nunito Sans', sans-serif;
-
-    color: var(--color-main);
-    font-size: 2.5em;
-    font-weight: 800;
     width: 100%;
-    padding: 0 0 20px 0;
-    margin-bottom: 40px;
-    text-transform: uppercase;
+    padding-bottom: 35px;
+    font-size: 40px;
+    font-weight: 800;
     border-bottom: 1px solid var(--color-main);
+
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--color-main);
+    text-transform: uppercase;
 }
 
 form.edit label {
     width: 100%;
-    margin: 5px 0 5px 0;
+    margin: 5px 0 0.3125rem 0;
+
     color: var(--color-text);
-    font-weight: 800;
+    font-weight: bold;
 }
 
 form.edit input, form.edit button.editButtom, form.edit select {
     width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-text);
     padding: 10px;
     margin-bottom: 10px;
+    border-bottom: 1px solid var(--color-border);
+    
+    border: none;
+    color: var(--color-text);
+    background: transparent;
 }
 
 form.edit input {
@@ -102,40 +88,46 @@ form.edit select {
 }
 
 form.edit button.editButtom {
-    background: var(--color-main);
-    color: var(--color-text);
-    border: 1px solid var(--color-border);
-    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    font-size: 17px;
     font-weight: bold;
-    font-size: 1.0625em;
-    cursor: pointer;
+    border: 1px solid var(--color-border);
     border-radius: 10px;
     margin-top: 25px;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
+
+    background: var(--color-main);
+    color: var(--color-text);
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 form.edit button.editButtom::before, form button.editButtom::after {
     position: absolute;
-    content: "  ";
+    z-index: -1;
+
     height: 100%;
     top: 0;
-    z-index: -1;
+    
+    content: "  ";
 }
 
 form.edit button.editButtom::before {
-    background: #FFE15D;
-    transition: all .5s ease;
     width: 100%;
     left: -100%;
+
+    background: #FFE15D;
+    transition: all .5s ease;
 }
 
 form.edit button.editButtom::after {
-    background: var(--color-submit);
-    transition: all .6s ease;
     width: 30%;
     left: -30%;
+
+    background: var(--color-submit);
+    transition: all .6s ease;
 }
 
 form.edit button.editButtom:hover::before {
@@ -151,9 +143,10 @@ form.edit button.editButtom:hover {
 }
 
 .dates {
-    width: 100%;
     display: flex;
     align-items: center;
+
+    width: 100%;
     gap: 15px;
 }
 
@@ -169,6 +162,7 @@ form.edit button.editButtom:hover {
 .dates div {
     display: flex;
     flex-direction: column;
+
     width: 30%;
 }
 
@@ -179,11 +173,12 @@ form.edit button.editButtom:hover {
 .dates button {
     width: 50px;
     height: 60%;
-    background: transparent;
     border: 1px solid var(--color-border);
+    border-radius: 10px;
+
+    background: transparent;
     color: var(--color-text);
     cursor: pointer;
-    border-radius: 10px;
 }
 
 .dates button:hover {
@@ -191,10 +186,11 @@ form.edit button.editButtom:hover {
 }
 
 .messageTag {
+    font-size: 15px;
+    font-weight: bold;
+
     color: var(--color-main) !important;
     text-transform: lowercase;
-    font-size: 0.9375em;
-    font-weight: bold;
 }
 
 .name {
@@ -221,23 +217,24 @@ form.edit button.editButtom:hover {
 }
 
 .times .buttonsTimes button {
-    background: transparent;
-    color: var(--color-text);
-    border: 1px solid var(--color-border);
-    cursor: pointer;
-    height: 60%;
-    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 50px;
+    height: 60%;
     border-radius: 10px;
     margin-left: 10px;
+    border: 1px solid var(--color-border);
+
+    background: transparent;
+    color: var(--color-text);
+    cursor: pointer;
 }
 
 .times .buttonsTimes button:hover {
     background: var(--color-hover);
 }
-
 
 form.edit select {
     appearance: none;
@@ -250,52 +247,53 @@ form.edit select option {
     cursor: pointer;
 }
 
-
 .danger {
-    padding: 20px;
-    margin-left: 2%;
-    width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: top;
-    margin-bottom: 2%;
+
+    width: 60%;
+    padding: 20px;
 }
 
 .danger form {
-
-    margin-top: 10px;
-    width: 100%;
     display: flex;
+
+    width: 100%;
+    margin-top: 10px;
 }
 
 .danger input {
-    outline: none;
     width: 60%;
     margin-right: 15px;
+    border-bottom: 1px solid var(--color-border);
+
+    outline: none;
     border: none;
     background: transparent;
-    border-bottom: 1px solid var(--color-border);
     color: white;
 }
 
 
 .danger span, .danger p {
     width: 100%;
+    font-size: 15px;
+
     color: var(--color-main);
-    font-size: 0.9375em;
 }
 
 .danger button {
-    background: transparent;
-    border: 2px solid var(--color-main);
-    cursor: pointer;
-    color: var(--color-main);
-    padding: 10px;
+    width: 15%;
     border-radius: 10px;
     font-weight: bold;
-    width: 15%;
+    padding: 10px;
+    border: 2px solid var(--color-main);
+
+    background: transparent;
+    color: var(--color-main);
     opacity: .5;
+    cursor: pointer;
 }
 
 .danger button i {
@@ -303,14 +301,16 @@ form.edit select option {
 }
 
 .back {
-    text-decoration: none;
-    color: var(--color-text);
-    font-size: 1.25em;
     display: flex;
     align-items: center;
     gap: 10px;
-    border-radius: 10px;
+
     padding: 5px 15px 5px 15px;
+    font-size: 20px;
+    border-radius: 10px;
+
+    text-decoration: none;
+    color: var(--color-text);
 }
 
 .back:hover {
@@ -323,31 +323,35 @@ form.edit select option {
 }
 
 .passwordBox button {
-    color: var(--color-text);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
     position: absolute;
     right: 2%;
+
+    font-size: 20px;
+    border: none;
+
+    background: transparent;
+    color: var(--color-text);
+    cursor: pointer;
 }
 
 .optionsAdmin {
-    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    width: 100%;
 }
 
 .optionsAdmin a {
-    text-decoration: none;
-    text-align: center;
-    color: var(--color-text);
+    padding: 20px;
     font-size: 20px;
-    border-bottom: 1px solid var(--color-border);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    padding: 20px;
+    border-bottom: 1px solid var(--color-border);
+
+    color: var(--color-text);
+    text-align: center;
+    text-decoration: none;
 }
 
 .optionsAdmin a i {
