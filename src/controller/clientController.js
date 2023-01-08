@@ -1,5 +1,6 @@
 const clientController = {};
 const Client = require('../model/Client');
+const Place = require('../model/Place');
 const { sendMessage, sendClients } = require('../redirectsToRoutes/redirectsToRoutes');
 const { isEmpty, isValidPhone, isValidMonths, isValidDate, isValidTimes }
     = require('../validations/validations');
@@ -13,19 +14,43 @@ const resetData = () => {
 }
 
 clientController.renderClients = async (request, response) => {
-    let clients = [];
-    clients = await Client.find({}, { phone: 0 });
+    const clients = await Client.find({}, { phone: 0 });
     sendClients(response, clients);
 }
 
-clientController.renderRegisterClient = (request, response) => {
+clientController.renderRegisterClient = async (request, response) => {
+    // const newClients = await Place.aggregate(
+    //     [
+    //         {
+    //           $lookup: {
+    //             from: "gym",
+    //             localField: "idGym",
+    //             foreignField: "_id",
+    //             as: "gym_info"
+    //           }
+    //         },
+    //         {
+    //           $addFields: {
+    //             gym_name: { $arrayElemAt: ["$gym_info.name", 0] }
+    //           }
+    //         },
+    //         {
+    //           $project: {
+    //             gym_info: 0
+    //           }
+    //         }
+    //       ]
+    // )
+    const places = await Place.find({}, { name: 1})
+    console.log(places);
     response.render('client/clientAdd.ejs', {
         name: nameTemporal,
         lastName: lastNameTemporal,
         phone: phoneTemporal,
         gym: gymTemporal,
         finalDate: finalDateTemporal,
-        months: monthsTemporal
+        months: monthsTemporal,
+        places
     });
 }
 
@@ -34,7 +59,6 @@ clientController.registerClient = async (request, response) => {
 
     nameTemporal = name, lastNameTemporal = lastName, phoneTemporal = phone, gymTemporal = gym,
         finalDateTemporal = finalDate, monthsTemporal = months;
-
 
     if (isEmpty(name, lastName, phone, gym, finalDate, months))
         sendMessage(request, response, 'dangerMessage', 'Missing credentials', '/client/add');

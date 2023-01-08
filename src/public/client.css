@@ -172,3 +172,46 @@
     justify-content: space-between;
     padding-right: 10px;
 }
+
+.addFirstClient {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.addFirstClient h4, .addFirstClient a {
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--color-text);
+}
+
+.addFirstClient a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 70px;
+    position: relative;
+    padding: 10px 20px 10px 20px;
+    overflow: hidden;
+    border-bottom: 3px solid var(--color-text);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.addFirstClient a::before {
+    content: ' ';
+    position: absolute;
+    background: var(--color-main);
+    width: 40%;
+    height: 100%;
+    transition: all .5s ease;
+    top: 0;
+    left: -40%;
+
+}
+
+.addFirstClient a:hover::before {
+    left: 100%;
+}

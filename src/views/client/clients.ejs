@@ -11,24 +11,26 @@
 
     <div class="container">
 
-            
-        <%- include('../partials/manageClients.ejs') %>         
-        
-        <div class="containerClients">
+        <% if(clients.length === 0) { %> 
 
-            <%- include('../partials/alert.ejs') %> 
+            <div class="addFirstClient">
 
-
-            <% if(clients.length === 0) { %> 
-
-                <h2>sin clientes</h2>
+                <h4>You don't have any clients</h4>
                 <a href="/client/add">
-                    <i class="fa-solid fa-plus"></i>
-                    <span>New Client</span>
+                    Add Client
                 </a>
 
-            <% } else { %> 
-                
+            </div>
+
+        <% } else { %> 
+            
+            
+            <%- include('../partials/manageClients.ejs') %>         
+            
+            <div class="containerClients">
+    
+                <%- include('../partials/alert.ejs') %> 
+    
                 <% clients.forEach(function (client) { %>
                     
                     <% const initialDate = client.initialDate %> 
@@ -36,61 +38,64 @@
                     <% let currentDate = new Date() %> 
                     <% let restDays = Math.floor((finalDate - currentDate) / (1000 * 60 * 60 * 24)) + 2; %>
                     <% if(restDays < 0) restDays = 0 %>
-
+                
                     <div 
                         <% if(restDays < 15 && restDays > 0) { %>
                             
                             class="client mediumDays"
                             
                         <% } else if (restDays == 0) { %> 
-        
+                
                             class="client zeroDays"
                             
                         <% } else { %> 
-
+                
                             class="client fullDays"
-
+                
                         <% } %> 
                     >
                     
                         <a href="/client/edit/<%= client.id.toString() %>">
                 
                             <div class="header">
-
+                
                                 <div>
                                     <span ><%= client.name %> </span>
                                     <span ><%= client.lastName %> </span>
                                 </div>
                                 <i class="fa-solid fa-pen-to-square"></i>
-
+                
                             </div>
-
+                
                             <div class="body">
                                 
                                 <span><b>GYM : </b> <%= client.gym %> </span>
-
+                
                                 <div class="date">
                                     <span><%= initialDate.toISOString().slice(0, 10) %> </span>
                                     <span> <b> / </b> <%= finalDate.toISOString().slice(0, 10) %> </span>
                                 </div>
-
+                
                                 <div class="time">
                                     <span>TIMES : <%= client.times %> </span>
                                     <span>DAYS REST : <%= restDays %> </span>
                                 </div>
-
+                
                             </div>
                                 
                         </a>
-            
+                
                     </div>
                     
                 <% }); %> 
+    
+    
+            </div>
 
 
-            <% } %> 
+        <% } %> 
 
-        </div>
+
 
     </div>
 

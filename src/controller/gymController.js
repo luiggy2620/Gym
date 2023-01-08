@@ -68,8 +68,9 @@ gymController.saveEditPlace = async (request, response) => {
 }
 
 gymController.deletePlace = async (request, response) => {
+    const placeToDelete = await Place.find({_id: request.params.id}, {name: 1});
     await Place.findByIdAndDelete(request.params.id);
-    response.redirect('/gym/places');
+    sendMessage(request, response, 'successMessage', `${placeToDelete[0].name} deleted successfully`, '/gym/places');
 }
 
 module.exports = gymController;

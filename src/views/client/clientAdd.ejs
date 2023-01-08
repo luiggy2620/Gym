@@ -13,10 +13,10 @@
         <form action="/client/add" method="post" class="edit">
             
             <% let finalDate = new Date() 
-                finalDate.setDate(finalDate.getDate() + (7*4));
+                finalDate.setDate(finalDate.getDate() + ((7*4) + 2));
             %>
 
-            <a href="/clients" class="back"><i class="fa-solid fa-angles-left"></i>Back to Clients</a>
+            <a href="/clients" class="back"><i class="fa-solid fa-angles-left"></i>Return to Clients</a>
             
             <span class="titleForm">
                 new client
@@ -37,31 +37,13 @@
                 </label>
             <% } %> 
 
-
             <label for="gym">Gym *</label>
             <select name="gym" id="gym">
 
-                <% if (gym != '') { %> 
-
-                    <% if(gym === "GIM H2G0") { %>
-                        <option value="GIM H2G0" selected >GIM H2G0</option>
-                    <% } else { %> 
-                        <option value="GIM H2G0">GIM H2G0</option>
-                    <% } %> 
-    
-                    <% if(gym === "GIM H2G0 2") { %>
-                        <option value="GIM H2G0 2" selected>GIM H2G0 2</option>
-                    <% } else { %> 
-                        <option value="GIM H2G0 2" >GIM H2G0 2</option>
-                    <% } %> 
-
-                <% } else { %> 
-
-                    <option value="GIM H2G0">GIM H2G0</option>
-                    <option value="GIM H2G0 2" >GIM H2G0 2</option>
-
-                <% } %> 
-                
+                    <% places.forEach(function(place) { %>                        
+                        <option value="<%= place.id %> " ><%= place.name %> </option>
+                    <% }) %> 
+ 
             </select>
 
             <div class="dates">
