@@ -47,8 +47,8 @@ clientController.registerClient = async (request, response) => {
 
         if (!clientFound) {
             const newClient = new Client({ 
-                name: name.toLowerCase(), 
-                lastName: lastName.toLowerCase(), 
+                name: name.toLowerCase().replace(/\s+/g, ''), 
+                lastName, 
                 phone, 
                 gym, 
                 initialDate: new Date(), 
@@ -85,7 +85,15 @@ clientController.editClient = async (request, response) => {
     else {
         const clientFound = await Client.findOne({ phone });
         if (!clientFound || clientFound.phone == phone) {
-            await Client.findByIdAndUpdate(request.params.id, { name, lastName, phone, gym, initialDate, finalDate, times });
+            await Client.findByIdAndUpdate(request.params.id, { 
+                name: name.toLowerCase().replace(/\s+/g, ''), 
+                lastName, 
+                phone, 
+                gym, 
+                initialDate, 
+                finalDate, 
+                times 
+            });
             sendMessage(request, response, 'successMessage', `${name + ' ' + lastName} successfully updated`, '/clients');
         } else
             sendMessage(request, response, 'errorPhone', `The client with phone ${phone} already exists`, directionToBack);
@@ -104,7 +112,7 @@ clientController.searchClients = async (request, response) => {
 
     if (Number.isInteger(parseInt(data)))
         clients = await Client.find({ phone: parseInt(data) });
-    else clients = await Client.find({ name: data.toLowerCase() });
+    else clients = await Client.find({ name: data.toLowerCase().replace(/\s+/g, '') });
 
     if (clients.length == 0)
         sendMessage(request, response, 'dangerMessage', 'Any Clients Found', '/clients');
