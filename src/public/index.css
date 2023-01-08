@@ -15,12 +15,7 @@
     box-sizing: border-box;
 }
 
-body {
-    display: grid;
-    grid-template-columns:  13% 87%;
-    grid-template-rows: 1fr;
-    grid-template-areas: "navbar container ";
-    
+body {    
     font-size: 18px;
 
     font-family: 'Roboto', sans-serif;
@@ -109,4 +104,24 @@ button::selection, a::selection, label::selection, input::selection,
 
 .containerIndex .ubication a:hover {
     background: var(--color-hover);
+}
+
+
+@media only screen and (max-width: 1200px){
+    /*Tablets [601px -> 1200px]*/
+    body {
+        background: #444;
+    }
+}
+@media only screen and (max-width: 600px){
+	/*Big smartphones [426px -> 600px]*/
+    body {
+        background: #666;
+    }
+}
+@media only screen and (max-width: 425px){
+	/*Small smartphones [325px -> 425px]*/
+    body {
+        background: #999;
+    }
 }

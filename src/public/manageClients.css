@@ -15,21 +15,21 @@
     display: flex;
     flex-direction: column;
     position: fixed;
+    right: 0;
     z-index: 100;
 
-    width: 86%;
-    height: 10vh;
-    min-height: 100px;
+    width: 88%;
+    height: 12%;
+    padding-bottom: 10px;
 
     background: var(--color-background);
-    margin-bottom: 12vh;
 }
 
 .manager .search, .manager .managerFooter, .manager .sorter {
     display: flex;
     align-items: center;
 
-    width: 92%;
+    width: 91%;
     margin: auto;
 }
 
@@ -48,7 +48,6 @@
     gap: 15px;
 
     height: 100%;
-    padding-bottom: 10px;
 }
 
 .manager .sorter a {
@@ -135,6 +134,7 @@ input:-webkit-autofill:active
 
 .manager .add {
     width: 10%;
+    min-width: 10%;
     height: 100%;
     border-radius: 10px;
     

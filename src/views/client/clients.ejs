@@ -9,6 +9,7 @@
 
     <%- include('../partials/navbar.ejs') %> 
 
+
     <div class="container">
 
         <% if(clients.length === 0) { %> 
@@ -24,11 +25,10 @@
 
         <% } else { %> 
             
-            
-            <%- include('../partials/manageClients.ejs') %>         
-            
+            <%- include('../partials/manageClients.ejs') %> 
+
             <div class="containerClients">
-    
+
                 <%- include('../partials/alert.ejs') %> 
     
                 <% clients.forEach(function (client) { %>
