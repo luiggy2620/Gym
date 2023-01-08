@@ -10,7 +10,8 @@ const resetData = () => {
 }
 
 gymController.renderPlaces = async (request, response) => {
-    const places = await Place.find();
+    const places = await Place.find({}, { ubicationURL: 0 });
+    console.log(places);
     response.render('gym/places.ejs', {
         places
     });
@@ -63,7 +64,7 @@ gymController.saveEditPlace = async (request, response) => {
         await Place.findByIdAndUpdate(request.params.id, { name, ubication, ubicationURL, phone });
         sendMessage(request, response, 'successMessage', `Place ${name} successfully updated.`, '/gym/places');
     }
-    
+
 }
 
 gymController.deletePlace = async (request, response) => {

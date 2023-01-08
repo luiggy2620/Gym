@@ -1,8 +1,8 @@
 const clientController = {};
 const Client = require('../model/Client');
 const { sendMessage, sendClients } = require('../redirectsToRoutes/redirectsToRoutes');
-const { isEmpty, isValidPhone, isValidMonths, isValidDate, isValidTimes } 
-            = require('../validations/validations');
+const { isEmpty, isValidPhone, isValidMonths, isValidDate, isValidTimes }
+    = require('../validations/validations');
 
 let nameTemporal = '', lastNameTemporal = '', phoneTemporal = '', gymTemporal = '',
     finalDateTemporal = '', monthsTemporal = '';
@@ -14,7 +14,7 @@ const resetData = () => {
 
 clientController.renderClients = async (request, response) => {
     let clients = [];
-    clients = await Client.find();
+    clients = await Client.find({}, { phone: 0 });
     sendClients(response, clients);
 }
 
@@ -46,12 +46,12 @@ clientController.registerClient = async (request, response) => {
         const clientFound = await Client.findOne({ phone });
 
         if (!clientFound) {
-            const newClient = new Client({ 
-                name: name.toLowerCase().replace(/\s+/g, ''), 
-                lastName, 
-                phone, 
-                gym, 
-                initialDate: new Date(), 
+            const newClient = new Client({
+                name: name.toLowerCase().replace(/\s+/g, ''),
+                lastName,
+                phone,
+                gym,
+                initialDate: new Date(),
                 finalDate
             });
             await newClient.save();
@@ -85,14 +85,14 @@ clientController.editClient = async (request, response) => {
     else {
         const clientFound = await Client.findOne({ phone });
         if (!clientFound || clientFound.phone == phone) {
-            await Client.findByIdAndUpdate(request.params.id, { 
-                name: name.toLowerCase().replace(/\s+/g, ''), 
-                lastName, 
-                phone, 
-                gym, 
-                initialDate, 
-                finalDate, 
-                times 
+            await Client.findByIdAndUpdate(request.params.id, {
+                name: name.toLowerCase().replace(/\s+/g, ''),
+                lastName,
+                phone,
+                gym,
+                initialDate,
+                finalDate,
+                times
             });
             sendMessage(request, response, 'successMessage', `${name + ' ' + lastName} successfully updated`, '/clients');
         } else
@@ -101,9 +101,9 @@ clientController.editClient = async (request, response) => {
 }
 
 clientController.deleteClient = async (request, response) => {
-    const clientToDelete = await Client.findById(request.params.id);
+    const clientToDelete = await Client.find({ _id: request.params.id }, { name: 1, lastName: 1 });
     await Client.findByIdAndDelete(request.params.id);
-    sendMessage(request, response, 'successMessage', `${clientToDelete.name + ' ' +clientToDelete.lastName} delete successfully`, '/clients');
+    sendMessage(request, response, 'successMessage', `${clientToDelete[0].name + ' ' + clientToDelete[0].lastName} delete successfully`, '/clients');
 }
 
 clientController.searchClients = async (request, response) => {
@@ -111,8 +111,8 @@ clientController.searchClients = async (request, response) => {
     const { data } = request.query;
 
     if (Number.isInteger(parseInt(data)))
-        clients = await Client.find({ phone: parseInt(data) });
-    else clients = await Client.find({ name: data.toLowerCase().replace(/\s+/g, '') });
+        clients = await Client.find({ phone: parseInt(data) }, { phone: 0 });
+    else clients = await Client.find({ name: data.toLowerCase().replace(/\s+/g, '') }, { phone: 0 });
 
     if (clients.length == 0)
         sendMessage(request, response, 'dangerMessage', 'Any Clients Found', '/clients');
@@ -125,7 +125,7 @@ clientController.sortClients = async (request, response) => {
     let typeOrder = 1
     if (order === 'desc') typeOrder = -1;
 
-    const clients = await Client.find({}).sort([[sort, typeOrder]]);
+    const clients = await Client.find({}, { phone: 0 }).sort([[sort, typeOrder]]);
     sendClients(response, clients);
 }
 
