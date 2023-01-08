@@ -1,6 +1,8 @@
 const gymController = {}
 
 const Place = require("../model/Place");
+const { sendMessage } = require("../redirectsToRoutes/redirectsToRoutes");
+const { isEmpty, isValidPhone } = require("../validations/validations");
 let nameTemporal = '', ubicationTemporal = '', ubicationURLTemporal = '', phoneTemporal = '';
 
 const resetData = () => {
@@ -25,11 +27,21 @@ gymController.renderFormToAddPlace = (request, response) => {
 
 gymController.saveNewPlace = async (request, response) => {
     const { name, ubication, ubicationURL, phone } = request.body;
-    nameTemporal = name, ubicationTemporal = ubication, ubicationURLTemporal = ubicationURL, phoneTemporal = phone;
-    const newPlace = new Place({ name, ubication, ubicationURL, phone });
-    await newPlace.save();
-    resetData();
-    response.redirect('/gym/places');
+
+    const routeToBack = `/gym/place/add`;
+    nameTemporal = name, ubicationTemporal = ubication,
+        ubicationURLTemporal = ubicationURL, phoneTemporal = phone;
+
+    if (isEmpty(name, ubication, ubicationURL, phone))
+        sendMessage(request, response, 'dangerMessage', 'Missing credentials', routeToBack);
+    else if (!isValidPhone(phone))
+        sendMessage(request, response, 'dangerMessage', 'Invalid phone number', routeToBack);
+    else {
+        const newPlace = new Place({ name, ubication, ubicationURL, phone });
+        await newPlace.save();
+        resetData();
+        sendMessage(request, response, 'successMessage', `Place ${name} successfully added.`, '/gym/places');
+    }
 }
 
 gymController.renderFormToEditPlace = async (request, response) => {
@@ -40,14 +52,18 @@ gymController.renderFormToEditPlace = async (request, response) => {
 }
 
 gymController.saveEditPlace = async (request, response) => {
-    const {name, ubication, ubicationURL, phone} = request.body;
-    await Place.findByIdAndUpdate(request.params.id, {
-        name, 
-        ubication, 
-        ubicationURL: ubicationURL.toString(), 
-        phone
-    });
-    response.redirect('/gym/places');
+    const { name, ubication, ubicationURL, phone } = request.body;
+    const routeToBack = `/gym/place/edit/${request.params.id}`;
+
+    if (isEmpty(name, ubication, ubicationURL, phone))
+        sendMessage(request, response, 'dangerMessage', 'Missing credentials', routeToBack);
+    else if (!isValidPhone(phone))
+        sendMessage(request, response, 'dangerMessage', 'Invalid phone number', routeToBack);
+    else {
+        await Place.findByIdAndUpdate(request.params.id, { name, ubication, ubicationURL, phone });
+        sendMessage(request, response, 'successMessage', `Place ${name} successfully updated.`, '/gym/places');
+    }
+    
 }
 
 gymController.deletePlace = async (request, response) => {

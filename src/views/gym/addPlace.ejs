@@ -32,13 +32,6 @@
             <label for="phone">Phone *</label>
             <input type="text" name="phone" autocomplete="off" placeholder="00000000" value="<%= phone %>">
 
-            <% if(errorPhone[0]) { %> 
-                <label for="phone" class="messageTag">
-                    <%= errorPhone %> 
-                </label>
-            <% } %> 
-
-
             <% if(dangerMessage[0]) %> 
                 <label for="dangerMessage" class="messageTag">
                     <%= dangerMessage %> 

@@ -10,21 +10,19 @@
 
     <div class="container">
 
-        <% if(places.length === 0) { %> 
+        <div class="containerPlaces">
 
-            <div class="addFirstPlace">
-                <span>without places</span>
-                <a href="/gym/place/add">
-                    <i class="fa-solid fa-plus"></i>
-                    Add Place
-                </a>    
-            </div>Place
+            <% if(places.length === 0) { %> 
 
-        <% } else { %> 
+                <div class="addFirstPlace">
+                    <span>without places</span>
+                    <a href="/gym/place/add">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Place
+                    </a>    
+                </div>Place
 
-            <div class="containerPlaces">
-
-                <%- include('../partials/alert.ejs') %>
+            <% } else { %> 
                 
                 <div class="addPlace">
                     <a href="/gym/place/add">
@@ -32,6 +30,9 @@
                         Add Place
                     </a>
                 </div>
+
+                <%- include('../partials/alert.ejs') %>
+
     
                 <% places.forEach(function(place) { %>
     
@@ -48,12 +49,12 @@
                     </a>
     
                 <% }); %> 
-    
-            </div>
-    
-        </div>
 
-        <% } %> 
+                
+            <% } %> 
+
+        </div>
+    </div>
         
 
 <%- include('../partials/footer.ejs') %> 

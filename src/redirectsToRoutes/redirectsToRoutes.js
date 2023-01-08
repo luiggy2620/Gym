@@ -1,7 +1,6 @@
 const redirectToRoutes = {};
 
 redirectToRoutes.sendMessage = (request, response, typeMessage, message, direction) => {
-    console.log(message);
     request.flash(typeMessage, message);
     response.redirect(direction);
 };
