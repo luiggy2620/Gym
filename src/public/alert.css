@@ -5,9 +5,11 @@
 
 #alert {
     display: flex;
+    align-items: center;
     justify-content: space-between;
 
     width: 90%;
+    height: 6vh;
     margin: auto;
     padding: 1.25em;
     border-radius: 0.625em;

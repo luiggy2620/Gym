@@ -109,8 +109,37 @@ button::selection, a::selection, label::selection, input::selection,
 
 @media only screen and (max-width: 1290px){
     /*Tablets [601px -> 1200px]*/
+
+    .container {
+        width: 95%;
+        margin-left: 5%;
+    }
+
+    .manager {
+        width: 95%;
+        left: 5%;
+    }
+
+    .navbar {
+        background: var(--color-main);
+        width: 5%;
+        min-width: 60px;
+    }
+
+    .navbar a span, .navbar .title {
+        display: none;
+    }
+
+    .navbar i {
+        margin-right: 0;
+    }
+    
+
+}
+@media only screen and (max-width: 775px){
+	/*Big smartphones [426px -> 600px]*/
     body {
-        background: #444;
+        background: #666;
     }
 
     .container {
@@ -131,12 +160,7 @@ button::selection, a::selection, label::selection, input::selection,
         height: 6vh;
         bottom: 0;
     }
-}
-@media only screen and (max-width: 600px){
-	/*Big smartphones [426px -> 600px]*/
-    body {
-        background: #666;
-    }
+
 }
 @media only screen and (max-width: 425px){
 	/*Small smartphones [325px -> 425px]*/
