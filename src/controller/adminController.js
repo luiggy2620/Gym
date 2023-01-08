@@ -17,11 +17,12 @@ adminController.renderOptions = (request, response) => {
 }
 
 adminController.renderFormPassword = (request, response) => {
-    response.send('form to edit password');
+    response.render('admin/password.ejs');
 }
 
 adminController.saveNewPassword = (request, response) => {
-    response.send('save new Password');
+    console.log(request.body);
+    response.redirect('/admin/admin');
 }
 
 adminController.logout = (request, response) => {
