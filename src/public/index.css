@@ -8,7 +8,6 @@
     --color-shadow: #999;
 }
 
-
 * {
     margin: 0;
     padding: 0;
@@ -31,77 +30,6 @@ button::selection, a::selection, label::selection, input::selection,
     select::selection, span::selection, img::selection, b::selection, p::selection {
     color: white;
     background: var(--color-main); 
-}
-
-.containerIndex {
-    position: relative;
-    grid-area: container;
-
-    color: var(--color-text);
-}
-
-.containerIndex .info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.containerIndex .mainTitle {
-    font-size: 200px;
-
-    color: var(--color-main);
-    text-transform: uppercase;
-}
-
-.containerIndex .info   p {
-    width: 50%;
-    padding: 20px;
-    font-size: 20px;
-
-    text-align: end;
-}
-
-.containerIndex .info a {
-    font-size: 30px;
-    padding: 10px 20px 10px 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    margin-right: 10px;
-    border-bottom: 3px solid var(--color-text);
-
-    text-decoration: none;
-    font-weight: bold;
-    color: var(--color-text);
-}
-
-.containerIndex .info a:hover {
-    background: var(--color-hover);
-}
-
-.containerIndex .info a i {
-    transform: rotate(180deg);
-
-    margin-left: 15px;
-}
-
-.containerIndex .ubication {
-    display: flex;
-    align-items: flex-end;
-    justify-content: end;
-    gap: 20px;
-}
-
-.containerIndex .ubication a {
-    font-size: 22px;
-    padding: 15px;
-    border-radius: 10px;
-
-    text-decoration: none;
-    color: var(--color-text);
-}
-
-.containerIndex .ubication a:hover {
-    background: var(--color-hover);
 }
 
 
@@ -185,6 +113,14 @@ button::selection, a::selection, label::selection, input::selection,
         width: 100%;
     }
 
+    .containerHome .phrase {
+        width: 100%;
+    }
+
+    .containerHome .mainTitle{
+        width: auto;
+    }
+
 }
 
 @media only screen and (max-width: 1000px){
@@ -209,6 +145,19 @@ button::selection, a::selection, label::selection, input::selection,
 
     .container {
         padding: 20px 0 0 0;
+    }
+
+    .containerHome {
+        font-size: .7em;
+    }
+    
+}
+
+@media only screen and (max-width: 350px){
+	/*Small smartphones [325px -> 425px]*/
+
+    .containerHome {
+        font-size: .5555em;
     }
     
 }
@@ -243,11 +192,24 @@ button::selection, a::selection, label::selection, input::selection,
 }
 
 
-@media only screen and (max-height: 360px){
+@media only screen and (max-height: 425px){
 	/*Small smartphones [325px -> 425px]*/
 
     .containerClients {
-        margin-top: 25vh;
+        margin-top: 24vh;
+    }
+
+    .containerHome {
+        font-size: .6em;
     }
     
 }
+
+@media only screen and (max-height: 425px){
+	/*Small smartphones [325px -> 425px]*/
+
+    .containerClients {
+        margin-top: 28vh;
+    }
+    
+}   
