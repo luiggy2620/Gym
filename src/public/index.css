@@ -197,6 +197,10 @@ button::selection, a::selection, label::selection, input::selection,
         display: none;
     }
 
+    .manager .search form {
+        width: 100%;
+    }
+
 }
 
 @media only screen and (max-width: 1000px){

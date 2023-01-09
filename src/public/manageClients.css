@@ -21,7 +21,7 @@
 
     width: 87%;
     height: 10vh;
-    padding-bottom: 10px;
+    padding-bottom: 0.625rem;
 
     background: var(--color-background);
 }
@@ -40,13 +40,13 @@
 
 .manager .managerFooter {
     justify-content: space-between;
-    gap: 15px;
-
+    
     height: 35%;
 }
 
 .manager .sorter {
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 0.3125em;
 
     height: 100%;
 }
@@ -57,10 +57,14 @@
     justify-content: center;
 
     height: 100%;
-    padding: 0 15px 0 15px;
-    border-radius: 10px;
+    padding: 0 0.9375em 0 0.9375em;
+    border-radius: 0.625em;
 
     background: var(--color-hover);
+}
+
+.manager .sorter i {
+    margin-left: 0.25em;
 }
 
 .manager .sorter a:hover {
@@ -78,7 +82,7 @@
 
     width: 100%;
     height: 100%;
-    padding: 10px;
+    padding: 0.625em;
 }
 
 .search form {
@@ -86,8 +90,9 @@
 
     width: 70%;
     height: 100%;
-    border: 1px solid var(--color-border);
-    border-radius: 20px;
+    min-height: 20px;
+    border: 0.0625em solid var(--color-border);
+    border-radius: 1.25em;
     
     overflow: hidden;
 }
@@ -95,8 +100,8 @@
 .search input {
     width: 100%;
     height: 100%;
-    padding: 0 0 0 20px;
-    font-size: 18px;
+    padding: 0 0 0 1.25em;
+    font-size: 1.125em;
     font-weight: 500;
     border: none;
 
@@ -124,7 +129,7 @@ input:-webkit-autofill:active
 
 .search button {
     width: 10%;
-    font-size: 17px;
+    font-size: 1.0625em;
     border: none;
 
     background: var(--color-hover);
@@ -137,7 +142,7 @@ input:-webkit-autofill:active
     width: 10%;
     min-width: 10%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 0.625em;
     
     overflow: hidden;
 }
@@ -146,7 +151,7 @@ input:-webkit-autofill:active
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 0.3125em;
     
     width: 100%;
     height: 100%;
