@@ -1,25 +1,23 @@
 const { Router } = require('express');
 const clientController = require('../controller/clientController');
-const { existsAdmin } = require('../redirectsToRoutes/redirectsToRoutes');
+const { ensureAuthenticated } = require('../redirectsToRoutes/redirectsToRoutes');
 const route = Router();
 
-route.use(existsAdmin);
+route.get('/clients', ensureAuthenticated, clientController.renderClients);
 
-route.get('/clients', clientController.renderClients);
+route.get('/client/add', ensureAuthenticated, clientController.renderRegisterClient);
 
-route.get('/client/add', clientController.renderRegisterClient);
+route.post('/client/add', ensureAuthenticated, clientController.registerClient);
 
-route.post('/client/add', clientController.registerClient);
+route.get('/client/edit/:id', ensureAuthenticated, clientController.renderEditClient);
 
-route.get('/client/edit/:id', clientController.renderEditClient);
+route.put('/client/edit/:id', ensureAuthenticated, clientController.editClient);
 
-route.put('/client/edit/:id', clientController.editClient);
-
-route.delete('/client/delete/:id', clientController.deleteClient);
+route.delete('/client/delete/:id', ensureAuthenticated, clientController.deleteClient);
 
 
-route.get('/clients/search', clientController.searchClients);
+route.get('/clients/search', ensureAuthenticated, clientController.searchClients);
 
-route.get('/clients/sort', clientController.sortClients);
+route.get('/clients/sort', ensureAuthenticated, clientController.sortClients);
 
 module.exports = route;
