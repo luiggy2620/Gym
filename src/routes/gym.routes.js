@@ -3,7 +3,7 @@ const gymController = require('../controller/gymController');
 const { existsAdmin } = require('../redirectsToRoutes/redirectsToRoutes');
 const route = Router();
 
-// route.use(existsAdmin)
+route.use(existsAdmin)
 
 route.get('/gym/places', gymController.renderPlaces);
 

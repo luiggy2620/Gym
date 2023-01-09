@@ -75,7 +75,6 @@ form.edit input, form.edit button.editButtom, form.edit select {
     width: 100%;
     padding: 0.625em;
     margin-bottom: 0.625em;
-    border-bottom: 0.0625em solid var(--color-border);
     font-size: 1em;
     z-index: 5;
     
@@ -86,6 +85,7 @@ form.edit input, form.edit button.editButtom, form.edit select {
 
 form.edit input {
     outline: none;
+    border-bottom: 0.0625em solid var(--color-border);
 }
 
 form.edit select {

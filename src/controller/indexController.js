@@ -8,8 +8,4 @@ indexController.renderIndex = async (request, response) => {
     })
 }
 
-indexController.renderAbout = (request, response) => {
-    response.render('about.ejs');
-}
-
 module.exports = indexController;

@@ -8,36 +8,45 @@
 }
 
 body {
-    font-size: 16px;
+    font-size: 15px;
+    background: #000;
+    background-image: url(/images/fondo4042.jpg);
+    background-size: cover;
 }
 
 .container404 {
-    font-family: 'Nunito Sans', sans-serif;
-
-    height: 100vh;
-    background-image: url(/images/fondo4042.jpg);
-    background-size: cover;
-    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    
+    height: 100vh;
+    
+    font-family: 'Nunito Sans', sans-serif;
+    color: white;
     text-transform: uppercase;
 }
 
 .container404 .error404 {
-    font-size: 21.875em;
+    font-size: 18.75em;
 }
 
 
 @media only screen and (max-width: 850px){
     body {
-        font-size: 16px;
+        font-size: 11px;
     }
 }
 
-@media only screen and (max-width: 400px){
+@media only screen and (max-width: 450px){
     body {
-        font-size: 12px;
+        font-size: 8px;
+    }
+}
+
+@media only screen and (max-height: 450px){
+    body {
+        font-size: 9px;
     }
 }
