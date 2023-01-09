@@ -64,4 +64,35 @@ clientSchema.statics.getClientsWithGymName = function() {
     ]);
   }
 
+  clientSchema.statics.getClientsWithGymNameSort = function(typeSort, typeOrder) {
+    return this.aggregate([
+      {
+        $lookup: {
+          from: "places",
+          localField: "gym",
+          foreignField: "_id",
+          as: "gym_info"
+        }
+      },
+      {
+        $unwind: "$gym_info"
+      },
+      {
+        $addFields: {
+          gym_name: "$gym_info.name"
+        }
+      },
+      {
+        $project: {
+          gym_info: 0,
+          gym: 0,
+          phone: 0
+        }
+      },
+      {
+        $sort :  {[typeSort]: typeOrder}
+      }
+    ]);
+  }
+
 module.exports = model('Client', clientSchema);

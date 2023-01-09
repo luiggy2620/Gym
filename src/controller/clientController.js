@@ -128,7 +128,7 @@ clientController.sortClients = async (request, response) => {
     let typeOrder = 1
     if (order === 'desc') typeOrder = -1;
 
-    const clients = await Client.find({}, { phone: 0 }).sort([[sort, typeOrder]]);
+    const clients = await Client.getClientsWithGymNameSort(sort, typeOrder);
     sendClients(response, clients);
 }
 

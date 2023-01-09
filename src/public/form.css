@@ -291,6 +291,7 @@ form.edit select option {
     width: 60%;
     margin-right: 0.9375em;
     border-bottom: 0.0625em solid var(--color-border);
+    font-size: 1em;
 
     outline: none;
     border: none;

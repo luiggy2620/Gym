@@ -166,7 +166,8 @@
     color: var(--color-text);
 }
 
-.addFirstClient a {    
+.addFirstClient a { 
+    position: relative;   
     font-size: 3em;
     padding: 0.625rem 1.25rem 0.625rem 1.25rem;
     border-bottom: 0.1875rem solid var(--color-text);
