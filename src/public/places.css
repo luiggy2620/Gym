@@ -18,7 +18,7 @@
 }
 
 .containerPlaces {
-    padding: 20px;
+    padding: 1.25rem;
 }
 
 
@@ -28,10 +28,11 @@
 
     width: 89%;
     margin: auto;
-    padding: 20px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom: 3px solid var(--color-main);
+    padding: 1.25em;
+    margin-bottom: 1.25em;
+    border-top-left-radius: 0.625em;
+    border-top-right-radius: 0.625em;
+    border-bottom: 0.1875em solid var(--color-main);
     
     
     color: var(--color-text);
@@ -44,7 +45,7 @@
 }
 
 .place span.name {
-    font-size: 40px;
+    font-size: 2em;
 
     font-family: 'Nunito Sans', sans-serif;
     text-transform: uppercase;
@@ -57,18 +58,18 @@
 .addPlace {
     display: flex;
     justify-content: space-between;
-    gap: 5px;
+    gap: 0.3125em;
 
     width: 89%;
     margin: auto;
-    padding: 20px;
+    padding: 1.25em;
 }
 
 .addPlace a, .addFirstPlace a {
-    font-size: 22px;
+    font-size: 1.2em;
     font-weight: bold;
-    padding: 5px 10px 5px 10px;
-    border-radius: 10px;
+    padding: 0.3125rem 0.625rem 0.3125rem 0.625rem;
+    border-radius: 0.625em;
 
     text-decoration: none;
     color: var(--color-text);
@@ -94,7 +95,7 @@
 }
 
 .addFirstPlace a {
-    font-size: 40px;
+    font-size: 2em;
     border-radius: 0;
 }
 
