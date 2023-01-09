@@ -185,18 +185,19 @@ form.edit button.editButtom:hover {
 }
 
 .dates button {
-    width: 3.125em;
-    height: 60%;
+    width: 25%;
+    max-width: 50px;
+    height: 5vh;
     border: 0.0625em solid var(--color-border);
     border-radius: 0.625rem;
 
-    background: transparent;
+    background: var(--color-hover);
     color: var(--color-text);
     cursor: pointer;
 }
 
 .dates button:hover {
-    background: var(--color-hover);
+    background: #999;
 }
 
 .messageTag {
@@ -243,7 +244,7 @@ form.edit button.editButtom:hover {
     margin-left: 0.625em;
     border: 0.0625em solid var(--color-border);
 
-    background: transparent;
+    background: var(--color-hover);
     color: var(--color-text);
     cursor: pointer;
 }

@@ -21,6 +21,7 @@
 
     width: 87%;
     height: 10vh;
+    min-height: 80px;
     padding-bottom: 0.625rem;
 
     background: var(--color-background);
@@ -35,13 +36,13 @@
 }
 
 .manager .search {
-    height: 65%;
+    height: 70%;
 }
 
 .manager .managerFooter {
     justify-content: space-between;
     
-    height: 35%;
+    height: 30%;
 }
 
 .manager .sorter {
