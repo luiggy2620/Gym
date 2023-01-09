@@ -65,8 +65,8 @@
     font-family: 'Nunito Sans', sans-serif;
 }
 
-.containerHome a.routes.noEnd {
-    clip-path: polygon(11% 0, 100% 0%, 90% 100%, 0% 100%);
+.containerHome .routesBox {
+    overflow: hidden;
 }
 
 .containerHome  a.routes{
@@ -74,7 +74,7 @@
     overflow: hidden;
 
     font-size: 1.4em;
-    clip-path: polygon(11% 0, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(11% 0, 100% 0%, 90% 100%, 0% 100%);
     padding: 0.25em 1.25em 0.25em 1.25em;
     font-family: 'Nunito Sans', sans-serif;
     background: #FFE15D;

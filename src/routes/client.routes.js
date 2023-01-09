@@ -3,7 +3,7 @@ const clientController = require('../controller/clientController');
 const { existsAdmin } = require('../redirectsToRoutes/redirectsToRoutes');
 const route = Router();
 
-// route.use(existsAdmin);
+route.use(existsAdmin);
 
 route.get('/clients', clientController.renderClients);
 

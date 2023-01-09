@@ -1,5 +1,6 @@
 const gymController = {}
 
+const Client = require("../model/Client");
 const Place = require("../model/Place");
 const { sendMessage } = require("../redirectsToRoutes/redirectsToRoutes");
 const { isEmpty, isValidPhone } = require("../validations/validations");
@@ -46,8 +47,10 @@ gymController.saveNewPlace = async (request, response) => {
 
 gymController.renderFormToEditPlace = async (request, response) => {
     const placeToEdit = await Place.findById(request.params.id);
+    const amountClients = await Client.count({gym: request.params.id});
     response.render('gym/editPlace.ejs', {
-        placeToEdit
+        placeToEdit,
+        amountClients
     });
 }
 
