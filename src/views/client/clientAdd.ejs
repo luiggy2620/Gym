@@ -21,60 +21,80 @@
             <span class="titleForm">
                 new client
             </span>
-    
-            <label for="name">Name *</label>
-            <input type="text" name="name" autocomplete="off" placeholder="Name" value=<%= name %>>
 
-            <label for="lastName">Last Name *</label>
-            <input type="text" name="lastName" autocomplete="off" placeholder="Last Name" value=<%= lastName %> >
-    
-            <label for="phone">Phone *</label>
-            <input type="text" name="phone" autocomplete="off" placeholder="00000000" value=<%= phone %> >
+            <% if(places.length < 1) { %>
 
-            <% if(errorPhone[0]) { %> 
-                <label for="phone" class="messageTag">
-                    <%= errorPhone %> 
-                </label>
-            <% } %> 
+                <div class="danger">
 
-            <label for="gym">Gym *</label>
-            <select name="gym" id="gym">
-                <% places.forEach(function(place) { %>                        
-                    <option value="<%= place.id %>" ><%= place.name %> </option>
-                <% }) %> 
-            </select>
-
-            <div class="dates">
-
-                <div>
-                    <label for="finalDate">Final Date *</label>
-                    <input id="finalDateClient" type="date" 
-                    value= <%= finalDate.toISOString().slice(0, 10) %>  
-                    name="finalDate">
+                    <p>
+                        <span>You cannot add clients if you do not have at least one place.</span>
+                        <a href="/gym/place/add">Add Place</a>
+                    </p>
+        
+                    
+        
+        
                 </div>
 
-                <div>
-                    <label for="months" >Months *</label>
-                    <input type="hidden" name="months" value="1" id="monthsClientInput">
-                    <span id="monthsClient">1</span>
+            <% } else { %>
+
+                <label for="name">Name *</label>
+                <input type="text" name="name" autocomplete="off" placeholder="Name" value=<%= name %>>
+
+                <label for="lastName">Last Name *</label>
+                <input type="text" name="lastName" autocomplete="off" placeholder="Last Name" value=<%= lastName %> >
+        
+                <label for="phone">Phone *</label>
+                <input type="text" name="phone" autocomplete="off" placeholder="00000000" value=<%= phone %> >
+
+                <% if(errorPhone[0]) { %> 
+                    <label for="phone" class="messageTag">
+                        <%= errorPhone %> 
+                    </label>
+                <% } %> 
+
+                <label for="gym">Gym *</label>
+                <select name="gym" id="gym">
+                    <% places.forEach(function(place) { %>                        
+                        <option value="<%= place.id %>" ><%= place.name %> </option>
+                    <% }) %> 
+                </select>
+
+                <div class="dates">
+
+                    <div>
+                        <label for="finalDate">Final Date *</label>
+                        <input id="finalDateClient" type="date" 
+                        value= <%= finalDate.toISOString().slice(0, 10) %>  
+                        name="finalDate">
+                    </div>
+
+                    <div>
+                        <label for="months" >Months *</label>
+                        <input type="hidden" name="months" value="1" id="monthsClientInput">
+                        <span id="monthsClient">1</span>
+                    </div>
+
+                    <button type="button" onclick="increaseMonths()">
+                        <i class="fa-solid fa-plus">
+
+                        </i></button>
+                    <button type="button" onclick="decreaseMonths()">
+                        <i class="fa-solid fa-window-minimize"></i>
+                    </button>
+
                 </div>
 
-                <button type="button" onclick="increaseMonths()">
-                    <i class="fa-solid fa-plus">
+                <% if(dangerMessage[0]) %> 
+                    <label for="dangerMessage" class="messageTag">
+                        <%= dangerMessage %> 
+                    </label>
+        
+                <button class="editButtom">Add Client</button>
 
-                    </i></button>
-                <button type="button" onclick="decreaseMonths()">
-                    <i class="fa-solid fa-window-minimize"></i>
-                </button>
-
-            </div>
-
-            <% if(dangerMessage[0]) %> 
-                <label for="dangerMessage" class="messageTag">
-                    <%= dangerMessage %> 
-                </label>
+            <% } %>  
     
-            <button class="editButtom">Add Client</button>
+            
 
             <style>
 

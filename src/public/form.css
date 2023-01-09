@@ -327,6 +327,12 @@ form.edit select option {
     margin-left: 0.3125em;
 }
 
+.danger a {
+    font-size: 1.2em;
+    color: var(--color-text);
+    text-transform: uppercase;
+}
+
 .back {
     z-index: 5;
 
