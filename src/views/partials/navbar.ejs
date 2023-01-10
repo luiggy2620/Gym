@@ -10,44 +10,50 @@
         <span>Home</span>
     </a>
 
-    <% if(admin) { %> 
+    <div class="separator"></div>
 
-        <div class="separator"></div>
+    <a href="/clients" >
+        <i class="fa-solid fa-dumbbell"></i>
+        <span>Clients</span>
+    </a>
     
-        <a href="/clients" >
-            <i class="fa-solid fa-dumbbell"></i>
-            <span>Clients</span>
-        </a>
-        
-        <a href="/client/add" >
-            <i class="fa-solid fa-plus"></i>
-            <span>New Client</span>
-        </a>
-
-    <% } %> 
-
+    <a href="/client/add" >
+        <i class="fa-solid fa-plus"></i>
+        <span>New Client</span>
+    </a>
 
     <div class="separator"></div>
 
-    <% if(!admin) { %> 
 
-        <a href="/admin/login">
-            <i class="fa-solid fa-arrow-right-to-bracket"></i>
-            <span>Login</span>
-        </a>
-
-    <% } %> 
-
+    <a href="/admin/admin" >
+        <i class="fa-solid fa-gear"></i>
+        <span>Admin</span>
+    </a>
 
     <% if(admin) { %> 
 
 
-        <a href="/admin/admin" >
-            <i class="fa-solid fa-gear"></i>
-            <span>Admin</span>
-        </a>
 
     <% } %> 
+
+    <% if(admin) { %> 
+
+
+    <% } %> 
+
+
+
+    <% if(!admin) { %> 
+
+        <!-- <a href="/admin/login">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            <span>Login</span>
+        </a> -->
+
+    <% } %> 
+
+
+    
 
 
 </div>

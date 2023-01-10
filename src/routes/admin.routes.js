@@ -8,12 +8,12 @@ route.get('/admin/login', adminController.renderLogin);
 
 route.post('/admin/logging', adminController.loginAdmin);
 
-route.get('/admin/admin', ensureAuthenticated, adminController.renderOptions);
+route.get('/admin/admin', adminController.renderOptions);
 
-route.get('/admin/password/:id', ensureAuthenticated, adminController.renderFormPassword);
+route.get('/admin/password/:id', adminController.renderFormPassword);
 
-route.put('/admin/password/:id', ensureAuthenticated, adminController.saveNewPassword);
+route.put('/admin/password/:id', adminController.saveNewPassword);
 
-route.get('/admin/logout', ensureAuthenticated, adminController.logout);
+route.get('/admin/logout', adminController.logout);
 
 module.exports = route;

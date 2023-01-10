@@ -1,13 +1,15 @@
 const express = require('express');
-const morgan = require('morgan');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
-const session = require('express-session');
 const passport = require('passport');
-const mongoose = require('mongoose');
-const MongoStore =require ('connect-mongo')(session);
-const connectDB = require('./database');
-connectDB();
+const session = require('express-session');
+// const MongoStore = require('connect-mongo');
+// const store = new MongoStore({ 
+//     client: new MongoStore(process.env.MONGO_URI, { useNewUrlParser: true }).connect()
+// });
+
+// const connectDB = require('./database');
+// connectDB();
 
 const path = require('path');
 
@@ -32,9 +34,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(session({
     secret: 'secret',
-    store: MongoStore({ mongooseConnection: mongoose.connection }),
-    resave: true,
-    saveUninitialized: true
+    resave: false,
+    saveUninitialized: false
 }));
 app.use(flash());
 app.use(passport.initialize());
