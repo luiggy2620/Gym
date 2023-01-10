@@ -4,6 +4,11 @@ const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
+const mongoose = require('mongoose');
+const MongoStore =require ('connect-mongo')(session);
+const connectDB = require('./database');
+connectDB();
+
 const path = require('path');
 
 const indexRoutes = require('./routes/index.routes');
@@ -27,6 +32,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(session({
     secret: 'secret',
+    store: MongoStore({ mongooseConnection: mongoose.connection }),
     resave: true,
     saveUninitialized: true
 }));
