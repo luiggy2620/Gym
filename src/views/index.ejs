@@ -1,49 +1,33 @@
-<%- include('partials/headerTop.ejs') %>
+<%- include('partials/headerTop.ejs') %> <%- include('partials/homeStyle.ejs')
+%> <%- include('partials/navbarStyle.ejs') %> <%-
+include('partials/alertStyle.ejs') %> <%- include('partials/headerBottom.ejs')
+%> <%- include('partials/navbar.ejs') %>
 
-    <%- include('partials/homeStyle.ejs') %> 
-    <%- include('partials/navbarStyle.ejs') %> 
-    <%- include('partials/alertStyle.ejs') %> 
+<div class="container">
+	<%- include('partials/alert.ejs') %>
 
-<%- include('partials/headerBottom.ejs') %> 
+	<div class="containerHome">
+		<div class="phrase">
+			<span class="main">they don't understand us</span>
+			<span class="continue">we do this because it makes us feel good</span>
+		</div>
 
-    <%- include('partials/navbar.ejs') %> 
+		<div class="mainTitle">
+			<span>GYM</span>
+			<span>CBBA</span>
+		</div>
 
-    <div class="container">
+		<div class="routesBox">
+			<% places.forEach(function (place) { %>
 
-        <%- include('partials/alert.ejs') %> 
-        
-        <div class="containerHome">
+			<a class="routes" href="<%= place.ubicationURL %>" target="_blank">
+				<span><%= place.name %> </span>
+				<i class="fa-solid fa-location-dot"></i>
+			</a>
 
-    
-            <div class="phrase">
-                <span class="main">they don't understand us</span>
-                <span class="continue">we do this because it makes us feel good</span>
-            </div>
-    
-    
-            <div class="mainTitle">
-                <span>GYM</span>
-                <span>H2GO</span>
-            </div>
-    
-    
-            
-            <div class="routesBox">
-    
-                <% places.forEach(function (place) { %>
-    
-                    <a class="routes" href="<%= place.ubicationURL %>" target="_blank">
-                        <span><%= place.name %> </span>
-                        <i class="fa-solid fa-angles-left"></i>
-                    </a>
-        
-                <% }) %> 
-    
-            </div>
-    
-    
-        </div>
+			<% }) %>
+		</div>
+	</div>
+</div>
 
-    </div>
-
-<%- include('partials/footer.ejs') %> 
+<%- include('partials/footer.ejs') %>

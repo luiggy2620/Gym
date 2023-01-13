@@ -1,30 +1,32 @@
+const { isAuthenticatedView } = require('../validations/validations');
+
 const redirectToRoutes = {};
 
-redirectToRoutes.ensureAuthenticated = (req, res, next) => {
-    if (req.isAuthenticated()) {
-      return next();
-    }
-    res.redirect('/pageNotFound');
-}
-
-redirectToRoutes.sendMessage = (request, response, typeMessage, message, direction) => {
-    request.flash(typeMessage, message);
-    response.redirect(direction);
+redirectToRoutes.sendMessage = (
+	request,
+	response,
+	typeMessage,
+	message,
+	direction
+) => {
+	request.flash(typeMessage, message);
+	response.redirect(direction);
 };
 
-redirectToRoutes.sendClients = (response, clients) => {
-    response.render('client/clients', {
-        clients
-    })
-}
+redirectToRoutes.sendClients = (request, response, clients) => {
+	response.render('client/clients', {
+		clients,
+		isAuthenticated: isAuthenticatedView(request)
+	});
+};
 
 redirectToRoutes.redirectTo404 = (request, response, next) => {
-    response.status(404).render('404.ejs');
-}
+	response.status(404).render('404.ejs');
+};
 
-redirectToRoutes.existsAdmin = (request, response, next) => {
-    if(request.user) next()
-    else response.status(404).render('404.ejs');;
-}
+redirectToRoutes.isAuthenticated = (request, response, next) => {
+	if (request.cookies.AdminId != undefined) next();
+	else response.status(404).render('404.ejs');
+};
 
 module.exports = redirectToRoutes;

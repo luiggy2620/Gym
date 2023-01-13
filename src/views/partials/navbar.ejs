@@ -1,59 +1,41 @@
 <div class="navbar">
+	<div class="title">
+		<img src="/images/icon.png" alt="" />
+		<span>GYM</span>
+	</div>
 
-    <div class="title">
-        <img src="/images/icon.png" alt="">
-        <span>GYM</span>
-    </div>
+	<a href="/">
+		<i class="fa-solid fa-house"></i>
+		<span>Home</span>
+	</a>
 
-    <a href="/" >
-        <i class="fa-solid fa-house"></i>
-        <span>Home</span>
-    </a>
+	<div class="separator"></div>
 
-    <div class="separator"></div>
+	<% if(isAuthenticated === 'true') { %>
 
-    <a href="/clients" >
-        <i class="fa-solid fa-dumbbell"></i>
-        <span>Clients</span>
-    </a>
-    
-    <a href="/client/add" >
-        <i class="fa-solid fa-plus"></i>
-        <span>New Client</span>
-    </a>
+	<a href="/clients">
+		<i class="fa-solid fa-dumbbell"></i>
+		<span>Clients</span>
+	</a>
 
-    <div class="separator"></div>
+	<a href="/client/add">
+		<i class="fa-solid fa-plus"></i>
+		<span>New Client</span>
+	</a>
 
+	<div class="separator"></div>
 
-    <a href="/admin/admin" >
-        <i class="fa-solid fa-gear"></i>
-        <span>Admin</span>
-    </a>
+	<a href="/admin/admin">
+		<i class="fa-solid fa-gear"></i>
+		<span>Admin</span>
+	</a>
 
-    <% if(admin) { %> 
+	<% } else { %>
 
+	<a href="/admin/login">
+		<i class="fa-solid fa-arrow-right-to-bracket"></i>
+		<span>Login</span>
+	</a>
 
-
-    <% } %> 
-
-    <% if(admin) { %> 
-
-
-    <% } %> 
-
-
-
-    <% if(!admin) { %> 
-
-        <!-- <a href="/admin/login">
-            <i class="fa-solid fa-arrow-right-to-bracket"></i>
-            <span>Login</span>
-        </a> -->
-
-    <% } %> 
-
-
-    
-
-
+	<% } %>
 </div>

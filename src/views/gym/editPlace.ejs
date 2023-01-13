@@ -1,97 +1,111 @@
-<%- include('../partials/headerTop.ejs') %>
+<%- include('../partials/headerTop.ejs') %> <%-
+include('../partials/navbarStyle.ejs') %> <%-
+include('../partials/formStyle.ejs') %> <%-
+include('../partials/headerBottom.ejs') %> <%- include('../partials/navbar.ejs')
+%>
 
-    <%- include('../partials/navbarStyle.ejs') %> 
-    <%- include('../partials/formStyle.ejs') %> 
+<div class="container">
+	<form
+		action="/gym/place/edit/<%= placeToEdit.id %>?_method=put"
+		method="post"
+		class="edit"
+	>
+		<input type="hidden" name="_method" value="put" />
 
-<%- include('../partials/headerBottom.ejs') %> 
+		<a href="/gym/places" class="back"
+			><i class="fa-solid fa-angles-left"></i>Back to Places</a
+		>
 
-    <%- include('../partials/navbar.ejs') %> 
+		<span class="titleForm"> <%= placeToEdit.name %> </span>
 
-    <div class="container">
+		<label for="name">Place Name *</label>
+		<input
+			type="text"
+			name="name"
+			autocomplete="off"
+			placeholder="Name"
+			value="<%= placeToEdit.name %>"
+		/>
 
-        
-        <form action="/gym/place/edit/<%= placeToEdit.id %>?_method=put" method="post" class="edit">
-            <input type="hidden" name="_method" value="put">
+		<label for="ubication">Location *</label>
+		<input
+			type="text"
+			name="ubication"
+			autocomplete="off"
+			placeholder="Cochabamba - Tiquipaya"
+			value="<%= placeToEdit.ubication %>"
+		/>
 
-            <a href="/gym/places" class="back"><i class="fa-solid fa-angles-left"></i>Back to Places</a>
-            
-            <span class="titleForm">
-                <%= placeToEdit.name %> 
-            </span>
-    
-            <label for="name">Place Name *</label>
-            <input type="text" name="name" autocomplete="off" placeholder="Name" value="<%= placeToEdit.name %>">
+		<label for="ubicationURL">Location Google Maps *</label>
+		<input
+			type="url"
+			name="ubicationURL"
+			autocomplete="off"
+			placeholder="https://www.google.com/maps"
+			value="<%= placeToEdit.ubicationURL %>"
+		/>
 
-            <label for="ubication">Ubication *</label>
-            <input type="text" name="ubication" autocomplete="off" 
-                placeholder="Cochabamba - Tiquipaya" value="<%= placeToEdit.ubication %>">
+		<label for="phone">Phone *</label>
+		<input
+			type="text"
+			name="phone"
+			autocomplete="off"
+			placeholder="00000000"
+			value="<%= placeToEdit.phone %>"
+		/>
 
-            <label for="ubicationURL">Ubication URL *</label>
-            <input type="url" name="ubicationURL" autocomplete="off" 
-            placeholder="https://www.google.com/maps" value="<%= placeToEdit.ubicationURL %>">
-    
-            <label for="phone">Phone *</label>
-            <input type="text" name="phone" autocomplete="off" 
-            placeholder="00000000" value="<%= placeToEdit.phone %>">
+		<% if(errorPhone[0]) { %>
+		<label for="phone" class="messageTag"> <%= errorPhone %> </label>
+		<% } %> <% if(dangerMessage[0]) %>
+		<label for="dangerMessage" class="messageTag"> <%= dangerMessage %> </label>
 
-            <% if(errorPhone[0]) { %> 
-                <label for="phone" class="messageTag">
-                    <%= errorPhone %> 
-                </label>
-            <% } %> 
+		<button class="editButtom">Save Changes</button>
+	</form>
 
+	<div class="danger">
+		<% if(amountClients > 0) { %>
+		<p>
+			<b>
+				<span
+					>You can't delete this place because there are <%= amountClients %>
+					clients registered here.</span
+				>
+			</b>
+		</p>
+		<% } else { %>
 
-            <% if(dangerMessage[0]) %> 
-                <label for="dangerMessage" class="messageTag">
-                    <%= dangerMessage %> 
-                </label>
-    
-            <button class="editButtom">Save Changes</button>
+		<p>
+			<span>Danger!</span> <br />
+			Once you delete a client, there is no going back. Please be certain.
+		</p>
 
-            
-    
-        </form>
+		<form
+			action="/gym/place/delete/<%= placeToEdit.id %>?_method=delete"
+			method="post"
+		>
+			<input type="hidden" name="_method" value="delete" />
+			<input
+				type="text"
+				name="confirm"
+				id="toConfirm"
+				placeholder='Type "delete" to Delete this place'
+				autocomplete="off"
+				oninput="checkConfirm()"
+			/>
+			<button id="deleteClient" disabled>
+				DELETE
+				<i class="fa-solid fa-trash"></i>
+			</button>
+		</form>
 
-        <div class="danger">
+		<% } %>
+	</div>
 
-            <% if(amountClients > 0) { %> 
-                <p>
-                    <b>
-                        <span>You can't delete this place because there are <%= amountClients %>  clients registered here.</span>
-                    </b>
-                        
-    
-                </p>
-            <% } else { %> 
+	<style>
+		.navbar {
+			background: #000;
+		}
+	</style>
+</div>
 
-                <p>
-                    <span>Danger!</span> <br>
-                    Once you delete a client, there is no going back. Please be certain.
-    
-                </p>
-    
-                <form action="/gym/place/delete/<%= placeToEdit.id %>?_method=delete" method="post">
-                    <input type="hidden" name="_method" value="delete">
-                    <input type="text" name="confirm" id="toConfirm" placeholder='Type "delete" to Delete this place' autocomplete="off" 
-                        oninput="checkConfirm()">
-                    <button id="deleteClient" disabled>
-                        DELETE
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </form>
-
-            <% } %> 
-
-
-        </div>
-
-
-        <style>
-            .navbar {
-                background: #000;
-            }
-        </style>
-    </div>
-
-
-<%- include('../partials/footer.ejs') %> 
+<%- include('../partials/footer.ejs') %>

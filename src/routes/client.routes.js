@@ -1,23 +1,34 @@
 const { Router } = require('express');
 const clientController = require('../controller/clientController');
-const { ensureAuthenticated } = require('../redirectsToRoutes/redirectsToRoutes');
+const { isAuthenticated } = require('../redirectsToRoutes/redirectsToRoutes');
 const route = Router();
 
-route.get('/clients', clientController.renderClients);
+route.get('/clients', isAuthenticated, clientController.renderClients);
 
-route.get('/client/add', clientController.renderRegisterClient);
+route.get(
+	'/client/add',
+	isAuthenticated,
+	clientController.renderRegisterClient
+);
 
-route.post('/client/add', clientController.registerClient);
+route.post('/client/add', isAuthenticated, clientController.registerClient);
 
-route.get('/client/edit/:id', clientController.renderEditClient);
+route.get(
+	'/client/edit/:id',
+	isAuthenticated,
+	clientController.renderEditClient
+);
 
-route.put('/client/edit/:id', clientController.editClient);
+route.put('/client/edit/:id', isAuthenticated, clientController.editClient);
 
-route.delete('/client/delete/:id', clientController.deleteClient);
+route.delete(
+	'/client/delete/:id',
+	isAuthenticated,
+	clientController.deleteClient
+);
 
+route.get('/clients/search', isAuthenticated, clientController.searchClients);
 
-route.get('/clients/search', clientController.searchClients);
-
-route.get('/clients/sort', clientController.sortClients);
+route.get('/clients/sort', isAuthenticated, clientController.sortClients);
 
 module.exports = route;
